@@ -17,12 +17,14 @@ namespace Game {
         private Graphics graphics;
         private bool shouldRender = true;
         private Random Generator = new Random();
+        private List<PointF[]> points = new List<PointF[]>();
 
         public Form1() {
             Application.Idle += HandleApplicationIdle;
             InitializeComponent();
             graphics = CreateGraphics();
-            
+            BackColor = Color.Black;
+
             timer1.Enabled = true;
             timer1.Interval = 1000/100;
         }
@@ -38,6 +40,7 @@ namespace Game {
 
         void Update() {
             Console.WriteLine("Update");
+            points.Add(new[] { new PointF(Generator.Next(Width), Generator.Next(Height)), new PointF(Generator.Next(Width), Generator.Next(Height)) });
             // ...
         }
 
@@ -46,7 +49,12 @@ namespace Game {
             if (Generator.Next(Height)%Width > Width/2) {
                 graphics.Clear(BackColor);
             }
-            graphics.DrawLine(Pens.Black, Generator.Next(Width), Generator.Next(Height), Generator.Next(Width), Generator.Next(Height));
+            foreach (var p in points) {
+                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255), Generator.Next(255));
+                graphics.DrawLine(new Pen(color), p[0], p[1]);
+            }
+
+            points.Clear();
             // ...
         }
 
