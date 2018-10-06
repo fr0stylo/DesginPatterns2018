@@ -11,19 +11,21 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Game.Graphics;
+using Game.Properties;
 
 namespace Game {
     public partial class Form1 : Form {
-        private Graphics graphics;
         private bool shouldRender = true;
         private Random Generator = new Random();
         private List<PointF[]> points = new List<PointF[]>();
-
+        public GraphicsHandler render;
         public Form1() {
             Application.Idle += HandleApplicationIdle;
             InitializeComponent();
-            graphics = CreateGraphics();
             BackColor = Color.Black;
+
+            render = new GraphicsHandler(CreateGraphics());
 
             timer1.Enabled = true;
             timer1.Interval = 1000/100;
@@ -45,16 +47,19 @@ namespace Game {
         }
 
         void Render() {
+//            graphics.DrawImage(Resources.JE87HUq, new Point(0,0));
             Console.WriteLine("Render");
-            if (Generator.Next(Height)%Width > Width/2) {
-                graphics.Clear(BackColor);
-            }
-            foreach (var p in points) {
-                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255), Generator.Next(255));
-                graphics.DrawLine(new Pen(color), p[0], p[1]);
-            }
+            render.Render();
+//            if (Generator.Next(Height)%Width > Width/2) {
+//                graphics.Clear(BackColor);
+//            }
+//            foreach (var p in points) {
+//                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255), Generator.Next(255));
+//                graphics.DrawLine(new Pen(color), p[0], p[1]);
+//            }
 
-            points.Clear();
+//            points.Clear();
+            shouldRender = false;
             // ...
         }
 
