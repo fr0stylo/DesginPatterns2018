@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.GameTick = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
-
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -46,7 +50,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Timer GameTick;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

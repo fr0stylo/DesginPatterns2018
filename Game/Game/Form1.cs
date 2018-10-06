@@ -15,44 +15,48 @@ using System.Windows.Forms;
 namespace Game {
     public partial class Form1 : Form {
         private Graphics graphics;
-        private int updateCounter = 0;
+        private bool shouldRender = true;
+        private Random Generator = new Random();
 
-        public Form1()
-        {
+        public Form1() {
             Application.Idle += HandleApplicationIdle;
-            this.graphics = CreateGraphics();
+            InitializeComponent();
+            graphics = CreateGraphics();
+            
+            timer1.Enabled = true;
+            timer1.Interval = 1000/100;
         }
 
-        void HandleApplicationIdle(object sender, EventArgs e)
-        {
-            while (IsApplicationIdle())
-            {
+        void HandleApplicationIdle(object sender, EventArgs e) {
+            while (IsApplicationIdle()) {
                 Update();
+                if (!shouldRender) continue;
                 Render();
+                shouldRender = false;
             }
         }
 
         void Update() {
             Console.WriteLine("Update");
-            updateCounter += 1;
             // ...
         }
 
-        void Render()
-        {
+        void Render() {
             Console.WriteLine("Render");
-            graphics.DrawLine(Pens.Black, 1, 1, updateCounter%Width, updateCounter%Height);
+            if (Generator.Next(Height)%Width > Width/2) {
+                graphics.Clear(BackColor);
+            }
+            graphics.DrawLine(Pens.Black, Generator.Next(Width), Generator.Next(Height), Generator.Next(Width), Generator.Next(Height));
             // ...
         }
 
-        bool IsApplicationIdle()
-        {
+        bool IsApplicationIdle() {
             NativeMessage result;
-            return PeekMessage(out result, IntPtr.Zero, (uint)0, (uint)0, (uint)0) == 0;
+            return PeekMessage(out result, IntPtr.Zero, (uint) 0, (uint) 0, (uint) 0) == 0;
         }
+
         [StructLayout(LayoutKind.Sequential)]
-        public struct NativeMessage
-        {
+        public struct NativeMessage {
             public IntPtr Handle;
             public uint Message;
             public IntPtr WParameter;
@@ -62,6 +66,11 @@ namespace Game {
         }
 
         [DllImport("user32.dll")]
-        public static extern int PeekMessage(out NativeMessage message, IntPtr window, uint filterMin, uint filterMax, uint remove);
+        public static extern int PeekMessage(out NativeMessage message, IntPtr window, uint filterMin, uint filterMax,
+            uint remove);
+
+        private void timer1_Tick(object sender, EventArgs e) {
+            shouldRender = true;
+        }
     }
 }
