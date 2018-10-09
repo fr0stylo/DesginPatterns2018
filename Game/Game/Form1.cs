@@ -1,31 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Game.Graphics;
-using Game.Properties;
+using Game.Input;
 
 namespace Game {
     public partial class Form1 : Form {
         private bool shouldRender = true;
-        private Random Generator = new Random();
-        private List<PointF[]> points = new List<PointF[]>();
+        private Entities.Game game;
         public GraphicsHandler render;
+
         public Form1() {
             Application.Idle += HandleApplicationIdle;
             InitializeComponent();
             BackColor = Color.Black;
-
-            render = new GraphicsHandler(CreateGraphics());
+            game = new Entities.Game(Width, Height);
+            render = new GraphicsHandler(CreateGraphics(), Color.Black);
 
             timer1.Enabled = true;
             timer1.Interval = 1000/100;
@@ -40,27 +32,17 @@ namespace Game {
             }
         }
 
-        void Update() {
+        new void Update() {
             Console.WriteLine("Update");
-            points.Add(new[] { new PointF(Generator.Next(Width), Generator.Next(Height)), new PointF(Generator.Next(Width), Generator.Next(Height)) });
+            game.Update();
             // ...
         }
 
         void Render() {
-//            graphics.DrawImage(Resources.JE87HUq, new Point(0,0));
             Console.WriteLine("Render");
-            render.Render();
-//            if (Generator.Next(Height)%Width > Width/2) {
-//                graphics.Clear(BackColor);
-//            }
-//            foreach (var p in points) {
-//                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255), Generator.Next(255));
-//                graphics.DrawLine(new Pen(color), p[0], p[1]);
-//            }
+            render.Render(game);
 
-//            points.Clear();
             shouldRender = false;
-            // ...
         }
 
         bool IsApplicationIdle() {
@@ -84,6 +66,23 @@ namespace Game {
 
         private void timer1_Tick(object sender, EventArgs e) {
             shouldRender = true;
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e) {
+            var inputs = MouseInput.GetInstance();
+            inputs.HandleClick(e.Location);
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            var inputs = MouseInput.GetInstance();
+            inputs.HandleDragStart(new Point(e.X, e.Y));
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            var inputs = MouseInput.GetInstance();
+            inputs.HandleDragEnd(new Point(e.X, e.Y));
         }
     }
 }
