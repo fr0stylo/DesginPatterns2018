@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -22,7 +21,7 @@ namespace Game {
             render = new GraphicsHandler(CreateGraphics(), Color.Black);
 
 
-            PlayerName.Text = gameState.Players[0].Name;
+            PlayerName.Text = gameState.GetCurrentPlayer().Name;
             PlayerName.BackColor = Color.Transparent;
             PlayerName.ForeColor = Color.Azure;
             timer1.Enabled = true;

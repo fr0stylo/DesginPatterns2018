@@ -27,18 +27,14 @@ namespace Game.Entities {
 
         public void Render(System.Drawing.Graphics g) {
             foreach (var point in _points) {
-                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255),
-                    Generator.Next(255));
-                g.DrawLine(new Pen(color), point[0], point[1]);
+                g.DrawImage(Tower.TowerBitmap, point);
             }
 
             var mouse = MouseInput.GetInstance();
 
             foreach (var point in mouse.DrawablePoints())
             {
-                var color = Color.FromArgb(Generator.Next(255), Generator.Next(255), Generator.Next(255),
-                    Generator.Next(255));
-                g.DrawLine(Pens.BlueViolet, point[0], point[1]);
+                g.DrawImage(Tower.TowerBitmap, point[0]);
             }
 
             _points.Clear();

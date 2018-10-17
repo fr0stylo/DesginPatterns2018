@@ -18,11 +18,7 @@ namespace Game.Graphics
         }
 
         public void Render(Entities.Game game) {
-            _graphics.Flush();
-            
-            var smth = new Entities.Map();
-            
-            _graphics.DrawImage(smth.MapBitmap, new Point(0, 0));
+            _graphics.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
             
             game.Render(_graphics);
         }

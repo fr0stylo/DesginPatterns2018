@@ -46,16 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Baloon.cs" />
     <Compile Include="Entities\Game.cs" />
-    <Compile Include="Entities\GameStateSingleton.cs" />
     <Compile Include="Entities\Map.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\Projectile.cs" />
+    <Compile Include="Entities\Tower.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameState\GameStateSingleton.cs" />
     <Compile Include="Graphics\GraphicsHandler.cs" />
     <Compile Include="Input\MouseInput.cs" />
     <Compile Include="Program.cs" />
