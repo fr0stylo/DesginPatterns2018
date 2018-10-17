@@ -8,11 +8,14 @@ namespace Game.Entities {
         private List<PointF[]> _points;
         private int _width, _height;
         private Random Generator = new Random(156816);
+        private GameStateSingleton gameState = GameStateSingleton.getInstance();
 
         public Game(int width, int height) {
             _width = width;
             _height = height;
             _points = new List<PointF[]>();
+
+            gameState.AddPlayer(new Player("Player 1 (you)"));
         }
 
         public void Update() {

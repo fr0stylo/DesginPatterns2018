@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Game.Entities;
 using Game.Graphics;
 using Game.Input;
 
@@ -11,6 +12,7 @@ namespace Game {
         private bool shouldRender = true;
         private Entities.Game game;
         public GraphicsHandler render;
+        private GameStateSingleton gameState = GameStateSingleton.getInstance();
 
         public Form1() {
             Application.Idle += HandleApplicationIdle;
@@ -19,6 +21,10 @@ namespace Game {
             game = new Entities.Game(Width, Height);
             render = new GraphicsHandler(CreateGraphics(), Color.Black);
 
+
+            PlayerName.Text = gameState.Players[0].Name;
+            PlayerName.BackColor = Color.Transparent;
+            PlayerName.ForeColor = Color.Azure;
             timer1.Enabled = true;
             timer1.Interval = 1000/100;
         }
