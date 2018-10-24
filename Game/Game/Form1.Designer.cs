@@ -34,6 +34,8 @@
             this.StrongBaloon = new System.Windows.Forms.Button();
             this.IntermediateBaloon = new System.Windows.Forms.Button();
             this.WeakBaloon = new System.Windows.Forms.Button();
+            this.TimeLabel = new System.Windows.Forms.Label();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // timer1
@@ -51,39 +53,63 @@
             // 
             // StrongBaloon
             // 
-            this.StrongBaloon.Location = new System.Drawing.Point(600, 437);
+            this.StrongBaloon.BackColor = System.Drawing.Color.Black;
+            this.StrongBaloon.ForeColor = System.Drawing.Color.White;
+            this.StrongBaloon.Location = new System.Drawing.Point(26, 390);
             this.StrongBaloon.Name = "StrongBaloon";
-            this.StrongBaloon.Size = new System.Drawing.Size(75, 34);
+            this.StrongBaloon.Size = new System.Drawing.Size(60, 60);
             this.StrongBaloon.TabIndex = 2;
-            this.StrongBaloon.Text = "STRONG";
-            this.StrongBaloon.UseVisualStyleBackColor = true;
+            this.StrongBaloon.Text = "STR";
+            this.StrongBaloon.UseVisualStyleBackColor = false;
             this.StrongBaloon.Click += new System.EventHandler(this.StrongBaloon_Click);
             // 
             // IntermediateBaloon
             // 
-            this.IntermediateBaloon.Location = new System.Drawing.Point(491, 437);
+            this.IntermediateBaloon.BackColor = System.Drawing.Color.Black;
+            this.IntermediateBaloon.ForeColor = System.Drawing.Color.White;
+            this.IntermediateBaloon.Location = new System.Drawing.Point(26, 324);
             this.IntermediateBaloon.Name = "IntermediateBaloon";
-            this.IntermediateBaloon.Size = new System.Drawing.Size(102, 34);
+            this.IntermediateBaloon.Size = new System.Drawing.Size(60, 60);
             this.IntermediateBaloon.TabIndex = 3;
-            this.IntermediateBaloon.Text = "INTERMEDIATE";
-            this.IntermediateBaloon.UseVisualStyleBackColor = true;
+            this.IntermediateBaloon.Text = "INT";
+            this.IntermediateBaloon.UseVisualStyleBackColor = false;
             this.IntermediateBaloon.Click += new System.EventHandler(this.IntermediateBaloon_Click);
             // 
             // WeakBaloon
             // 
-            this.WeakBaloon.Location = new System.Drawing.Point(406, 437);
+            this.WeakBaloon.BackColor = System.Drawing.Color.Black;
+            this.WeakBaloon.ForeColor = System.Drawing.Color.White;
+            this.WeakBaloon.Location = new System.Drawing.Point(26, 258);
             this.WeakBaloon.Name = "WeakBaloon";
-            this.WeakBaloon.Size = new System.Drawing.Size(79, 34);
+            this.WeakBaloon.Size = new System.Drawing.Size(60, 60);
             this.WeakBaloon.TabIndex = 4;
             this.WeakBaloon.Text = "WEAK";
-            this.WeakBaloon.UseVisualStyleBackColor = true;
+            this.WeakBaloon.UseVisualStyleBackColor = false;
             this.WeakBaloon.Click += new System.EventHandler(this.WeakBaloon_Click);
+            // 
+            // TimeLabel
+            // 
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.TimeLabel.ForeColor = System.Drawing.Color.Cornsilk;
+            this.TimeLabel.Location = new System.Drawing.Point(646, 456);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(72, 24);
+            this.TimeLabel.TabIndex = 5;
+            this.TimeLabel.Text = "00:00";
+            // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 1;
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 481);
+            this.ClientSize = new System.Drawing.Size(1362, 481);
+            this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.WeakBaloon);
             this.Controls.Add(this.IntermediateBaloon);
             this.Controls.Add(this.StrongBaloon);
@@ -106,6 +132,8 @@
         private System.Windows.Forms.Button StrongBaloon;
         private System.Windows.Forms.Button IntermediateBaloon;
         private System.Windows.Forms.Button WeakBaloon;
+        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.Timer GameTimer;
     }
 }
 

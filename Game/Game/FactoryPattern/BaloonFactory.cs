@@ -1,4 +1,5 @@
 ﻿using Game.Entities;
+using Game.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,19 @@ namespace Game.FactoryPattern
     {
         private List<IBaloon> baloons;
         private static BaloonFactory _instance;
+        APIBaloonsHelper APIHelper;
         public BaloonFactory()
         {
             baloons = new List<IBaloon>();
+            APIHelper = new APIBaloonsHelper();
         }
         public void CreateBaloon(string BaloonType)
         {
+
             switch(BaloonType)
             {
                 case "WeakBaloon":
+                   // APIHelper.GetBaloonById("1");
                     baloons.Add(new WeakBaloon());
                     break;
                 case "IntermediateBaloon":

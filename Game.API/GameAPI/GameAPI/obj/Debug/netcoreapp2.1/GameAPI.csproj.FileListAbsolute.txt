@@ -11,3 +11,4 @@ C:\Users\Mokytojas\Desktop\DesignPatterns\DesginPatterns2018\Game.API\GameAPI\Ga
 C:\Users\Mokytojas\Desktop\DesignPatterns\DesginPatterns2018\Game.API\GameAPI\GameAPI\obj\Debug\netcoreapp2.1\GameAPI.RazorTargetAssemblyInfo.cache
 C:\Users\Mokytojas\Desktop\DesignPatterns\DesginPatterns2018\Game.API\GameAPI\GameAPI\obj\Debug\netcoreapp2.1\GameAPI.dll
 C:\Users\Mokytojas\Desktop\DesignPatterns\DesginPatterns2018\Game.API\GameAPI\GameAPI\obj\Debug\netcoreapp2.1\GameAPI.pdb
+C:\Users\Mokytojas\Desktop\DesignPatterns\DesginPatterns2018\Game.API\GameAPI\GameAPI\obj\Debug\netcoreapp2.1\GameAPI.csprojResolveAssemblyReference.cache

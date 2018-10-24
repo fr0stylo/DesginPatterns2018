@@ -13,6 +13,8 @@ namespace Game {
         private bool shouldRender = true;
         private Entities.Game game;
         public GraphicsHandler render;
+        private string time = "00:00";
+        private int ticks = 0;
         private GameStateSingleton gameState = GameStateSingleton.getInstance();
 
         public Form1() {
@@ -28,6 +30,8 @@ namespace Game {
             PlayerName.ForeColor = Color.Azure;
             timer1.Enabled = true;
             timer1.Interval = 1000/100;
+            GameTimer.Enabled = true;
+            GameTimer.Interval = 1;
         }
 
         void HandleApplicationIdle(object sender, EventArgs e) {
@@ -73,6 +77,7 @@ namespace Game {
 
         private void timer1_Tick(object sender, EventArgs e) {
             shouldRender = true;
+            
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e) {
@@ -109,6 +114,26 @@ namespace Game {
         {
             var baloons = BaloonFactory.GetInstance();
             baloons.CreateBaloon("WeakBaloon");
+        }
+
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            if (ticks % 10 == 0)
+            {
+                int seconds = Convert.ToInt32(time.Substring(3, 2));
+                int minutes = Convert.ToInt32(time.Substring(0, 2));
+                seconds += 1;
+                if (seconds == 60)
+                {
+                    minutes += 1;
+                    seconds = 0;
+                }
+                time = minutes < 10 ? 0.ToString() + minutes.ToString() : minutes.ToString();
+                time += ":";
+                time += seconds < 10 ? 0.ToString() + seconds.ToString() : seconds.ToString();
+                TimeLabel.Text = time;
+            }
+            ticks++;
         }
     }
 }

@@ -22,6 +22,8 @@ namespace Game.Entities
 
         private static Bitmap BaloonBitmap => Resources.BlackBaloon;
 
+        private bool IsDead = false;
+
         public int GetSpeed()
         {
             return speed;
@@ -47,6 +49,15 @@ namespace Game.Entities
             this.position = position;
         }
 
-       
+        public bool GetIsDead()
+        {
+            return IsDead;
+        }
+
+        public void SetDead()
+        {
+            IsDead = true;
+        }
+
     }
 }

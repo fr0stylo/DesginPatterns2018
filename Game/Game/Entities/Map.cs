@@ -9,6 +9,6 @@ using Game.Properties;
 namespace Game.Entities
 {
     public class Map {
-        public Bitmap MapBitmap => Resources.JE87HUq;
+        public Bitmap MapBitmap => Resources.NewMap;
     }
 }

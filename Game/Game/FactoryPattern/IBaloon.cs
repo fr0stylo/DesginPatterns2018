@@ -18,5 +18,10 @@ namespace Game.FactoryPattern
         string GetBaloonType();
 
         int GetSpeed();
+
+        bool GetIsDead();
+
+        void SetDead();
+        
     }
 }

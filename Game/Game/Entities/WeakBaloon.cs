@@ -17,6 +17,8 @@ namespace Game.Entities
 
         private  PointF position = new PointF(0, 0);
 
+        private bool IsDead = false;
+
         public PointF GetCurrentPosition()
         {
             return this.position;
@@ -39,6 +41,16 @@ namespace Game.Entities
         public string GetBaloonType()
         {
             return type;
+        }
+
+        public bool GetIsDead()
+        {
+            return IsDead;
+        }
+
+        public void SetDead()
+        {
+            IsDead = true;
         }
     }
 }

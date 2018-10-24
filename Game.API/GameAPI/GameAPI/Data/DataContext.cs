@@ -11,7 +11,6 @@ namespace GameAPI.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-
         }
         public DbSet<Baloon> Baloons { get; set; }
         
