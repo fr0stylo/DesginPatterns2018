@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PlayerName = new System.Windows.Forms.Label();
+            this.StrongBaloon = new System.Windows.Forms.Button();
+            this.IntermediateBaloon = new System.Windows.Forms.Button();
+            this.WeakBaloon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -46,11 +49,44 @@
             this.PlayerName.Size = new System.Drawing.Size(0, 13);
             this.PlayerName.TabIndex = 1;
             // 
+            // StrongBaloon
+            // 
+            this.StrongBaloon.Location = new System.Drawing.Point(600, 437);
+            this.StrongBaloon.Name = "StrongBaloon";
+            this.StrongBaloon.Size = new System.Drawing.Size(75, 34);
+            this.StrongBaloon.TabIndex = 2;
+            this.StrongBaloon.Text = "STRONG";
+            this.StrongBaloon.UseVisualStyleBackColor = true;
+            this.StrongBaloon.Click += new System.EventHandler(this.StrongBaloon_Click);
+            // 
+            // IntermediateBaloon
+            // 
+            this.IntermediateBaloon.Location = new System.Drawing.Point(491, 437);
+            this.IntermediateBaloon.Name = "IntermediateBaloon";
+            this.IntermediateBaloon.Size = new System.Drawing.Size(102, 34);
+            this.IntermediateBaloon.TabIndex = 3;
+            this.IntermediateBaloon.Text = "INTERMEDIATE";
+            this.IntermediateBaloon.UseVisualStyleBackColor = true;
+            this.IntermediateBaloon.Click += new System.EventHandler(this.IntermediateBaloon_Click);
+            // 
+            // WeakBaloon
+            // 
+            this.WeakBaloon.Location = new System.Drawing.Point(406, 437);
+            this.WeakBaloon.Name = "WeakBaloon";
+            this.WeakBaloon.Size = new System.Drawing.Size(79, 34);
+            this.WeakBaloon.TabIndex = 4;
+            this.WeakBaloon.Text = "WEAK";
+            this.WeakBaloon.UseVisualStyleBackColor = true;
+            this.WeakBaloon.Click += new System.EventHandler(this.WeakBaloon_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 481);
+            this.Controls.Add(this.WeakBaloon);
+            this.Controls.Add(this.IntermediateBaloon);
+            this.Controls.Add(this.StrongBaloon);
             this.Controls.Add(this.PlayerName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -67,6 +103,9 @@
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label PlayerName;
+        private System.Windows.Forms.Button StrongBaloon;
+        private System.Windows.Forms.Button IntermediateBaloon;
+        private System.Windows.Forms.Button WeakBaloon;
     }
 }
 

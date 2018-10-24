@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using Game.Entities;
 using Game.Graphics;
 using Game.Input;
+using Game.FactoryPattern;
+using System.Collections.Generic;
 
 namespace Game {
     public partial class Form1 : Form {
@@ -88,6 +90,25 @@ namespace Game {
         {
             var inputs = MouseInput.GetInstance();
             inputs.HandleDragEnd(new Point(e.X, e.Y));
+        }
+
+        private void StrongBaloon_Click(object sender, EventArgs e)
+        {
+            var baloons = BaloonFactory.GetInstance();
+            baloons.CreateBaloon("PowerfulBaloon");
+            
+        }
+
+        private void IntermediateBaloon_Click(object sender, EventArgs e)
+        {
+            var baloons = BaloonFactory.GetInstance();
+            baloons.CreateBaloon("IntermediateBaloon");
+        }
+
+        private void WeakBaloon_Click(object sender, EventArgs e)
+        {
+            var baloons = BaloonFactory.GetInstance();
+            baloons.CreateBaloon("WeakBaloon");
         }
     }
 }
