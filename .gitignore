@@ -1,3 +1,10 @@
 Game/Game/bin/*
 Game/Game/obj/*
 Game/.idea
+Game/.vs/*
+Game/packages/*
+GameAPI/GameAPI/bin/*
+GameAPI/GameAPI/obj/*
+GameAPI/.vs/*
+GameAPI/.idea
+GameAPI/packages/*
