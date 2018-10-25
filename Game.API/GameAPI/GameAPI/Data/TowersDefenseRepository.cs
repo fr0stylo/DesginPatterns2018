@@ -32,6 +32,13 @@ namespace GameAPI.Data
             return baloon;
         }
 
+        public async Task<Game> GetGame(int GameId)
+        {
+            var game = await _context.Games.FirstOrDefaultAsync(x => x.GameId == GameId);
+
+            return game;
+        }
+
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;

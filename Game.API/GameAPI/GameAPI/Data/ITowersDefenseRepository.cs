@@ -15,5 +15,7 @@ namespace GameAPI.Data
         Task<bool> SaveAll();
 
         Task<Baloon> GetBaloon(int baloonId);
+
+        Task<Game> GetGame(int GameId);
     }
 }

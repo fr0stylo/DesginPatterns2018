@@ -24,5 +24,16 @@ namespace GameAPI.Controllers
             var baloon = await _repo.GetBaloon(id);
             return Ok(baloon);
         }
+        [HttpPost]
+        public async Task<IActionResult> InsertBaloon(Baloon baloon, int gameId)
+        {
+            var game = await _repo.GetGame(gameId);
+            game.Baloons.Add(baloon);
+
+            if (await _repo.SaveAll())
+                return Ok();
+
+            return BadRequest("You made a bad request mate.");
+        }
     }
 }

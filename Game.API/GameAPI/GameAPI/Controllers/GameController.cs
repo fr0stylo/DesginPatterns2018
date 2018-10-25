@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GameAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace GameAPI.Controllers
     [ApiController]
     public class GameController : ControllerBase
     {
+        //[HttpPost]
+        //public async Task<IActionResult> CreateGame(Game game)
+        //{
+
+        //}
        
     }
 }
