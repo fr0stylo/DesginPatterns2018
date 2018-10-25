@@ -14,8 +14,6 @@ namespace GameAPI.Data
 
         Task<bool> SaveAll();
 
-        Task<IEnumerable<Baloon>> GetBaloons(int playerId);
-
         Task<Baloon> GetBaloon(int baloonId);
     }
 }

@@ -68,6 +68,7 @@
     <Compile Include="GameState\GameStateSingleton.cs" />
     <Compile Include="Graphics\GraphicsHandler.cs" />
     <Compile Include="Helpers\APIBaloonsHelper.cs" />
+    <Compile Include="Helpers\APIGameHelper.cs" />
     <Compile Include="Input\MouseInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

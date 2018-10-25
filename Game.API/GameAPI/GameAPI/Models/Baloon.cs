@@ -7,9 +7,12 @@ namespace GameAPI.Models
 {
     public class Baloon
     {
-        public int Id { get; set; }
-
-        public int PlayerId { get; set; }
+        public int BaloonId { get; set; }
+        public int GameId { get; set; }
+        public Game Game { get; set; }
+        public string Type { get; set; }
+        public bool AttackPlayer1 { get; set; }
+        public bool AttackPlayer2 { get; set; }
 
     }
 }

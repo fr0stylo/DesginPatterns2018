@@ -18,13 +18,13 @@ namespace Game.FactoryPattern
             baloons = new List<IBaloon>();
             APIHelper = new APIBaloonsHelper();
         }
-        public void CreateBaloon(string BaloonType)
+        public async void CreateBaloon(string BaloonType)
         {
 
             switch(BaloonType)
             {
                 case "WeakBaloon":
-                   // APIHelper.GetBaloonById("1");
+                    await APIHelper.GetBaloonById("1");
                     baloons.Add(new WeakBaloon());
                     break;
                 case "IntermediateBaloon":

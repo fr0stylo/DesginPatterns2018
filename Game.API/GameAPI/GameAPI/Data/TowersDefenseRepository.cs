@@ -27,15 +27,9 @@ namespace GameAPI.Data
 
         public async Task<Baloon> GetBaloon(int baloonId)
         {
-            var baloon = await _context.Baloons.FirstOrDefaultAsync(x => x.Id == baloonId);
+            var baloon = await _context.Baloons.FirstOrDefaultAsync(x => x.BaloonId == baloonId);
 
             return baloon;
-        }
-
-        public async Task<IEnumerable<Baloon>> GetBaloons(int playerId)
-        {
-            var baloons = await _context.Baloons.Where(x => x.PlayerId == playerId).ToListAsync();
-            return baloons;
         }
 
         public async Task<bool> SaveAll()

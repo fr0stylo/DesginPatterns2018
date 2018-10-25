@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Game.Entities
 {
     public class Player
@@ -5,7 +7,6 @@ namespace Game.Entities
         public string Name { get; }
         public int MoneyPoints { get; private set; }
         public int HealthPoints { get; private set; }
-
 
         public Player(string name)
         {

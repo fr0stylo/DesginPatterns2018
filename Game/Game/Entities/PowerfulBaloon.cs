@@ -11,18 +11,18 @@ namespace Game.Entities
 {
     class PowerfulBaloon : IBaloon
     {
-        private readonly int health = 300;
+        public readonly int health = 300;
 
-        private readonly string type = "PowerfulBaloon";
-       
+        public readonly string type = "PowerfulBaloon";
+
         // don't go over 15 mate
-        private readonly int speed = 15;
+        public readonly int speed = 15;
 
-        private PointF position = new PointF(0, 0);
+        public PointF position = new PointF(0, 0);
 
-        private static Bitmap BaloonBitmap => Resources.BlackBaloon;
+        public static Bitmap BaloonBitmap => Resources.BlackBaloon;
 
-        private bool IsDead = false;
+        public bool IsDead = false;
 
         public int GetSpeed()
         {

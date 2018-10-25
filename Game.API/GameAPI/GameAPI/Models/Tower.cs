@@ -7,9 +7,12 @@ namespace GameAPI.Models
 {
     public class Tower
     {
-        public int Id { get; set; }
-        
-        public int PlayerId { get; set; }
+        public int TowerId { get; set; }
+        public int GameId { get; set; }
+        public Game Game { get; set; }
+        public string Type { get; set; }
+        public bool DefendPlayer1 { get; set; }
+        public bool DefendPlayer2 { get; set; }
 
     }
 }

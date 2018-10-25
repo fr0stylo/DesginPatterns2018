@@ -16,6 +16,7 @@ namespace GameAPI.Models
         public int HealthPoints { get; set; }   
 
         public int GameId { get; set; }
+        public Game Game { get; set; }
 
     }
 }

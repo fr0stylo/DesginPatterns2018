@@ -1,3 +1,4 @@
+using Game.FactoryPattern;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,8 +7,10 @@ namespace Game.Entities
 {
     public class GameStateSingleton
     {
+        private int Id;
         private List<Player> Players;
         private List<Point> TowerPositions;
+        private List<IBaloon> Baloons;
         
         private static class SingletonHolder
         {
