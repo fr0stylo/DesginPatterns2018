@@ -5,22 +5,62 @@ using Game.Properties;
 
 namespace Game.Graphics
 {
-    public class GraphicsHandler {
+    public class GraphicsHandler
+    {
         private System.Drawing.Graphics _graphics;
 
-        public GraphicsHandler(System.Drawing.Graphics graphics, Color baseColor) {
+        private BufferedGraphicsContext context;
+        private BufferedGraphics grafx;
+        private int count = 0;
+        private readonly int Width;
+        private readonly int Height;
+
+        public GraphicsHandler(System.Drawing.Graphics graphics, Color baseColor)
+        {
             _graphics = graphics;
-            _graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            _graphics.CompositingMode = CompositingMode.SourceOver;
-            _graphics.InterpolationMode = InterpolationMode.Bicubic;
+            _graphics.SmoothingMode = SmoothingMode.HighSpeed;
+            _graphics.CompositingMode = CompositingMode.SourceCopy;
+            _graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
 
             _graphics.Clear(baseColor);
         }
 
-        public void Render(Entities.Game game) {
-            _graphics.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
+        public GraphicsHandler(System.Drawing.Graphics createGraphics, Color baseColor, int width, int height)
+        {
+            _graphics = createGraphics;
+            context = BufferedGraphicsManager.Current;
+            context.MaximumBuffer = new Size(width + 1, height + 1);
+            Height = height;
+            Width = width;
             
-            game.Render(_graphics);
+            grafx = context.Allocate(createGraphics, 
+                new Rectangle( 0, 0, width, height ));
         }
+
+        public void Render(Entities.Game game)
+        {
+            DrawToBuffer(grafx.Graphics, game);
+            grafx.Render(_graphics);
+//            _graphics.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
+
+//            game.Render(_graphics);
+        }
+        
+        private void DrawToBuffer(System.Drawing.Graphics g, Entities.Game game)
+        {
+            // Clear the graphics buffer every five updates.
+            if( ++count > 5 )
+            {
+                count = 0;                
+                grafx.Graphics.FillRectangle(Brushes.Black, 0, 0, Width, Height);
+            }
+
+            // Draw randomly positioned and colored ellipses.
+            g.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
+
+            game.Render(g);
+            // Draw information strings.
+        }
+
     }
 }

@@ -22,7 +22,7 @@ namespace Game {
             InitializeComponent();
             BackColor = Color.Black;
             game = new Entities.Game(Width, Height);
-            render = new GraphicsHandler(CreateGraphics(), Color.Black);
+            render = new GraphicsHandler(CreateGraphics(), Color.Black, this.Width, this.Height);
 
 
             PlayerName.Text = gameState.GetCurrentPlayer().Name;
