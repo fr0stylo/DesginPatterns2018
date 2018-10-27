@@ -44,13 +44,13 @@ namespace Game {
         }
 
         new void Update() {
-            Console.WriteLine("Update");
+//            Console.WriteLine("Update");
             game.Update();
             // ...
         }
 
         void Render() {
-            Console.WriteLine("Render");
+//            Console.WriteLine("Render");
             render.Render(game);
 
             shouldRender = false;

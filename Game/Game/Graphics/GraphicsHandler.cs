@@ -28,6 +28,9 @@ namespace Game.Graphics
         public GraphicsHandler(System.Drawing.Graphics createGraphics, Color baseColor, int width, int height)
         {
             _graphics = createGraphics;
+            _graphics.SmoothingMode = SmoothingMode.HighSpeed;
+            _graphics.CompositingMode = CompositingMode.SourceCopy;
+            _graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
             context = BufferedGraphicsManager.Current;
             context.MaximumBuffer = new Size(width + 1, height + 1);
             Height = height;
@@ -41,25 +44,19 @@ namespace Game.Graphics
         {
             DrawToBuffer(grafx.Graphics, game);
             grafx.Render(_graphics);
-//            _graphics.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
-
-//            game.Render(_graphics);
         }
         
         private void DrawToBuffer(System.Drawing.Graphics g, Entities.Game game)
         {
-            // Clear the graphics buffer every five updates.
             if( ++count > 5 )
             {
                 count = 0;                
                 grafx.Graphics.FillRectangle(Brushes.Black, 0, 0, Width, Height);
             }
 
-            // Draw randomly positioned and colored ellipses.
             g.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
 
             game.Render(g);
-            // Draw information strings.
         }
 
     }
