@@ -9,7 +9,6 @@ namespace Game.Entities
     {
         private int Id;
         private List<Player> Players;
-        private List<Point> TowerPositions;
         private List<Baloon> Baloons;
         private int Level;
         
@@ -21,7 +20,6 @@ namespace Game.Entities
         private GameStateSingleton()
         {
             Players = new List<Player>();
-            TowerPositions = new List<Point>();
         }
 
         public static GameStateSingleton GetInstance()

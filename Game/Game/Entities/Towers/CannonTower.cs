@@ -1,7 +1,11 @@
-﻿namespace Game.Entities
+﻿using System.Drawing;
+
+namespace Game.Entities
 {
-    public class CannonTower
+    public class CannonTower : Tower
     {
-        
+        public CannonTower(PointF position) : base(position)
+        {
+        }
     }
 }
