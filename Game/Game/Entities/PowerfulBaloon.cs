@@ -21,9 +21,16 @@ namespace Game.Entities
 
         public static Bitmap BaloonBitmap => Resources.BlackBaloon;
 
-        public PowerfulBaloon()
+        public bool isPlayer1Baloon;
+
+        public PowerfulBaloon(bool isPlayer1Baloon)
         {
-            MoveStrategy = new Player1Movement();
+            this.isPlayer1Baloon = isPlayer1Baloon;
+
+            if (isPlayer1Baloon)
+                moveStrategy = new Player1Movement();
+            else
+                moveStrategy = new Player2Movement();
         }
         public override int GetSpeed()
         {
@@ -47,7 +54,7 @@ namespace Game.Entities
 
         public override void Move()
         {
-            MoveStrategy.Move(ref position, speed,ref isDead);
+            moveStrategy.Move(ref position, speed,ref isDead);
         }
 
 

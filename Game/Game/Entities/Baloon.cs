@@ -16,7 +16,7 @@ namespace Game.Entities
 
         public bool isDead = false;
 
-        public IMoveAlgorithm MoveStrategy;
+        public IMoveAlgorithm moveStrategy;
 
         public abstract void Move();
 

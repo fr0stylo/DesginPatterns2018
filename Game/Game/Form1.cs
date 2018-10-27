@@ -92,17 +92,17 @@ namespace Game {
         }
 
         private void StrongBaloon_Click(object sender, EventArgs e) {
-            var baloons = BaloonFactory.GetInstance();
+            var baloons = BaloonFactory.GetInstance(true);
             baloons.CreateBaloon("PowerfulBaloon");
         }
 
         private void IntermediateBaloon_Click(object sender, EventArgs e) {
-            var baloons = BaloonFactory.GetInstance();
+            var baloons = BaloonFactory.GetInstance(true);
             baloons.CreateBaloon("IntermediateBaloon");
         }
 
         private void WeakBaloon_Click(object sender, EventArgs e) {
-            var baloons = BaloonFactory.GetInstance();
+            var baloons = BaloonFactory.GetInstance(true);
             baloons.CreateBaloon("WeakBaloon");
         }
 
