@@ -14,9 +14,11 @@ namespace Game.FactoryPattern
         private List<Baloon> baloons;
         private static BaloonFactory _instance;
         APIBaloonsHelper APIHelper;
+        private bool isPlayer1Factory;
         
-        public BaloonFactory()
+        public BaloonFactory(bool isPlayer1Factory)
         {
+            this.isPlayer1Factory = isPlayer1Factory;
             baloons = new List<Baloon>();
             APIHelper = new APIBaloonsHelper();
         }
@@ -27,13 +29,13 @@ namespace Game.FactoryPattern
             {
                 case BaloonTypes.Weak:
                     //await APIHelper.GetBaloonById("1");
-                    baloons.Add(new WeakBaloon());
+                    baloons.Add(new WeakBaloon(isPlayer1Factory));
                     break;
                 case BaloonTypes.Intermediate:
-                    baloons.Add(new IntermediateBaloon());
+                    baloons.Add(new IntermediateBaloon(isPlayer1Factory));
                     break;
                 case BaloonTypes.Powerful:
-                    baloons.Add(new PowerfulBaloon());
+                    baloons.Add(new PowerfulBaloon(isPlayer1Factory));
                     break;
                 default:
                     break;
@@ -41,9 +43,9 @@ namespace Game.FactoryPattern
             }
         }
 
-        public static BaloonFactory GetInstance()
+        public static BaloonFactory GetInstance(bool isPlayer1Factory)
         {
-            return _instance ?? (_instance = new BaloonFactory());
+            return _instance ?? (_instance = new BaloonFactory(isPlayer1Factory));
         }
         
         public List<Baloon> Baloons()

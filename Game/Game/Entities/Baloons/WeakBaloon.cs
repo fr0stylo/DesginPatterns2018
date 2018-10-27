@@ -16,9 +16,17 @@ namespace Game.Entities
         // don't go over 15 mate
         public readonly int speed = 5;
 
-        public WeakBaloon()
+        public bool isPlayer1Baloon;
+
+        public WeakBaloon(bool isPlayer1Baloon)
         {
-            MoveStrategy = new Player2Movement();
+            this.isPlayer1Baloon = isPlayer1Baloon;
+
+            if(isPlayer1Baloon)
+              moveStrategy = new Player1Movement();
+            else
+                moveStrategy = new Player2Movement();
+
         }
         public override PointF GetCurrentPosition()
         {
@@ -26,7 +34,7 @@ namespace Game.Entities
         }
         public override void Move()
         {
-            MoveStrategy.Move(ref position, speed,ref isDead);
+            moveStrategy.Move(ref position, speed,ref isDead);
         }
 
         public override Bitmap GetShape()
