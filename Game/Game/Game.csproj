@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Baloon.cs" />
     <Compile Include="Entities\IntermediateBaloon.cs" />
     <Compile Include="Entities\PowerfulBaloon.cs" />
     <Compile Include="Entities\WeakBaloon.cs" />

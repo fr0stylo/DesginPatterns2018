@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Game.Entities
 {
-    class IntermediateBaloon : IBaloon
+    class IntermediateBaloon : Baloon
     {
         public readonly int health = 150;
 
@@ -18,43 +18,39 @@ namespace Game.Entities
         // don't go over 15 mate
         public readonly int speed = 10;
 
-        public PointF position = new PointF(0, 0);
-
         public static Bitmap BaloonBitmap => Resources.YellowBaloon;
 
-        public bool IsDead = false;
-
-        public string GetBaloonType()
+        public override string GetBaloonType()
         {
             return type;
         }
 
-        public PointF GetCurrentPosition()
+        public override PointF GetCurrentPosition()
         {
             return this.position;
         }
 
-        public Bitmap GetShape()
+        public override Bitmap GetShape()
         {
             return BaloonBitmap;
         }
 
-        public int GetSpeed()
+        public override int GetSpeed()
         {
             return speed;
         }
         
-        public void Move(PointF position)
+        public override void Move(PointF position)
         {
             this.position = position;
         }
 
-        public bool GetIsDead()
+        public override bool GetIsDead()
         {
             return IsDead;
         }
 
-        public void SetDead()
+        public override void SetDead()
         {
             IsDead = true;
         }

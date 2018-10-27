@@ -10,7 +10,7 @@ namespace Game.Entities
         private int Id;
         private List<Player> Players;
         private List<Point> TowerPositions;
-        private List<IBaloon> Baloons;
+        private List<Baloon> Baloons;
         
         private static class SingletonHolder
         {
