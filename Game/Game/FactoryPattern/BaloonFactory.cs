@@ -13,14 +13,15 @@ namespace Game.FactoryPattern
         private List<Baloon> baloons;
         private static BaloonFactory _instance;
         APIBaloonsHelper APIHelper;
+        
         public BaloonFactory()
         {
             baloons = new List<Baloon>();
             APIHelper = new APIBaloonsHelper();
         }
+        
         public async void CreateBaloon(string BaloonType)
         {
-
             switch(BaloonType)
             {
                 case "WeakBaloon":
@@ -43,6 +44,7 @@ namespace Game.FactoryPattern
         {
             return _instance ?? (_instance = new BaloonFactory());
         }
+        
         public List<Baloon> Baloons()
         {
             return baloons;

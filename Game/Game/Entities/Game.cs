@@ -9,7 +9,7 @@ namespace Game.Entities {
         private List<PointF[]> _points;
         private int _width, _height;
         private Random Generator = new Random(156816);
-        private GameStateSingleton gameState = GameStateSingleton.getInstance();
+        private GameStateSingleton gameState = GameStateSingleton.GetInstance();
         public Game(int width, int height) {
             _width = width;
             _height = height;

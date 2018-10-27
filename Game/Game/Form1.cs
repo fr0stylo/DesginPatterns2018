@@ -15,7 +15,7 @@ namespace Game {
         public GraphicsHandler render;
         private string time = "00:00";
         private int ticks = 0;
-        private GameStateSingleton gameState = GameStateSingleton.getInstance();
+        private GameStateSingleton gameState = GameStateSingleton.GetInstance();
 
         public Form1() {
             Application.Idle += HandleApplicationIdle;

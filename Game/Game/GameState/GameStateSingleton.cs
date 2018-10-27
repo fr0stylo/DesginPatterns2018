@@ -11,6 +11,7 @@ namespace Game.Entities
         private List<Player> Players;
         private List<Point> TowerPositions;
         private List<Baloon> Baloons;
+        private int Level;
         
         private static class SingletonHolder
         {
@@ -23,7 +24,7 @@ namespace Game.Entities
             TowerPositions = new List<Point>();
         }
 
-        public static GameStateSingleton getInstance()
+        public static GameStateSingleton GetInstance()
         {
             return SingletonHolder._instance;
         }
