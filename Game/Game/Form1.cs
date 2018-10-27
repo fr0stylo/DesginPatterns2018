@@ -22,16 +22,16 @@ namespace Game {
             InitializeComponent();
             BackColor = Color.Black;
             game = new Entities.Game(Width, Height);
-            render = new GraphicsHandler(CreateGraphics(), Color.Black);
+            render = new GraphicsHandler(CreateGraphics(), Color.Black, this.Width, this.Height);
 
 
             PlayerName.Text = gameState.GetCurrentPlayer().Name;
             PlayerName.BackColor = Color.Transparent;
             PlayerName.ForeColor = Color.Azure;
             timer1.Enabled = true;
-            timer1.Interval = 1000/100;
+            timer1.Interval = 1000/60;
             GameTimer.Enabled = true;
-            GameTimer.Interval = 1;
+            GameTimer.Interval = 1000;
         }
 
         void HandleApplicationIdle(object sender, EventArgs e) {
@@ -44,13 +44,10 @@ namespace Game {
         }
 
         new void Update() {
-            Console.WriteLine("Update");
             game.Update();
-            // ...
         }
 
         void Render() {
-            Console.WriteLine("Render");
             render.Render(game);
 
             shouldRender = false;
@@ -77,7 +74,6 @@ namespace Game {
 
         private void timer1_Tick(object sender, EventArgs e) {
             shouldRender = true;
-            
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e) {
@@ -85,55 +81,44 @@ namespace Game {
             inputs.HandleClick(e.Location);
         }
 
-        private void Form1_DragEnter(object sender, DragEventArgs e)
-        {
+        private void Form1_DragEnter(object sender, DragEventArgs e) {
             var inputs = MouseInput.GetInstance();
             inputs.HandleDragStart(new Point(e.X, e.Y));
         }
 
-        private void Form1_DragDrop(object sender, DragEventArgs e)
-        {
+        private void Form1_DragDrop(object sender, DragEventArgs e) {
             var inputs = MouseInput.GetInstance();
             inputs.HandleDragEnd(new Point(e.X, e.Y));
         }
 
-        private void StrongBaloon_Click(object sender, EventArgs e)
-        {
+        private void StrongBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
             baloons.CreateBaloon("PowerfulBaloon");
-            
         }
 
-        private void IntermediateBaloon_Click(object sender, EventArgs e)
-        {
+        private void IntermediateBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
             baloons.CreateBaloon("IntermediateBaloon");
         }
 
-        private void WeakBaloon_Click(object sender, EventArgs e)
-        {
+        private void WeakBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
             baloons.CreateBaloon("WeakBaloon");
         }
 
-        private void GameTimer_Tick(object sender, EventArgs e)
-        {
-            if (ticks % 10 == 0)
-            {
-                int seconds = Convert.ToInt32(time.Substring(3, 2));
-                int minutes = Convert.ToInt32(time.Substring(0, 2));
-                seconds += 1;
-                if (seconds == 60)
-                {
-                    minutes += 1;
-                    seconds = 0;
-                }
-                time = minutes < 10 ? 0.ToString() + minutes.ToString() : minutes.ToString();
-                time += ":";
-                time += seconds < 10 ? 0.ToString() + seconds.ToString() : seconds.ToString();
-                TimeLabel.Text = time;
+        private void GameTimer_Tick(object sender, EventArgs e) {
+            int seconds = Convert.ToInt32(time.Substring(3, 2));
+            int minutes = Convert.ToInt32(time.Substring(0, 2));
+            seconds += 1;
+            if (seconds == 60) {
+                minutes += 1;
+                seconds = 0;
             }
-            ticks++;
+
+            time = minutes < 10 ? 0 + minutes.ToString() : minutes.ToString();
+            time += ":";
+            time += seconds < 10 ? 0 + seconds.ToString() : seconds.ToString();
+            TimeLabel.Text = time;
         }
     }
 }
