@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Helpers.Enums;
 
 namespace Game.FactoryPattern
 {
@@ -20,18 +21,18 @@ namespace Game.FactoryPattern
             APIHelper = new APIBaloonsHelper();
         }
         
-        public async void CreateBaloon(string BaloonType)
+        public async void CreateBaloon(BaloonTypes baloonType)
         {
-            switch(BaloonType)
+            switch(baloonType)
             {
-                case "WeakBaloon":
+                case BaloonTypes.Weak:
                     //await APIHelper.GetBaloonById("1");
                     baloons.Add(new WeakBaloon());
                     break;
-                case "IntermediateBaloon":
+                case BaloonTypes.Intermediate:
                     baloons.Add(new IntermediateBaloon());
                     break;
-                case "PowerfulBaloon":
+                case BaloonTypes.Powerful:
                     baloons.Add(new PowerfulBaloon());
                     break;
                 default:

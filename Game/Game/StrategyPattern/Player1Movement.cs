@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Game.StrategyPattern
 {
     class Player1Movement : IMoveAlgorithm
     {
 
-        public void Move(ref PointF position, int speed,ref bool isDead)
+        public void Move(ref PointF position, int speed, ref bool isDead)
         {
             if (position.X < 135 && position.Y == 0)
                 position.X += speed;

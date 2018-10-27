@@ -7,15 +7,18 @@ using Game.Graphics;
 using Game.Input;
 using Game.FactoryPattern;
 using System.Collections.Generic;
+using Game.Helpers.Enums;
 
 namespace Game {
     public partial class Form1 : Form {
         private bool shouldRender = true;
         private Entities.Game game;
-        public GraphicsHandler render;
+        private GraphicsHandler render;
         private string time = "00:00";
         private int ticks = 0;
-        private GameStateSingleton gameState = GameStateSingleton.GetInstance();
+        private readonly GameStateSingleton _gameState = GameStateSingleton.GetInstance();
+        private bool _inConstructionMode = false;
+        private TowerTypes _currentTowerType;
 
         public Form1() {
             Application.Idle += HandleApplicationIdle;
@@ -25,9 +28,9 @@ namespace Game {
             render = new GraphicsHandler(CreateGraphics(), Color.Black, this.Width, this.Height);
 
 
-            PlayerName.Text = gameState.GetCurrentPlayer().Name;
+            PlayerName.Text = _gameState.GetCurrentPlayer().Name;
             PlayerName.BackColor = Color.Transparent;
-            PlayerName.ForeColor = Color.Azure;
+            PlayerName.ForeColor = Color.White;
             timer1.Enabled = true;
             timer1.Interval = 1000/60;
             GameTimer.Enabled = true;
@@ -77,8 +80,14 @@ namespace Game {
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e) {
-            var inputs = MouseInput.GetInstance();
-            inputs.HandleClick(e.Location);
+            if (_inConstructionMode)
+            {
+                var inputs = MouseInput.GetInstance();
+                inputs.HandleClick(e.Location, _currentTowerType);
+
+                Cursor = Cursors.Arrow;
+                _inConstructionMode = false;
+            }
         }
 
         private void Form1_DragEnter(object sender, DragEventArgs e) {
@@ -93,23 +102,24 @@ namespace Game {
 
         private void StrongBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
-            baloons.CreateBaloon("PowerfulBaloon");
+            baloons.CreateBaloon(BaloonTypes.Powerful);
         }
 
         private void IntermediateBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
-            baloons.CreateBaloon("IntermediateBaloon");
+            baloons.CreateBaloon(BaloonTypes.Intermediate);
         }
 
         private void WeakBaloon_Click(object sender, EventArgs e) {
             var baloons = BaloonFactory.GetInstance();
-            baloons.CreateBaloon("WeakBaloon");
+            baloons.CreateBaloon(BaloonTypes.Weak);
         }
 
         private void GameTimer_Tick(object sender, EventArgs e) {
             int seconds = Convert.ToInt32(time.Substring(3, 2));
             int minutes = Convert.ToInt32(time.Substring(0, 2));
             seconds += 1;
+            
             if (seconds == 60) {
                 minutes += 1;
                 seconds = 0;
@@ -119,6 +129,13 @@ namespace Game {
             time += ":";
             time += seconds < 10 ? 0 + seconds.ToString() : seconds.ToString();
             TimeLabel.Text = time;
+        }
+
+        private void ArrowTower_Click(object sender, EventArgs e)
+        {
+            Cursor = new Cursor(new Bitmap(Tower.TowerBitmap).GetHicon());
+            _inConstructionMode = true;
+            _currentTowerType = TowerTypes.Arrow;
         }
     }
 }

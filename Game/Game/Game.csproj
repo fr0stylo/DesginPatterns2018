@@ -49,27 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Baloon.cs" />
-    <Compile Include="Entities\IntermediateBaloon.cs" />
-    <Compile Include="Entities\PowerfulBaloon.cs" />
-    <Compile Include="Entities\WeakBaloon.cs" />
-    <Compile Include="Entities\Game.cs" />
+    <Compile Include="Entities\Baloons\Baloon.cs" />
+    <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
+    <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
+    <Compile Include="Entities\Baloons\WeakBaloon.cs" />
+    <Compile Include="Entities\Projectiles\Projectile.cs" />
+    <Compile Include="Entities\Towers\ArrowTower.cs" />
+    <Compile Include="Entities\Towers\CannonTower.cs" />
+    <Compile Include="Entities\Towers\Tower.cs" />
     <Compile Include="Entities\Map.cs" />
     <Compile Include="Entities\Player.cs" />
-    <Compile Include="Entities\Projectile.cs" />
-    <Compile Include="Entities\Tower.cs" />
     <Compile Include="FactoryPattern\BaloonFactory.cs" />
     <Compile Include="FactoryPattern\IBaloon.cs" />
+    <Compile Include="FactoryPattern\ITowerFactory.cs" />
+    <Compile Include="FactoryPattern\TowerFactory.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="GameState\GameStateSingleton.cs" />
     <Compile Include="Graphics\GraphicsHandler.cs" />
     <Compile Include="Helpers\APIBaloonsHelper.cs" />
     <Compile Include="Helpers\APIGameHelper.cs" />
+    <Compile Include="Helpers\Enums\BaloonTypes.cs" />
+    <Compile Include="Helpers\Enums\TowerTypes.cs" />
     <Compile Include="Input\MouseInput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +104,7 @@
     <EmbeddedResource Include="StartupForm.resx">
       <DependentUpon>StartupForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Images\BlackBaloon.png" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -108,30 +115,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Images\NewMap.png" />
+    <None Include="Images\RedBaloon.png" />
+    <None Include="Images\YellowBaloon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="JE87HUq.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ServerConnection\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RedBaloon.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="RedBaloon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="YellowBaloon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="BlackBaloon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NewMap.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

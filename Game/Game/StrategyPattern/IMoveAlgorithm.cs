@@ -9,6 +9,6 @@ namespace Game.StrategyPattern
 {
     public interface IMoveAlgorithm
     {
-        void Move(ref PointF position, int speed,ref bool isDead);
+        void Move(ref PointF position, int speed, ref bool isDead);
     }
 }

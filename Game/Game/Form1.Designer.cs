@@ -36,6 +36,7 @@
             this.WeakBaloon = new System.Windows.Forms.Button();
             this.TimeLabel = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.ArrowTower = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -90,11 +91,11 @@
             // TimeLabel
             // 
             this.TimeLabel.AutoSize = true;
-            this.TimeLabel.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.TimeLabel.ForeColor = System.Drawing.Color.Cornsilk;
             this.TimeLabel.Location = new System.Drawing.Point(646, 456);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(72, 24);
+            this.TimeLabel.Size = new System.Drawing.Size(60, 24);
             this.TimeLabel.TabIndex = 5;
             this.TimeLabel.Text = "00:00";
             // 
@@ -104,11 +105,24 @@
             this.GameTimer.Interval = 1;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
+            // ArrowTower
+            // 
+            this.ArrowTower.BackColor = System.Drawing.Color.Black;
+            this.ArrowTower.ForeColor = System.Drawing.Color.White;
+            this.ArrowTower.Location = new System.Drawing.Point(92, 390);
+            this.ArrowTower.Name = "ArrowTower";
+            this.ArrowTower.Size = new System.Drawing.Size(60, 60);
+            this.ArrowTower.TabIndex = 6;
+            this.ArrowTower.Text = "ARRW";
+            this.ArrowTower.UseVisualStyleBackColor = false;
+            this.ArrowTower.Click += new System.EventHandler(this.ArrowTower_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 481);
+            this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.WeakBaloon);
             this.Controls.Add(this.IntermediateBaloon);
@@ -134,6 +148,7 @@
         private System.Windows.Forms.Button WeakBaloon;
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Button ArrowTower;
     }
 }
 
