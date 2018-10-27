@@ -1,5 +1,6 @@
 ﻿using Game.FactoryPattern;
 using Game.Properties;
+using Game.StrategyPattern;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,9 +14,11 @@ namespace Game.Entities
     {
         public PointF position = new PointF(0, 0);
 
-        public bool IsDead = false;
+        public bool isDead = false;
 
-        public abstract void Move(PointF position);
+        public IMoveAlgorithm MoveStrategy;
+
+        public abstract void Move();
 
         public abstract Bitmap GetShape();
 
@@ -28,5 +31,7 @@ namespace Game.Entities
         public abstract bool GetIsDead();
 
         public abstract void SetDead();
+
+
     }
 }

@@ -79,6 +79,9 @@
     <Compile Include="StartupForm.Designer.cs">
       <DependentUpon>StartupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StrategyPattern\IMoveAlgorithm.cs" />
+    <Compile Include="StrategyPattern\Player1Movement.cs" />
+    <Compile Include="StrategyPattern\Player2Movement.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

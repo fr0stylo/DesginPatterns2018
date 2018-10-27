@@ -1,5 +1,6 @@
 using Game.FactoryPattern;
 using Game.Properties;
+using Game.StrategyPattern;
 using System.Drawing;
 
 namespace Game.Entities
@@ -15,14 +16,17 @@ namespace Game.Entities
         // don't go over 15 mate
         public readonly int speed = 5;
 
-
+        public WeakBaloon()
+        {
+            MoveStrategy = new Player2Movement();
+        }
         public override PointF GetCurrentPosition()
         {
             return this.position;
         }
-        public override void Move(PointF position)
+        public override void Move()
         {
-            this.position = position;
+            MoveStrategy.Move(ref position, speed,ref isDead);
         }
 
         public override Bitmap GetShape()
@@ -42,12 +46,12 @@ namespace Game.Entities
 
         public override bool GetIsDead()
         {
-            return IsDead;
+            return isDead;
         }
 
         public override void SetDead()
         {
-            IsDead = true;
+            isDead = true;
         }
     }
 }

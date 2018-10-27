@@ -9,7 +9,7 @@ namespace Game.FactoryPattern
 {
     interface IBaloon
     {
-        void Move(PointF position);
+        void Move();
 
         Bitmap GetShape();
 

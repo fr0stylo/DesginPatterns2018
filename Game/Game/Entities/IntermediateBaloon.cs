@@ -1,5 +1,6 @@
 ﻿using Game.FactoryPattern;
 using Game.Properties;
+using Game.StrategyPattern;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -20,6 +21,10 @@ namespace Game.Entities
 
         public static Bitmap BaloonBitmap => Resources.YellowBaloon;
 
+        public IntermediateBaloon()
+        {
+            MoveStrategy = new Player1Movement();
+        }
         public override string GetBaloonType()
         {
             return type;
@@ -40,19 +45,19 @@ namespace Game.Entities
             return speed;
         }
         
-        public override void Move(PointF position)
+        public override void Move()
         {
-            this.position = position;
+            MoveStrategy.Move(ref position, speed,ref isDead);
         }
 
         public override bool GetIsDead()
         {
-            return IsDead;
+            return isDead;
         }
 
         public override void SetDead()
         {
-            IsDead = true;
+            isDead = true;
         }
     }
 }
