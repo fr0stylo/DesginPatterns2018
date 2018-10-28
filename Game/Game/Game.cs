@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using Game.BuilderPattern;
 using Game.BuilderPattern.Waves;
@@ -59,7 +60,7 @@ namespace Game.Entities {
 
            
 
-            foreach (Baloon baloon in waves)
+            foreach (Baloon baloon in waves.ToList())
             {
                 if (!baloon.GetIsDead())
                 {
