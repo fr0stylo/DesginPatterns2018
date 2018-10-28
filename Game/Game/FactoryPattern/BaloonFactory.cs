@@ -29,11 +29,11 @@ namespace Game.FactoryPattern
             switch (baloonType)
             {
                 case BaloonTypes.Weak:
-                    return weakBaloon.Clone();
+                    return (IBaloon)weakBaloon.Clone();
                 case BaloonTypes.Intermediate:
-                    return intermediateBaloon.Clone();
+                    return (IBaloon)intermediateBaloon.Clone();
                 case BaloonTypes.Powerful:
-                    return powerfulBaloon.Clone();
+                    return (IBaloon)powerfulBaloon.Clone();
                 default:
                     return null;
 

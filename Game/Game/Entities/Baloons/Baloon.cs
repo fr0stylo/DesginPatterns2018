@@ -59,7 +59,7 @@ namespace Game.Entities
             Position = new PointF(Position.X - SpacingPoint.X * x, Position.Y - SpacingPoint.Y * y);
         }
 
-        IPrototype IPrototype.Clone()
+        public IPrototype Clone()
         {
             return (IPrototype)this.MemberwiseClone();
         }
