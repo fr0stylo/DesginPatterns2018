@@ -1,4 +1,4 @@
-﻿using Game.Entities;
+using Game.Entities;
 using Game.Helpers;
 using System;
 using System.Collections.Generic;
