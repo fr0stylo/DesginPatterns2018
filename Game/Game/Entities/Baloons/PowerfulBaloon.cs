@@ -1,4 +1,4 @@
-﻿using Game.Properties;
+using Game.Properties;
 using Game.StrategyPattern;
 using System.Drawing;
 
