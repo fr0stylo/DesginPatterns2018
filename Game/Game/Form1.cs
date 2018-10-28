@@ -120,19 +120,19 @@ namespace Game
 
         private void StrongBaloon_Click(object sender, EventArgs e)
         {
-            Baloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
+            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
             _gameState.AddPlayer1Baloon(baloon);
         }
 
         private void IntermediateBaloon_Click(object sender, EventArgs e)
         {
-            Baloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
+            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
             _gameState.AddPlayer1Baloon(baloon);
         }
 
         private void WeakBaloon_Click(object sender, EventArgs e)
         {
-            Baloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Weak);
+            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Weak);
             _gameState.AddPlayer1Baloon(baloon);
         }
 

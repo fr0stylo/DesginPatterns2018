@@ -18,7 +18,7 @@ namespace Game.FactoryPattern
             this.isPlayer1Factory = isPlayer1Factory;
         }
 
-        public Baloon CreateBaloon(BaloonTypes baloonType)
+        public IBaloon CreateBaloon(BaloonTypes baloonType)
         {
             switch (baloonType)
             {
