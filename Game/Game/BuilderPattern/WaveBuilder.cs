@@ -9,6 +9,7 @@ namespace Game.BuilderPattern {
 
         public void CreateNewWave() {
             _wave = new Wave();
+            _wave.Baloons = new List<IBaloon>();
         }
 
         public virtual void BuildSpacing() {

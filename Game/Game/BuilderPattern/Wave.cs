@@ -10,7 +10,7 @@ namespace Game.BuilderPattern
     public class Wave {
         public int Number;
         public int Spacing;
-        public IList<IBaloon> Baloons;
+        public List<IBaloon> Baloons;
 
         public void Render() {
             

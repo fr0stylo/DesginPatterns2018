@@ -23,13 +23,12 @@ namespace Game.BuilderPattern.Waves
             var factory = new BaloonFactory(true);
             for (var i = 0; i < 10; i++)
             {
-                factory.CreateBaloon(BaloonTypes.Weak);
+               this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Weak));
             }
             for (var i = 0; i < 10; i++)
             {
-                factory.CreateBaloon(BaloonTypes.Intermediate);
+               this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Intermediate));
             }
-            this._wave.Baloons = factory.Baloons();
         }
 
         public override WaveBuilder NextBuilder() {

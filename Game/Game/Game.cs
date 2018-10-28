@@ -14,7 +14,6 @@ namespace Game.Entities {
         private List<PointF[]> _points;
         private int _width, _height;
         private GameStateSingleton _gameState = GameStateSingleton.GetInstance();
-        private List<IBaloon> waves;
         private Timer waveCreator;
         private WaveDirector _waveDirector;
 
@@ -29,14 +28,13 @@ namespace Game.Entities {
 
             waveCreator = new Timer(i => _generateWave(), null, 0, 10000);
 
-            waves = new List<IBaloon>();
         }
 
         private void _generateWave() {
 
             _waveDirector.BuildWave();
 
-            waves.AddRange(_waveDirector.GetVave.Baloons);
+            _gameState.AddPlayer1BaloonList(_waveDirector.GetVave.Baloons);
 
             _waveDirector.NextWave();
         }
@@ -57,15 +55,17 @@ namespace Game.Entities {
                 g.DrawImage(Tower.TowerBitmap, tower.Position);
             }
 
-            foreach (Baloon baloon in waves.ToList())
+            foreach (Baloon baloon in _gameState.GetPlayer1Baloons())
             {
                 if (!baloon.GetIsDead())
                 {
                     g.DrawImage(baloon.GetShape(), baloon.GetCurrentPosition());
                     baloon.Move();
                 }
+                // while printing, dont allow to modify collection
+                _gameState.SetAllowAddPlayer1Baloons(false);
             }
-
+            _gameState.SetAllowAddPlayer1Baloons(true);
             _points.Clear();
         }
     }
