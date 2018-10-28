@@ -13,6 +13,7 @@ namespace Game.Entities
             Speed = 5;
             Damage = 1;
             IsPlayer1Baloon = isPlayer1Baloon;
+            SpacingPoint = new PointF(50, 50);
 
             if (isPlayer1Baloon)
                 moveStrategy = new Player1Movement();

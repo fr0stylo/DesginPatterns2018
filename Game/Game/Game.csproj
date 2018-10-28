@@ -49,10 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BuilderPattern\FirstWave.cs" />
+    <Compile Include="BuilderPattern\Waves\FirstWave.cs" />
     <Compile Include="BuilderPattern\Wave.cs" />
     <Compile Include="BuilderPattern\WaveBuilder.cs" />
     <Compile Include="BuilderPattern\WaveDirector.cs" />
+    <Compile Include="BuilderPattern\Waves\SecondWave.cs" />
     <Compile Include="Entities\Baloons\Baloon.cs" />
     <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />

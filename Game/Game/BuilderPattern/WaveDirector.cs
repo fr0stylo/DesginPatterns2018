@@ -17,9 +17,13 @@ namespace Game.BuilderPattern
 
         public void BuildWave() {
             _builder.CreateNewWave();
+            _builder.BuildWave();
             _builder.BuildNumber();
             _builder.BuildSpacing();
-            _builder.BuildWave();
+        }
+
+        public void NextWave() {
+            SetBuilder(_builder.NextBuilder());
         }
     }
 }

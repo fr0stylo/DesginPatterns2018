@@ -17,6 +17,7 @@ namespace Game.Entities
         private bool IsDead = false;
         protected PointF Position = new PointF(0, 0);
         protected bool IsPlayer1Baloon;
+        protected PointF SpacingPoint;
 
         public IMoveAlgorithm moveStrategy;
 
@@ -55,6 +56,11 @@ namespace Game.Entities
         public void SetDead()
         {
             IsDead = true;
+        }
+
+        public void SetReleaseSpacing(int x, int y)
+        {
+            Position = new PointF(Position.X - SpacingPoint.X * x, Position.Y - SpacingPoint.Y * y);
         }
 
 

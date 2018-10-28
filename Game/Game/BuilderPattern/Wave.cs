@@ -11,5 +11,9 @@ namespace Game.BuilderPattern
         public int Number;
         public int Spacing;
         public IList<IBaloon> Baloons;
+
+        public void Render() {
+            
+        }
     }
 }

@@ -6,25 +6,34 @@ using System.Threading.Tasks;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
 
-namespace Game.BuilderPattern
+namespace Game.BuilderPattern.Waves
 {
-    public class FirstWave : WaveBuilder
+    class SecondWave : WaveBuilder
     {
         public override void BuildNumber() {
-            this._wave.Number = 1;
+            
         }
 
         public override void BuildSpacing() {
-            this._wave.Spacing = 0;
+            _wave.Spacing = 2;
+            base.BuildSpacing();
         }
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
-            for (var i = 0; i < 10; i ++) {
+            for (var i = 0; i < 10; i++)
+            {
                 factory.CreateBaloon(BaloonTypes.Weak);
             }
-
+            for (var i = 0; i < 10; i++)
+            {
+                factory.CreateBaloon(BaloonTypes.Intermediate);
+            }
             this._wave.Baloons = factory.Baloons();
+        }
+
+        public override WaveBuilder NextBuilder() {
+            return new FirstWave();
         }
     }
 }

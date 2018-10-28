@@ -11,8 +11,15 @@ namespace Game.BuilderPattern {
             _wave = new Wave();
         }
 
+        public virtual void BuildSpacing() {
+            for (var i = 0; i < _wave.Baloons.Count; i++)
+            {
+                _wave.Baloons[i].SetReleaseSpacing(i * _wave.Spacing, 0);
+            }
+        }
+
         public abstract void BuildNumber();
-        public abstract void BuildSpacing();
         public abstract void BuildWave();
+        public abstract WaveBuilder NextBuilder();
     }
 }

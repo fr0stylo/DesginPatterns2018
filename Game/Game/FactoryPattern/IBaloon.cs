@@ -20,6 +20,7 @@ namespace Game.FactoryPattern
         bool GetIsDead();
 
         void SetDead();
-        
+
+        void SetReleaseSpacing(int x, int y);
     }
 }
