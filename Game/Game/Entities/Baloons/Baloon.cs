@@ -1,10 +1,12 @@
 using Game.FactoryPattern;
+using Game.PrototypePattern;
 using Game.StrategyPattern;
+using System;
 using System.Drawing;
 
 namespace Game.Entities
 {
-    public abstract class Baloon : IBaloon
+    public abstract class Baloon : IBaloon, IPrototype
     {
         protected int Damage;
         protected int Speed; 
@@ -57,6 +59,9 @@ namespace Game.Entities
             Position = new PointF(Position.X - SpacingPoint.X * x, Position.Y - SpacingPoint.Y * y);
         }
 
-
+        IPrototype IPrototype.Clone()
+        {
+            return (IPrototype)this.MemberwiseClone();
+        }
     }
 }
