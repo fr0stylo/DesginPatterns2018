@@ -11,7 +11,7 @@ namespace Game.FactoryPattern
 {
     class BaloonFactory
     {
-        private List<Baloon> baloons;
+        private List<IBaloon> baloons;
         private static BaloonFactory _instance;
         APIBaloonsHelper APIHelper;
         private bool isPlayer1Factory;
@@ -19,7 +19,7 @@ namespace Game.FactoryPattern
         public BaloonFactory(bool isPlayer1Factory)
         {
             this.isPlayer1Factory = isPlayer1Factory;
-            baloons = new List<Baloon>();
+            baloons = new List<IBaloon>();
             APIHelper = new APIBaloonsHelper();
         }
         
@@ -48,7 +48,7 @@ namespace Game.FactoryPattern
             return _instance ?? (_instance = new BaloonFactory(isPlayer1Factory));
         }
         
-        public List<Baloon> Baloons()
+        public List<IBaloon> Baloons()
         {
             return baloons;
         }

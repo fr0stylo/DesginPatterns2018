@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Game.FactoryPattern
 {
-    interface IBaloon
+    public interface IBaloon
     {
         void Move();
 
