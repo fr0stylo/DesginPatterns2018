@@ -1,4 +1,4 @@
-﻿using Game.Entities;
+using Game.Entities;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

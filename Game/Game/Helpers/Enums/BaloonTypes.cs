@@ -1,4 +1,4 @@
-﻿namespace Game.Helpers.Enums
+namespace Game.Helpers.Enums
 {
     public enum BaloonTypes
     {
