@@ -43,7 +43,6 @@ namespace Game.Entities {
                 g.DrawImage(Tower.TowerBitmap, point);
             }
 
-            var mouse = MouseInput.GetInstance();
             var currentPlayer = _gameState.GetCurrentPlayer();
 
             foreach (var tower in currentPlayer.GetTowers())

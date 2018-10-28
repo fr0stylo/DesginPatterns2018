@@ -37,6 +37,7 @@
             this.TimeLabel = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.ArrowTower = new System.Windows.Forms.Button();
+            this.PlayerMoney = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -117,11 +118,21 @@
             this.ArrowTower.UseVisualStyleBackColor = false;
             this.ArrowTower.Click += new System.EventHandler(this.ArrowTower_Click);
             // 
+            // PlayerMoney
+            // 
+            this.PlayerMoney.AutoSize = true;
+            this.PlayerMoney.Location = new System.Drawing.Point(92, 459);
+            this.PlayerMoney.Name = "PlayerMoney";
+            this.PlayerMoney.Size = new System.Drawing.Size(68, 13);
+            this.PlayerMoney.TabIndex = 7;
+            this.PlayerMoney.Text = "PlayerMoney";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 481);
+            this.Controls.Add(this.PlayerMoney);
             this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.WeakBaloon);
@@ -149,6 +160,7 @@
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Button ArrowTower;
+        private System.Windows.Forms.Label PlayerMoney;
     }
 }
 

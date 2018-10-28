@@ -12,25 +12,50 @@ namespace Game.Entities
 {
     public abstract class Baloon : IBaloon
     {
-        public PointF position = new PointF(0, 0);
-
-        public bool isDead = false;
+        protected int Damage;
+        protected int Speed; 
+        private bool IsDead = false;
+        protected PointF Position = new PointF(0, 0);
+        protected bool IsPlayer1Baloon;
 
         public IMoveAlgorithm moveStrategy;
 
-        public abstract void Move();
+                
+        public void Move()
+        {
+            var damagedPlayer = false;
+            
+            moveStrategy.Move(ref Position, Speed, ref damagedPlayer);
+
+            if (damagedPlayer)
+            {
+                var currentPlayer = GameStateSingleton.GetInstance().GetCurrentPlayer();
+                currentPlayer.DecreaseHealthPoints(Damage);
+                IsDead = true;
+            }
+        }
 
         public abstract Bitmap GetShape();
 
-        public abstract PointF GetCurrentPosition();
+        public PointF GetCurrentPosition()
+        {
+            return Position;
+        }
 
-        public abstract string GetBaloonType();
+        public int GetSpeed()
+        {
+            return Speed;
+        }
 
-        public abstract int GetSpeed();
+        public bool GetIsDead()
+        {
+            return IsDead;
+        }
 
-        public abstract bool GetIsDead();
-
-        public abstract void SetDead();
+        public void SetDead()
+        {
+            IsDead = true;
+        }
 
 
     }

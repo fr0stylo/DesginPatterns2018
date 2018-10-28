@@ -15,8 +15,6 @@ namespace Game.FactoryPattern
 
         PointF GetCurrentPosition();
 
-        string GetBaloonType();
-
         int GetSpeed();
 
         bool GetIsDead();

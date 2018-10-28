@@ -133,7 +133,7 @@ namespace Game {
 
         private void ArrowTower_Click(object sender, EventArgs e)
         {
-            Cursor = new Cursor(new Bitmap(Tower.TowerBitmap).GetHicon());
+//            Cursor = new Cursor(new Bitmap(Tower.TowerBitmap).GetHicon());
             _inConstructionMode = true;
             _currentTowerType = TowerTypes.Arrow;
         }
