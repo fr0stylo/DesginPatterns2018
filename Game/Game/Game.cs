@@ -5,11 +5,12 @@ using System.Linq;
 using System.Threading;
 using Game.BuilderPattern;
 using Game.BuilderPattern.Waves;
+using Game.Facade;
 using Game.Input;
 using Game.FactoryPattern;
 
 namespace Game.Entities {
-    public class Game {
+    public class Game: IGameFacade {
         private List<PointF[]> _points;
         private int _width, _height;
         private GameStateSingleton _gameState = GameStateSingleton.GetInstance();
@@ -44,7 +45,6 @@ namespace Game.Entities {
             
         }
 
-
         public void Render(System.Drawing.Graphics g) {
             foreach (var point in _points) {
                 g.DrawImage(Tower.TowerBitmap, point);
@@ -56,9 +56,6 @@ namespace Game.Entities {
             {
                 g.DrawImage(Tower.TowerBitmap, tower.Position);
             }
-
-
-           
 
             foreach (Baloon baloon in waves.ToList())
             {

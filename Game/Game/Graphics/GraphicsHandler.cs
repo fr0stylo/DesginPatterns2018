@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using Game.Facade;
 using Game.Properties;
 
 namespace Game.Graphics
@@ -11,7 +12,7 @@ namespace Game.Graphics
 
         private BufferedGraphicsContext context;
         private BufferedGraphics grafx;
-        private int count = 0;
+        private int count= 0;
         private readonly int Width;
         private readonly int Height;
 
@@ -40,13 +41,13 @@ namespace Game.Graphics
                 new Rectangle( 0, 0, width, height ));
         }
 
-        public void Render(Entities.Game game)
+        public void Render(IGameFacade game)
         {
             DrawToBuffer(grafx.Graphics, game);
             grafx.Render(_graphics);
         }
         
-        private void DrawToBuffer(System.Drawing.Graphics g, Entities.Game game)
+        private void DrawToBuffer(System.Drawing.Graphics g, IGameFacade game)
         {
             if( ++count > 5 )
             {

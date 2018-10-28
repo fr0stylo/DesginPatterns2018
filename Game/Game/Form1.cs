@@ -7,12 +7,13 @@ using Game.Graphics;
 using Game.Input;
 using Game.FactoryPattern;
 using System.Collections.Generic;
+using Game.Facade;
 using Game.Helpers.Enums;
 
 namespace Game {
     public partial class Form1 : Form {
         private bool shouldRender = true;
-        private Entities.Game game;
+        private IGameFacade game;
         private GraphicsHandler render;
         private string time = "00:00";
         private int ticks = 0;
