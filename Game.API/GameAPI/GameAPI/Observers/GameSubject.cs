@@ -23,7 +23,7 @@ namespace GameAPI.Observers
             Towers.Remove(tower);
         }
 
-        public void AttachPlayr(Player player)
+        public void AttachPlayer(Player player)
         {
             //For way 2 lets assign attach the observers with subjects
             Players.Add(player);

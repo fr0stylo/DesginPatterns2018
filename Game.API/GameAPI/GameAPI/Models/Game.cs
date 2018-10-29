@@ -18,5 +18,10 @@ namespace GameAPI.Models
 
         //When tower hit baloon
         public void ChangeBaloonHealth(int baloonId, int health) { }
+
+        public void SetGameId(int gameId)
+        {
+            this.GameId = gameId;
+        }
     }
 }

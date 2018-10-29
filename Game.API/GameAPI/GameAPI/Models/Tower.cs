@@ -15,5 +15,12 @@ namespace GameAPI.Models
         public bool DefendPlayer1 { get; set; }
         public bool DefendPlayer2 { get; set; }
 
+        public Tower(int TowerId, int GameId)
+        {
+            this.TowerId = TowerId;
+            this.GameId = GameId;
+            this.Type = "Weak";
+        }
+
     }
 }

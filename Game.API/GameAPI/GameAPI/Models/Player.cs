@@ -19,6 +19,15 @@ namespace GameAPI.Models
         public int GameId { get; set; }
         public Game Game { get; set; }
 
+        public Player(int PlayerId, int GameId)
+        {
+            this.PlayerId = PlayerId;
+            this.Name = "Player" + PlayerId;
+            this.MoneyPoints = 0;
+            this.HealthPoints = 100;
+            this.GameId = GameId;
+        }
+
         public void UpdateMoney(int score)
         {
             this.MoneyPoints += score;

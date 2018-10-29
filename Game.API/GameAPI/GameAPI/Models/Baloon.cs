@@ -17,6 +17,15 @@ namespace GameAPI.Models
         public bool AttackPlayer1 { get; set; }
         public bool AttackPlayer2 { get; set; }
 
+        public Baloon(int BaloonId, int GameId)
+        {
+            this.BaloonId = BaloonId;
+            this.GameId = GameId;
+            this.Type = "Simple";
+            this.Health = 20;
+            this.IsAlive = true;
+        }
+
         public void UpdateHealth(int health)
         {
             if (this.Health - health < 0)
