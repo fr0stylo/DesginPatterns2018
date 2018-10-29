@@ -16,8 +16,16 @@ namespace GameAPI.Models
             NotifyMoneyScore(moneyScore);
         }
 
+        public void AddMoneyTo(int playerId, int money)
+        {
+            AddMoneyToPlayer(playerId, money);
+        }
+
         //When tower hit baloon
-        public void ChangeBaloonHealth(int baloonId, int health) { }
+        public void ChangeBaloonHealth(int baloonId, int health)
+        {
+            NotifyBaloonHealth(baloonId, health);
+        }
 
         public void SetGameId(int gameId)
         {

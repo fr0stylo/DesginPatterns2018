@@ -28,7 +28,7 @@ namespace GameAPI.Models
 
         public void UpdateHealth(int health)
         {
-            if (this.Health - health < 0)
+            if (this.Health - health <= 0)
             {
                 this.IsAlive = false;
                 this.Health = 0;

@@ -8,9 +8,9 @@ namespace GameAPI.Observers
 {
     public class GameSubject
     {
-        public ICollection<Tower> Towers { get; set; }
-        public ICollection<Player> Players { get; set; }
-        public ICollection<Baloon> Baloons { get; set; }
+        public List<Tower> Towers = new List<Tower>();
+        public List<Player> Players = new List<Player>();
+        public List<Baloon> Baloons = new List<Baloon>();
 
         public void AttachTower(Tower tower)
         {
@@ -55,9 +55,23 @@ namespace GameAPI.Observers
             }
         }
 
+        public void AddMoneyToPlayer(int playerId, int money)
+        {
+            var player = Players.FirstOrDefault(e => e.PlayerId == playerId);
+
+            player.UpdateMoney(money);
+        }
+
         public void NotifyBaloonHealth(int baloonId, int health)
         {
-            //Dont know how from ICollection get a single baloon :DDD
+            var baloon = Baloons.FirstOrDefault(e => e.BaloonId == baloonId);
+
+            baloon.UpdateHealth(health);
+
+            if (!baloon.IsAlive)
+            {
+                NotifyMoneyScore(15);
+            }
         }
     }
 }

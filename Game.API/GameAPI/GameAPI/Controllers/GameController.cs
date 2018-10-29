@@ -11,48 +11,61 @@ namespace GameAPI.Controllers
     [ApiController]
     public class GameController : ControllerBase
     {
-        private Game _game;
+        IList<Game> game = new List<Game>() {
+            new Game()
+            {
+                GameId = 1,
+                Players = {
+                    new Player(1, 1),
+                    new Player(2, 1),
+                },
+                Towers = {
+                    new Tower(1, 1),
+                    new Tower(2, 1),
+                },
+                Baloons = {
+                    new Baloon(1, 1),
+                    new Baloon(2, 1),
+                    new Baloon(3, 1),
+                },
+            }
+        };
 
-        private Player _player1;
-        private Player _player2;
-        private Tower _tower1;
-        private Tower _tower2;
-        private Baloon _baloon1;
-        private Baloon _baloon2;
-        private Baloon _baloon3;
-
-        [HttpPost("new/{gameId}")]
-        public async Task<IActionResult> CreateGame(int gameId)
+        // Get game/new/1
+        [HttpGet("new/{gameId}")]
+        public ActionResult<string> CreateGame(int gameId)
         {
-            this._game = new Game();
-            this._game.SetGameId(gameId);
-
-            this._player1 = new Player(1, gameId);
-            this._player2 = new Player(2, gameId);
-
-            this._tower1 = new Tower(1, gameId);
-            this._tower2 = new Tower(2, gameId);
-
-            this._baloon1 = new Baloon(1, gameId);
-            this._baloon2 = new Baloon(2, gameId);
-            this._baloon3 = new Baloon(3, gameId);
-
-            this._game.AttachPlayer(this._player1);
-            this._game.AttachPlayer(this._player2);
-
-            this._game.AttachTower(this._tower1);
-            this._game.AttachTower(this._tower2);
-
-            this._game.AttachBaloons(this._baloon1);
-            this._game.AttachBaloons(this._baloon2);
-            this._game.AttachBaloons(this._baloon3);
+            return "In futer here can be created new game";
         }
-       
-       [HttpGet("{gameId}")]
-       public async Task<IActionResult> IndexGame(int gameId)
-       {
 
-       }
+        // GET game/1
+        [HttpGet("{gameid}")]
+        public Game indexgame(int gameid)
+        {
+            var _game = this.game.FirstOrDefault(e => e.GameId == gameid);
+            return _game;
+        }
 
+        // GET game/1/tower/1/hitBaloon/1
+        [HttpGet("{gameId}/tower/{towerId}/hitBaloon/{baloonId}")]
+        public Game HitBaloonAction(int gameId, int towerId, int baloonId)
+        {
+            var _game = this.game.FirstOrDefault(e => e.GameId == gameId);
+
+            _game.ChangeBaloonHealth(baloonId, 30);
+
+            return _game;
+        }
+
+        // GET game/1/player/1/addMoney/100
+        [HttpGet("{gameId}/player/{playerId}/addMoney/{count}")]
+        public Game AddMoneyToPlayerAction(int gameId, int playerId, int count)
+        {
+            var _game = this.game.FirstOrDefault(e => e.GameId == gameId);
+
+            _game.AddMoneyTo(playerId, count);
+
+            return _game;
+        }
     }
 }
