@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GameAPI.Interfaces;
 
 namespace GameAPI.Models
 {
-    public class Player
+    public class Player : IPlayerObserver
     {
         public int PlayerId { get; set; }
 
@@ -18,5 +19,14 @@ namespace GameAPI.Models
         public int GameId { get; set; }
         public Game Game { get; set; }
 
+        public void UpdateMoney(int score)
+        {
+            this.MoneyPoints += score;
+        }
+
+        public void UpdateHealth(int health)
+        {
+            this.HealthPoints += health;
+        }
     }
 }
