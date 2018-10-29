@@ -52,7 +52,7 @@ namespace Game.Entities {
 
             foreach (var tower in currentPlayer.GetTowers())
             {
-                g.DrawImage(Tower.TowerBitmap, tower.Position);
+                g.DrawImage(Tower.TowerBitmap, tower.GetPosition());
             }
 
             foreach (Baloon baloon in _gameState.GetPlayer1Baloons())

@@ -121,6 +121,8 @@ namespace Game
             // PlayerMoney
             // 
             this.PlayerMoney.AutoSize = true;
+            this.PlayerMoney.BackColor = System.Drawing.Color.Black;
+            this.PlayerMoney.ForeColor = System.Drawing.Color.White;
             this.PlayerMoney.Location = new System.Drawing.Point(92, 459);
             this.PlayerMoney.Name = "PlayerMoney";
             this.PlayerMoney.Size = new System.Drawing.Size(68, 13);

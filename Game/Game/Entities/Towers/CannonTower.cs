@@ -1,4 +1,5 @@
 using System.Drawing;
+using Game.StrategyPattern.ProjectileStrategy;
 
 namespace Game.Entities
 {
@@ -6,6 +7,7 @@ namespace Game.Entities
     {
         public CannonTower(PointF position) : base(position)
         {
+            Spawner = new BombSpawn();
         }
     }
 }

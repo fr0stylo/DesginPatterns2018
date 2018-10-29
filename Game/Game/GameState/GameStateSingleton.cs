@@ -44,44 +44,64 @@ namespace Game.Entities
         {
             Players.Add(player);
         }
+
+        public int GetCurrentLevel()
+        {
+            return Level;
+        }
+
+        public void IncreaseLevel()
+        {
+            Level += 1;
+        }
+        
         public void AddPlayer1Baloon(IBaloon baloon)
         {
-            if(AllowAddPlayer1Baloons)
+            if (AllowAddPlayer1Baloons)
                 Player1Baloons.Add(baloon);
         }
+
         public void AddPlayer2Baloon(IBaloon baloon)
         {
-            if(AllowAddPlayer2Baloons)
+            if (AllowAddPlayer2Baloons)
                 Player2Baloons.Add(baloon);
         }
+
         public void AddPlayer1BaloonList(List<IBaloon> baloons)
         {
             Player1Baloons.AddRange(baloons);
         }
+
         public void AddPlayer2BaloonList(List<IBaloon> baloons)
         {
             Player2Baloons.AddRange(baloons);
         }
+
         public List<IBaloon> GetPlayer1Baloons()
         {
             return Player1Baloons;
         }
+
         public List<IBaloon> GetPlayer2Baloons()
         {
             return Player2Baloons;
         }
+
         public void SetAllowAddPlayer1Baloons(bool value)
         {
             AllowAddPlayer1Baloons = value;
         }
+
         public bool GetAllowAddPlayer1Baloons()
         {
             return AllowAddPlayer1Baloons;
         }
+
         public void SetAllowAddPlayer2Baloons(bool value)
         {
             AllowAddPlayer2Baloons = value;
         }
+
         public bool GetAllowAddPlayer2Baloons()
         {
             return AllowAddPlayer2Baloons;

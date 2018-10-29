@@ -60,6 +60,8 @@
     <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
     <Compile Include="Entities\Baloons\WeakBaloon.cs" />
+    <Compile Include="Entities\Projectiles\Arrow.cs" />
+    <Compile Include="Entities\Projectiles\Bomb.cs" />
     <Compile Include="Entities\Projectiles\Projectile.cs" />
     <Compile Include="Entities\Towers\ArrowTower.cs" />
     <Compile Include="Entities\Towers\CannonTower.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Helpers\APIBaloonsHelper.cs" />
     <Compile Include="Helpers\APIGameHelper.cs" />
     <Compile Include="Helpers\Enums\BaloonTypes.cs" />
+    <Compile Include="Helpers\Enums\ProjectileTypes.cs" />
     <Compile Include="Helpers\Enums\TowerTypes.cs" />
     <Compile Include="Input\MouseInput.cs" />
     <Compile Include="Program.cs" />
@@ -96,6 +99,9 @@
     <Compile Include="StrategyPattern\IMoveAlgorithm.cs" />
     <Compile Include="StrategyPattern\Player1Movement.cs" />
     <Compile Include="StrategyPattern\Player2Movement.cs" />
+    <Compile Include="StrategyPattern\ProjectileStrategy\ArrowSpawn.cs" />
+    <Compile Include="StrategyPattern\ProjectileStrategy\BombSpawn.cs" />
+    <Compile Include="StrategyPattern\ProjectileStrategy\IProjectileSpawn.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,7 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\Constants\" />
     <Folder Include="ServerConnection\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
