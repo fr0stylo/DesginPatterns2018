@@ -67,6 +67,18 @@ namespace Game.Entities {
                 _gameState.SetAllowAddPlayer1Baloons(false);
             }
             _gameState.SetAllowAddPlayer1Baloons(true);
+
+            foreach (Baloon baloon in _gameState.GetPlayer2Baloons())
+            {
+                if (!baloon.GetIsDead())
+                {
+                    g.DrawImage(baloon.GetShape(), baloon.GetCurrentPosition());
+                    baloon.Move();
+                }
+                // while printing, dont allow to modify collection
+                _gameState.SetAllowAddPlayer2Baloons(false);
+            }
+            _gameState.SetAllowAddPlayer2Baloons(true);
             _points.Clear();
         }
     }

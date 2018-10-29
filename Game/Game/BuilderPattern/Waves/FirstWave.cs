@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
 
@@ -21,8 +22,12 @@ namespace Game.BuilderPattern.Waves
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
-            for (var i = 0; i < 10; i ++) {
-               this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Weak));
+            if (GameStateSingleton.GetInstance().GetAllowAddPlayer1Baloons())
+            {
+                for (var i = 0; i < 10; i++)
+                {
+                    this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Weak));
+                }
             }
         }
 

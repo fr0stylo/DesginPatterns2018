@@ -160,5 +160,23 @@ namespace Game
             _inConstructionMode = true;
             _currentTowerType = TowerTypes.Arrow;
         }
+
+        private void Player2WeakBaloon_Click(object sender, EventArgs e)
+        {
+            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Weak);
+            _gameState.AddPlayer2Baloon(baloon);
+        }
+
+        private void Player2IntermediateBaloon_Click(object sender, EventArgs e)
+        {
+            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
+            _gameState.AddPlayer2Baloon(baloon);
+        }
+
+        private void Player2StrongBaloon_Click(object sender, EventArgs e)
+        {
+            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
+            _gameState.AddPlayer2Baloon(baloon);
+        }
     }
 }

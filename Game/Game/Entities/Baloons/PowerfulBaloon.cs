@@ -18,7 +18,10 @@ namespace Game.Entities
             if (isPlayer1Baloon)
                 moveStrategy = new Player1Movement();
             else
+            {
                 moveStrategy = new Player2Movement();
+                Position.X = 675;
+            }
         }
 
         public override Bitmap GetShape()
