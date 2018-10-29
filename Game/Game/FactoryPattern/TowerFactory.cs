@@ -1,18 +1,29 @@
 using System.Drawing;
-using Game.Entities;
+using Game.Entities.Buildings;
 using Game.Helpers.Enums;
+using Game.StrategyPattern.ProjectileStrategy;
 
 namespace Game.FactoryPattern
 {
     public class TowerFactory
     {
-        public Tower MakeTower(TowerTypes towerType, Point location)
+        public Building MakeTower(TowerTypes towerType, Point location)
         {
             if (towerType == TowerTypes.Arrow)
-                return new ArrowTower(location);;
+            {
+                var Tower = new Tower(location);
+                Tower.SetSpwaner(new ArrowSpawn());
+                
+                return new ArrowTower(new Tower(location));
+            }
 
             if (towerType == TowerTypes.Cannon)
-                return new CannonTower(location);
+            {
+                var Tower = new Tower(location);
+                Tower.SetSpwaner(new BombSpawn());
+                
+                return new CannonTower(new Tower(location));
+            }
 
             return null;
         }

@@ -63,11 +63,13 @@
     <Compile Include="Entities\Projectiles\Arrow.cs" />
     <Compile Include="Entities\Projectiles\Bomb.cs" />
     <Compile Include="Entities\Projectiles\Projectile.cs" />
-    <Compile Include="Entities\Towers\ArrowTower.cs" />
-    <Compile Include="Entities\Towers\CannonTower.cs" />
-    <Compile Include="Entities\Towers\Tower.cs" />
+    <Compile Include="Entities\Buildings\ArrowTower.cs" />
+    <Compile Include="Entities\Buildings\Building.cs" />
+    <Compile Include="Entities\Buildings\CannonTower.cs" />
+    <Compile Include="Entities\Buildings\Tower.cs" />
     <Compile Include="Entities\Map.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Entities\Buildings\TowerDecorator.cs" />
     <Compile Include="Facade\IGameFacade.cs" />
     <Compile Include="FactoryPattern\BaloonFactory.cs" />
     <Compile Include="FactoryPattern\IBaloon.cs" />

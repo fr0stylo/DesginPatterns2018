@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using Game.BuilderPattern;
 using Game.BuilderPattern.Waves;
+using Game.Entities.Buildings;
 using Game.Facade;
 using Game.Input;
 using Game.FactoryPattern;
@@ -50,9 +51,9 @@ namespace Game.Entities {
 
             var currentPlayer = _gameState.GetCurrentPlayer();
 
-            foreach (var tower in currentPlayer.GetTowers())
+            foreach (var buildings in currentPlayer.GetBuildings())
             {
-                g.DrawImage(Tower.TowerBitmap, tower.GetPosition());
+                g.DrawImage(Tower.TowerBitmap, buildings.GetPosition());
             }
 
             foreach (Baloon baloon in _gameState.GetPlayer1Baloons())

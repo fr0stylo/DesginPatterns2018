@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Entities.Buildings;
 
 namespace Game.Entities
 {
@@ -7,14 +8,14 @@ namespace Game.Entities
         public string Name { get; }
         public int MoneyPoints { get; private set; }
         public int HealthPoints { get; private set; }
-        private List<Tower> Towers;
+        private List<Building> Buildings;
 
         public Player(string name)
         {
             Name = name;
             MoneyPoints = 1000;
             HealthPoints = 100;
-            Towers = new List<Tower>();
+            Buildings = new List<Building>();
         }
 
         public void DecreaseHealthPoints(int pointsToDecrease)
@@ -27,14 +28,14 @@ namespace Game.Entities
             MoneyPoints += moneyAmount;
         }
 
-        public void AddTower(Tower tower)
+        public void AddBuilding(Building building)
         {
-            Towers.Add(tower);
+            Buildings.Add(building);
         }
 
-        public List<Tower> GetTowers()
+        public List<Building> GetBuildings()
         {
-            return Towers;
+            return Buildings;
         }
     }
 }

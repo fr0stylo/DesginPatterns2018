@@ -36,7 +36,7 @@ namespace Game.Input {
             var towerMaker = new TowerFactory();
             var createdTower = towerMaker.MakeTower(towerType, location);
             
-            _gameState.GetCurrentPlayer().AddTower(createdTower);
+            _gameState.GetCurrentPlayer().AddBuilding(createdTower);
         }
 
         public static MouseInput GetInstance() {

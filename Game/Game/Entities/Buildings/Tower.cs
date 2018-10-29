@@ -3,9 +3,9 @@ using Game.Entities.Projectiles;
 using Game.Properties;
 using Game.StrategyPattern.ProjectileStrategy;
 
-namespace Game.Entities
+namespace Game.Entities.Buildings
 {
-    public class Tower
+    public class Tower : Building
     {
         public static Bitmap TowerBitmap => Resources.Tower;
         
@@ -14,7 +14,7 @@ namespace Game.Entities
         protected int Price;
         protected IProjectileSpawn Spawner;
 
-        protected Tower(PointF position)
+        public Tower(PointF position)
         {
             Position = position;
         }
@@ -24,9 +24,21 @@ namespace Game.Entities
             return Position;
         }
 
+        public void SetSpwaner(IProjectileSpawn spawner)
+        {
+            Spawner = spawner;
+        }
+        
         public Projectile SpawnProjectile(PointF position)
         {
             return Spawner.SpawnProjectile(position);
         }
+
+        public int GetPrice()
+        {
+            return 10;
+        }
+        
+        
     }
 }
