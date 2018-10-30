@@ -11,18 +11,18 @@ namespace Game.FactoryPattern
         {
             if (towerType == TowerTypes.Arrow)
             {
-                var Tower = new Tower(location);
-                Tower.SetSpwaner(new ArrowSpawn());
+                var tower = new Tower(location);
+                tower.SetSpwaner(new ArrowSpawn());
                 
-                return new ArrowTower(new Tower(location));
+                return new ArrowTower(tower);
             }
 
             if (towerType == TowerTypes.Cannon)
             {
-                var Tower = new Tower(location);
-                Tower.SetSpwaner(new BombSpawn());
+                var tower = new Tower(location);
+                tower.SetSpwaner(new BombSpawn());
                 
-                return new CannonTower(new Tower(location));
+                return new CannonTower(tower);
             }
 
             return null;
