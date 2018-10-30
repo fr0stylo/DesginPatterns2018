@@ -22,8 +22,8 @@ namespace Game.BuilderPattern.Waves
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
-            WeakBaloon weakBaloon = (WeakBaloon)factory.CreateBaloon(BaloonTypes.Weak);
-            IntermediateBaloon intermediateBaloon = (IntermediateBaloon)factory.CreateBaloon(BaloonTypes.Intermediate);
+            IBaloon weakBaloon = factory.CreateBaloon(BaloonTypes.Weak);
+            IBaloon intermediateBaloon = factory.CreateBaloon(BaloonTypes.Intermediate);
 
             if (GameStateSingleton.GetInstance().GetAllowAddPlayer1Baloons())
             {

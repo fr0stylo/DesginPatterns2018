@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game.Entities;
+using Game.PrototypePattern;
 
 namespace Game.FactoryPattern
 {
-    public interface IBaloon: IRenderable
+    public interface IBaloon: IRenderable, IPrototype
     {
         void Move();
 
