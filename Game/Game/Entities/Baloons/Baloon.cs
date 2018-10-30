@@ -63,5 +63,15 @@ namespace Game.Entities
         {
             return (IPrototype)this.MemberwiseClone();
         }
+
+        public void Render(System.Drawing.Graphics g) {
+            if (GetIsDead()) return;
+            g.DrawImage(GetShape(), GetCurrentPosition());
+            Move();
+        }
+
+        public bool IsDisposed() {
+            return IsDead;
+        }
     }
 }

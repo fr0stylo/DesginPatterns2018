@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Entities;
 
 namespace Game.FactoryPattern
 {
-    public interface IBaloon
+    public interface IBaloon: IRenderable
     {
         void Move();
 
