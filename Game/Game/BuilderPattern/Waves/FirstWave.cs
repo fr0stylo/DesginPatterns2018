@@ -22,9 +22,10 @@ namespace Game.BuilderPattern.Waves
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
+            WeakBaloon weakBaloon =(WeakBaloon)factory.CreateBaloon(BaloonTypes.Weak);
             for (var i = 0; i < 10; i++)
             {
-                this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Weak));
+                this._wave.Baloons.Add((IBaloon)weakBaloon.Clone());
             }
         }
 
