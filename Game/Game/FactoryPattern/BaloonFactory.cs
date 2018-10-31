@@ -9,7 +9,7 @@ using Game.Helpers.Enums;
 
 namespace Game.FactoryPattern
 {
-    class BaloonFactory
+    public class BaloonFactory
     {
         private bool isPlayer1Factory;
         private Baloon weakBaloon;
@@ -24,7 +24,7 @@ namespace Game.FactoryPattern
             powerfulBaloon = new PowerfulBaloon(isPlayer1Factory);
         }
 
-        public IBaloon CreateBaloon(BaloonTypes baloonType)
+        public IBaloon CreateNew(BaloonTypes baloonType)
         {
             switch (baloonType)
             {

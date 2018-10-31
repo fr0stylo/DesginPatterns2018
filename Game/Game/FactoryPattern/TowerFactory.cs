@@ -7,7 +7,7 @@ namespace Game.FactoryPattern
 {
     public class TowerFactory
     {
-        public Building MakeTower(TowerTypes towerType, Point location)
+        public Building CreateNew(TowerTypes towerType, Point location)
         {
             if (towerType == TowerTypes.Arrow)
             {

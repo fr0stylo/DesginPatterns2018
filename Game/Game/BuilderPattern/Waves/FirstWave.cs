@@ -26,7 +26,7 @@ namespace Game.BuilderPattern.Waves
             {
                 for (var i = 0; i < 10; i++)
                 {
-                    this._wave.Baloons.Add(factory.CreateBaloon(BaloonTypes.Weak));
+                    this._wave.Baloons.Add(factory.CreateNew(BaloonTypes.Weak));
                 }
             }
         }

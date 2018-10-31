@@ -38,9 +38,6 @@ namespace Game
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.ArrowTower = new System.Windows.Forms.Button();
             this.PlayerMoney = new System.Windows.Forms.Label();
-            this.Player2WeakBaloon = new System.Windows.Forms.Button();
-            this.Player2IntermediateBaloon = new System.Windows.Forms.Button();
-            this.Player2StrongBaloon = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -51,18 +48,20 @@ namespace Game
             // PlayerName
             // 
             this.PlayerName.AutoSize = true;
-            this.PlayerName.Location = new System.Drawing.Point(12, 459);
+            this.PlayerName.Location = new System.Drawing.Point(16, 565);
+            this.PlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerName.Name = "PlayerName";
-            this.PlayerName.Size = new System.Drawing.Size(0, 13);
+            this.PlayerName.Size = new System.Drawing.Size(0, 17);
             this.PlayerName.TabIndex = 1;
             // 
             // StrongBaloon
             // 
             this.StrongBaloon.BackColor = System.Drawing.Color.Black;
             this.StrongBaloon.ForeColor = System.Drawing.Color.White;
-            this.StrongBaloon.Location = new System.Drawing.Point(26, 390);
+            this.StrongBaloon.Location = new System.Drawing.Point(35, 480);
+            this.StrongBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StrongBaloon.Name = "StrongBaloon";
-            this.StrongBaloon.Size = new System.Drawing.Size(60, 60);
+            this.StrongBaloon.Size = new System.Drawing.Size(80, 74);
             this.StrongBaloon.TabIndex = 2;
             this.StrongBaloon.Text = "STR";
             this.StrongBaloon.UseVisualStyleBackColor = false;
@@ -72,9 +71,10 @@ namespace Game
             // 
             this.IntermediateBaloon.BackColor = System.Drawing.Color.Black;
             this.IntermediateBaloon.ForeColor = System.Drawing.Color.White;
-            this.IntermediateBaloon.Location = new System.Drawing.Point(26, 324);
+            this.IntermediateBaloon.Location = new System.Drawing.Point(35, 399);
+            this.IntermediateBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IntermediateBaloon.Name = "IntermediateBaloon";
-            this.IntermediateBaloon.Size = new System.Drawing.Size(60, 60);
+            this.IntermediateBaloon.Size = new System.Drawing.Size(80, 74);
             this.IntermediateBaloon.TabIndex = 3;
             this.IntermediateBaloon.Text = "INT";
             this.IntermediateBaloon.UseVisualStyleBackColor = false;
@@ -84,9 +84,10 @@ namespace Game
             // 
             this.WeakBaloon.BackColor = System.Drawing.Color.Black;
             this.WeakBaloon.ForeColor = System.Drawing.Color.White;
-            this.WeakBaloon.Location = new System.Drawing.Point(26, 258);
+            this.WeakBaloon.Location = new System.Drawing.Point(35, 318);
+            this.WeakBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WeakBaloon.Name = "WeakBaloon";
-            this.WeakBaloon.Size = new System.Drawing.Size(60, 60);
+            this.WeakBaloon.Size = new System.Drawing.Size(80, 74);
             this.WeakBaloon.TabIndex = 4;
             this.WeakBaloon.Text = "WEAK";
             this.WeakBaloon.UseVisualStyleBackColor = false;
@@ -97,9 +98,10 @@ namespace Game
             this.TimeLabel.AutoSize = true;
             this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.TimeLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.TimeLabel.Location = new System.Drawing.Point(646, 456);
+            this.TimeLabel.Location = new System.Drawing.Point(861, 561);
+            this.TimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(60, 24);
+            this.TimeLabel.Size = new System.Drawing.Size(76, 29);
             this.TimeLabel.TabIndex = 5;
             this.TimeLabel.Text = "00:00";
             // 
@@ -113,9 +115,10 @@ namespace Game
             // 
             this.ArrowTower.BackColor = System.Drawing.Color.Black;
             this.ArrowTower.ForeColor = System.Drawing.Color.White;
-            this.ArrowTower.Location = new System.Drawing.Point(92, 390);
+            this.ArrowTower.Location = new System.Drawing.Point(123, 480);
+            this.ArrowTower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ArrowTower.Name = "ArrowTower";
-            this.ArrowTower.Size = new System.Drawing.Size(60, 60);
+            this.ArrowTower.Size = new System.Drawing.Size(80, 74);
             this.ArrowTower.TabIndex = 6;
             this.ArrowTower.Text = "ARRW";
             this.ArrowTower.UseVisualStyleBackColor = false;
@@ -126,55 +129,18 @@ namespace Game
             this.PlayerMoney.AutoSize = true;
             this.PlayerMoney.BackColor = System.Drawing.Color.Black;
             this.PlayerMoney.ForeColor = System.Drawing.Color.White;
-            this.PlayerMoney.Location = new System.Drawing.Point(92, 459);
+            this.PlayerMoney.Location = new System.Drawing.Point(123, 565);
+            this.PlayerMoney.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlayerMoney.Name = "PlayerMoney";
-            this.PlayerMoney.Size = new System.Drawing.Size(68, 13);
+            this.PlayerMoney.Size = new System.Drawing.Size(90, 17);
             this.PlayerMoney.TabIndex = 7;
             this.PlayerMoney.Text = "PlayerMoney";
             // 
-            // Player2WeakBaloon
-            // 
-            this.Player2WeakBaloon.BackColor = System.Drawing.Color.Black;
-            this.Player2WeakBaloon.ForeColor = System.Drawing.Color.White;
-            this.Player2WeakBaloon.Location = new System.Drawing.Point(1233, 258);
-            this.Player2WeakBaloon.Name = "Player2WeakBaloon";
-            this.Player2WeakBaloon.Size = new System.Drawing.Size(60, 60);
-            this.Player2WeakBaloon.TabIndex = 8;
-            this.Player2WeakBaloon.Text = "WEAK";
-            this.Player2WeakBaloon.UseVisualStyleBackColor = false;
-            this.Player2WeakBaloon.Click += new System.EventHandler(this.Player2WeakBaloon_Click);
-            // 
-            // Player2IntermediateBaloon
-            // 
-            this.Player2IntermediateBaloon.BackColor = System.Drawing.Color.Black;
-            this.Player2IntermediateBaloon.ForeColor = System.Drawing.Color.White;
-            this.Player2IntermediateBaloon.Location = new System.Drawing.Point(1233, 324);
-            this.Player2IntermediateBaloon.Name = "Player2IntermediateBaloon";
-            this.Player2IntermediateBaloon.Size = new System.Drawing.Size(60, 60);
-            this.Player2IntermediateBaloon.TabIndex = 9;
-            this.Player2IntermediateBaloon.Text = "INT";
-            this.Player2IntermediateBaloon.UseVisualStyleBackColor = false;
-            this.Player2IntermediateBaloon.Click += new System.EventHandler(this.Player2IntermediateBaloon_Click);
-            // 
-            // Player2StrongBaloon
-            // 
-            this.Player2StrongBaloon.BackColor = System.Drawing.Color.Black;
-            this.Player2StrongBaloon.Location = new System.Drawing.Point(1233, 390);
-            this.Player2StrongBaloon.Name = "Player2StrongBaloon";
-            this.Player2StrongBaloon.Size = new System.Drawing.Size(60, 60);
-            this.Player2StrongBaloon.TabIndex = 10;
-            this.Player2StrongBaloon.Text = "STR";
-            this.Player2StrongBaloon.UseVisualStyleBackColor = false;
-            this.Player2StrongBaloon.Click += new System.EventHandler(this.Player2StrongBaloon_Click);
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 481);
-            this.Controls.Add(this.Player2StrongBaloon);
-            this.Controls.Add(this.Player2IntermediateBaloon);
-            this.Controls.Add(this.Player2WeakBaloon);
+            this.ClientSize = new System.Drawing.Size(1816, 592);
             this.Controls.Add(this.PlayerMoney);
             this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
@@ -184,6 +150,7 @@ namespace Game
             this.Controls.Add(this.PlayerName);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
@@ -205,9 +172,6 @@ namespace Game
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Button ArrowTower;
         private System.Windows.Forms.Label PlayerMoney;
-        private System.Windows.Forms.Button Player2WeakBaloon;
-        private System.Windows.Forms.Button Player2IntermediateBaloon;
-        private System.Windows.Forms.Button Player2StrongBaloon;
     }
 }
 

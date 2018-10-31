@@ -3,17 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using Game.GameState;
 
 namespace Game.Entities
 {
-    public class GameStateSingleton
+    public class GameStateSingleton : IGameStateObserver
     {
         private int Id;
         private List<Player> Players;
         private List<IBaloon> Player1Baloons;
         private List<IBaloon> Player2Baloons;
+        private BaloonFactory _baloonFactory;
         private bool AllowAddPlayer1Baloons;
         private bool AllowAddPlayer2Baloons;
+        private bool InConstructionMode;
         private int Level;
 
         private static class SingletonHolder
@@ -28,6 +31,7 @@ namespace Game.Entities
             Player2Baloons = new List<IBaloon>();
             AllowAddPlayer1Baloons = true;
             AllowAddPlayer2Baloons = true;
+            InConstructionMode = false;
         }
 
         public static GameStateSingleton GetInstance()
@@ -105,6 +109,16 @@ namespace Game.Entities
         public bool GetAllowAddPlayer2Baloons()
         {
             return AllowAddPlayer2Baloons;
+        }
+
+        public void SetInConstructionMode(bool value)
+        {
+            InConstructionMode = value;
+        }
+
+        public bool GetInConstructionMode()
+        {
+            return InConstructionMode;
         }
     }
 }

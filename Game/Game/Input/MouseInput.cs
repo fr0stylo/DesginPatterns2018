@@ -4,18 +4,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Entities.Buildings;
 using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
+using Game.Command;
 
 namespace Game.Input {
-    public class MouseInput {
+    public class MouseInput : MouseSubject {
         private List<Point> lastMouseUp;
         private List<Point> lastMouseDown;
         private List<Point> clickPosition;
         private GameStateSingleton _gameState = GameStateSingleton.GetInstance();
-
         private static MouseInput _instance;
+        private string _mouseState;
 
         private MouseInput() {
             lastMouseDown = new List<Point>();
@@ -31,16 +33,26 @@ namespace Game.Input {
             lastMouseUp.Add(location);
         }
 
-        public void HandleClick(Point location, TowerTypes towerType)
+        public void HandleClick(TowerFactory factory, Point location, TowerTypes towerType)
         {
-            var towerMaker = new TowerFactory();
-            var createdTower = towerMaker.MakeTower(towerType, location);
-            
-            _gameState.GetCurrentPlayer().AddBuilding(createdTower);
+            ICommand command = new TowerCommand(factory, location, towerType);
+            _gameState.GetCurrentPlayer().AddBuilding(command.Execute());
+        }
+
+        public void HandleClick(BaloonFactory baloonFactory, BaloonTypes baloonType)
+        {
+            ICommand command = new BaloonCommand(baloonFactory, baloonType);
+            _gameState.AddPlayer1Baloon(command.Execute());
         }
 
         public static MouseInput GetInstance() {
             return _instance ?? (_instance = new MouseInput());
+        }
+
+        public string MouseState
+        {
+            get { return _mouseState; }
+            set { _mouseState = value; }
         }
     }
 }

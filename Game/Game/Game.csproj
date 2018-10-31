@@ -56,6 +56,9 @@
     <Compile Include="BuilderPattern\WaveBuilder.cs" />
     <Compile Include="BuilderPattern\WaveDirector.cs" />
     <Compile Include="BuilderPattern\Waves\SecondWave.cs" />
+    <Compile Include="Command\BaloonCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\TowerCommand.cs" />
     <Compile Include="Entities\Baloons\Baloon.cs" />
     <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
@@ -82,6 +85,7 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="GameState\GameStateSingleton.cs" />
+    <Compile Include="GameState\IGameStateObserver.cs" />
     <Compile Include="Graphics\GraphicsHandler.cs" />
     <Compile Include="Helpers\APIBaloonsHelper.cs" />
     <Compile Include="Helpers\APIGameHelper.cs" />
@@ -89,6 +93,7 @@
     <Compile Include="Helpers\Enums\ProjectileTypes.cs" />
     <Compile Include="Helpers\Enums\TowerTypes.cs" />
     <Compile Include="Input\MouseInput.cs" />
+    <Compile Include="Input\MouseSubject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrototypePattern\IPrototype.cs" />

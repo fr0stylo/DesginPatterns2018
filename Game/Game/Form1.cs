@@ -20,10 +20,11 @@ namespace Game
         private string time = "00:00";
         private int ticks = 0;
         private readonly GameStateSingleton _gameState = GameStateSingleton.GetInstance();
-        private bool _inConstructionMode = false;
         private TowerTypes _currentTowerType;
         private BaloonFactory Player1BaloonFactory;
-        private BaloonFactory Player2BaloonFactory;
+        private TowerFactory Player1TowerFactory;
+        private MouseInput MouseInput;
+        //private BaloonFactory Player2BaloonFactory;
 
         public Form1()
         {
@@ -42,7 +43,9 @@ namespace Game
             GameTimer.Enabled = true;
             GameTimer.Interval = 1000;
             Player1BaloonFactory = new BaloonFactory(true);
-            Player2BaloonFactory = new BaloonFactory(false);
+            MouseInput = MouseInput.GetInstance();
+            MouseInput.Attach(_gameState);
+            //Player2BaloonFactory = new BaloonFactory(false);
         }
 
         void HandleApplicationIdle(object sender, EventArgs e)
@@ -96,13 +99,13 @@ namespace Game
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (_inConstructionMode)
+            if (_gameState.GetInConstructionMode())
             {
-                var inputs = MouseInput.GetInstance();
-                inputs.HandleClick(e.Location, _currentTowerType);
+                MouseInput.HandleClick(new TowerFactory(), e.Location, TowerTypes.Arrow);
+                MouseInput.ChangeGameStateBuildingMode(false);
+                MouseInput.MouseState = "Waiting";
 
                 Cursor = Cursors.Arrow;
-                _inConstructionMode = false;
             }
         }
 
@@ -120,20 +123,17 @@ namespace Game
 
         private void StrongBaloon_Click(object sender, EventArgs e)
         {
-            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
-            _gameState.AddPlayer1Baloon(baloon);
+            MouseInput.HandleClick(Player1BaloonFactory, BaloonTypes.Powerful);
         }
 
         private void IntermediateBaloon_Click(object sender, EventArgs e)
         {
-            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
-            _gameState.AddPlayer1Baloon(baloon);
+            MouseInput.HandleClick(Player1BaloonFactory, BaloonTypes.Intermediate);
         }
 
         private void WeakBaloon_Click(object sender, EventArgs e)
         {
-            IBaloon baloon = Player1BaloonFactory.CreateBaloon(BaloonTypes.Weak);
-            _gameState.AddPlayer1Baloon(baloon);
+            MouseInput.HandleClick(Player1BaloonFactory, BaloonTypes.Weak);
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
@@ -157,26 +157,26 @@ namespace Game
         private void ArrowTower_Click(object sender, EventArgs e)
         {
             //            Cursor = new Cursor(new Bitmap(Tower.TowerBitmap).GetHicon());
-            _inConstructionMode = true;
-            _currentTowerType = TowerTypes.Arrow;
+            MouseInput.MouseState = "Building";
+            MouseInput.ChangeGameStateBuildingMode(true);
         }
 
-        private void Player2WeakBaloon_Click(object sender, EventArgs e)
-        {
-            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Weak);
-            _gameState.AddPlayer2Baloon(baloon);
-        }
+        //private void Player2WeakBaloon_Click(object sender, EventArgs e)
+        //{
+        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Weak);
+        //    _gameState.AddPlayer2Baloon(baloon);
+        //}
 
-        private void Player2IntermediateBaloon_Click(object sender, EventArgs e)
-        {
-            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
-            _gameState.AddPlayer2Baloon(baloon);
-        }
+        //private void Player2IntermediateBaloon_Click(object sender, EventArgs e)
+        //{
+        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
+        //    _gameState.AddPlayer2Baloon(baloon);
+        //}
 
-        private void Player2StrongBaloon_Click(object sender, EventArgs e)
-        {
-            IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
-            _gameState.AddPlayer2Baloon(baloon);
-        }
+        //private void Player2StrongBaloon_Click(object sender, EventArgs e)
+        //{
+        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
+        //    _gameState.AddPlayer2Baloon(baloon);
+        //}
     }
 }
