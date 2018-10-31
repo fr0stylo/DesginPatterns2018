@@ -7,13 +7,9 @@ using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
 
-namespace Game.BuilderPattern.Waves
-{
-    class SecondWave : WaveBuilder
-    {
-        public override void BuildNumber() {
-            
-        }
+namespace Game.BuilderPattern.Waves {
+    class SecondWave : WaveBuilder {
+        public override void BuildNumber() {}
 
         public override void BuildSpacing() {
             _wave.Spacing = 2;
@@ -22,16 +18,14 @@ namespace Game.BuilderPattern.Waves
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
-            if (GameStateSingleton.GetInstance().GetAllowAddPlayer1Baloons())
-            {
-                for (var i = 0; i < 10; i++)
-                {
-                    this._wave.Baloons.Add(factory.CreateNew(BaloonTypes.Weak));
-                }
-                for (var i = 0; i < 10; i++)
-                {
-                    this._wave.Baloons.Add(factory.CreateNew(BaloonTypes.Intermediate));
-                }
+            IBaloon weakBaloon = factory.CreateNew(BaloonTypes.Weak);
+            IBaloon intermediateBaloon = factory.CreateNew(BaloonTypes.Intermediate);
+
+            for (var i = 0; i < 10; i++) {
+                this._wave.Baloons.Add((IBaloon) weakBaloon.Clone());
+            }
+            for (var i = 0; i < 10; i++) {
+                this._wave.Baloons.Add((IBaloon) intermediateBaloon.Clone());
             }
         }
 

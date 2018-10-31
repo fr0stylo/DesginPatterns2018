@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace Game.Entities
 {
-    public abstract class Baloon : IBaloon, IPrototype
+    public abstract class Baloon : IBaloon
     {
         protected int Damage;
         protected int Speed; 
@@ -59,9 +59,20 @@ namespace Game.Entities
             Position = new PointF(Position.X - SpacingPoint.X * x, Position.Y - SpacingPoint.Y * y);
         }
 
-        public IPrototype Clone()
+
+        public void Render(System.Drawing.Graphics g) {
+            if (GetIsDead()) return;
+            g.DrawImage(GetShape(), GetCurrentPosition());
+            Move();
+        }
+
+        public bool IsDisposed() {
+            return IsDead;
+        }
+
+        IPrototype IPrototype.Clone()
         {
-            return (IPrototype)this.MemberwiseClone();
+            return (IBaloon)this.MemberwiseClone();
         }
     }
 }

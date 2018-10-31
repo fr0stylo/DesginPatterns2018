@@ -12,16 +12,11 @@ namespace Game.FactoryPattern
     public class BaloonFactory
     {
         private bool isPlayer1Factory;
-        private Baloon weakBaloon;
-        private Baloon intermediateBaloon;
-        private Baloon powerfulBaloon;
+
 
         public BaloonFactory(bool isPlayer1Factory)
         {
             this.isPlayer1Factory = isPlayer1Factory;
-            weakBaloon = new WeakBaloon(isPlayer1Factory);
-            intermediateBaloon = new IntermediateBaloon(isPlayer1Factory);
-            powerfulBaloon = new PowerfulBaloon(isPlayer1Factory);
         }
 
         public IBaloon CreateNew(BaloonTypes baloonType)
@@ -29,11 +24,11 @@ namespace Game.FactoryPattern
             switch (baloonType)
             {
                 case BaloonTypes.Weak:
-                    return (IBaloon)weakBaloon.Clone();
+                    return new WeakBaloon(isPlayer1Factory);
                 case BaloonTypes.Intermediate:
-                    return (IBaloon)intermediateBaloon.Clone();
+                    return new IntermediateBaloon(isPlayer1Factory);
                 case BaloonTypes.Powerful:
-                    return (IBaloon)powerfulBaloon.Clone();
+                    return new PowerfulBaloon(isPlayer1Factory);
                 default:
                     return null;
 
