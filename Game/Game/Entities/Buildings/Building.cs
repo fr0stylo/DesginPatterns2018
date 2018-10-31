@@ -2,7 +2,7 @@ using System.Drawing;
 
 namespace Game.Entities.Buildings
 {
-    public interface Building
+    public interface Building: IRenderable
     {
         int GetPrice();
         PointF GetPosition();

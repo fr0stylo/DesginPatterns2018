@@ -6,7 +6,7 @@ namespace Game.Entities.Buildings
     {
         protected Building TempBuilding;
 
-        public TowerDecorator(Building tempBuilding)
+        protected TowerDecorator(Building tempBuilding)
         {
             TempBuilding = tempBuilding;
         }
@@ -19,6 +19,14 @@ namespace Game.Entities.Buildings
         public PointF GetPosition()
         {
             return TempBuilding.GetPosition();
+        }
+
+        public void Render(System.Drawing.Graphics g) {
+            TempBuilding.Render(g);
+        }
+
+        public bool IsDisposed() {
+            return false;
         }
     }
 }

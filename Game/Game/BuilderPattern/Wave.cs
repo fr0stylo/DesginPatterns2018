@@ -23,7 +23,7 @@ namespace Game.BuilderPattern
         public bool IsDisposed() {
             Baloons = Baloons.Where(x => !x.IsDisposed()).ToList();
 
-            return Baloons.Count > 0;
+            return Baloons.Count <= 0;
         }
     }
 }

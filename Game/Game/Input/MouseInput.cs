@@ -36,13 +36,13 @@ namespace Game.Input {
         public void HandleClick(TowerFactory factory, Point location, TowerTypes towerType)
         {
             ICommand command = new TowerCommand(factory, location, towerType);
-            _gameState.GetCurrentPlayer().AddBuilding(command.Execute());
+            _gameState.AddRenderable(command.Execute());
         }
 
         public void HandleClick(BaloonFactory baloonFactory, BaloonTypes baloonType)
         {
             ICommand command = new BaloonCommand(baloonFactory, baloonType);
-            _gameState.AddPlayer1Baloon(command.Execute());
+            _gameState.AddRenderable(command.Execute());
         }
 
         public static MouseInput GetInstance() {

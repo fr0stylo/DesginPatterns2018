@@ -24,7 +24,6 @@ namespace Game
         private BaloonFactory Player1BaloonFactory;
         private TowerFactory Player1TowerFactory;
         private MouseInput MouseInput;
-        //private BaloonFactory Player2BaloonFactory;
 
         public Form1()
         {
@@ -45,7 +44,6 @@ namespace Game
             Player1BaloonFactory = new BaloonFactory(true);
             MouseInput = MouseInput.GetInstance();
             MouseInput.Attach(_gameState);
-            //Player2BaloonFactory = new BaloonFactory(false);
         }
 
         void HandleApplicationIdle(object sender, EventArgs e)
@@ -156,27 +154,8 @@ namespace Game
 
         private void ArrowTower_Click(object sender, EventArgs e)
         {
-            //            Cursor = new Cursor(new Bitmap(Tower.TowerBitmap).GetHicon());
             MouseInput.MouseState = "Building";
             MouseInput.ChangeGameStateBuildingMode(true);
         }
-
-        //private void Player2WeakBaloon_Click(object sender, EventArgs e)
-        //{
-        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Weak);
-        //    _gameState.AddPlayer2Baloon(baloon);
-        //}
-
-        //private void Player2IntermediateBaloon_Click(object sender, EventArgs e)
-        //{
-        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Intermediate);
-        //    _gameState.AddPlayer2Baloon(baloon);
-        //}
-
-        //private void Player2StrongBaloon_Click(object sender, EventArgs e)
-        //{
-        //    IBaloon baloon = Player2BaloonFactory.CreateBaloon(BaloonTypes.Powerful);
-        //    _gameState.AddPlayer2Baloon(baloon);
-        //}
     }
 }

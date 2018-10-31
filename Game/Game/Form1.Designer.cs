@@ -48,20 +48,18 @@ namespace Game
             // PlayerName
             // 
             this.PlayerName.AutoSize = true;
-            this.PlayerName.Location = new System.Drawing.Point(16, 565);
-            this.PlayerName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PlayerName.Location = new System.Drawing.Point(12, 459);
             this.PlayerName.Name = "PlayerName";
-            this.PlayerName.Size = new System.Drawing.Size(0, 17);
+            this.PlayerName.Size = new System.Drawing.Size(0, 13);
             this.PlayerName.TabIndex = 1;
             // 
             // StrongBaloon
             // 
             this.StrongBaloon.BackColor = System.Drawing.Color.Black;
             this.StrongBaloon.ForeColor = System.Drawing.Color.White;
-            this.StrongBaloon.Location = new System.Drawing.Point(35, 480);
-            this.StrongBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StrongBaloon.Location = new System.Drawing.Point(26, 390);
             this.StrongBaloon.Name = "StrongBaloon";
-            this.StrongBaloon.Size = new System.Drawing.Size(80, 74);
+            this.StrongBaloon.Size = new System.Drawing.Size(60, 60);
             this.StrongBaloon.TabIndex = 2;
             this.StrongBaloon.Text = "STR";
             this.StrongBaloon.UseVisualStyleBackColor = false;
@@ -71,10 +69,9 @@ namespace Game
             // 
             this.IntermediateBaloon.BackColor = System.Drawing.Color.Black;
             this.IntermediateBaloon.ForeColor = System.Drawing.Color.White;
-            this.IntermediateBaloon.Location = new System.Drawing.Point(35, 399);
-            this.IntermediateBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IntermediateBaloon.Location = new System.Drawing.Point(26, 324);
             this.IntermediateBaloon.Name = "IntermediateBaloon";
-            this.IntermediateBaloon.Size = new System.Drawing.Size(80, 74);
+            this.IntermediateBaloon.Size = new System.Drawing.Size(60, 60);
             this.IntermediateBaloon.TabIndex = 3;
             this.IntermediateBaloon.Text = "INT";
             this.IntermediateBaloon.UseVisualStyleBackColor = false;
@@ -84,10 +81,9 @@ namespace Game
             // 
             this.WeakBaloon.BackColor = System.Drawing.Color.Black;
             this.WeakBaloon.ForeColor = System.Drawing.Color.White;
-            this.WeakBaloon.Location = new System.Drawing.Point(35, 318);
-            this.WeakBaloon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.WeakBaloon.Location = new System.Drawing.Point(26, 258);
             this.WeakBaloon.Name = "WeakBaloon";
-            this.WeakBaloon.Size = new System.Drawing.Size(80, 74);
+            this.WeakBaloon.Size = new System.Drawing.Size(60, 60);
             this.WeakBaloon.TabIndex = 4;
             this.WeakBaloon.Text = "WEAK";
             this.WeakBaloon.UseVisualStyleBackColor = false;
@@ -98,10 +94,9 @@ namespace Game
             this.TimeLabel.AutoSize = true;
             this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.TimeLabel.ForeColor = System.Drawing.Color.Cornsilk;
-            this.TimeLabel.Location = new System.Drawing.Point(861, 561);
-            this.TimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TimeLabel.Location = new System.Drawing.Point(646, 456);
             this.TimeLabel.Name = "TimeLabel";
-            this.TimeLabel.Size = new System.Drawing.Size(76, 29);
+            this.TimeLabel.Size = new System.Drawing.Size(60, 24);
             this.TimeLabel.TabIndex = 5;
             this.TimeLabel.Text = "00:00";
             // 
@@ -115,10 +110,9 @@ namespace Game
             // 
             this.ArrowTower.BackColor = System.Drawing.Color.Black;
             this.ArrowTower.ForeColor = System.Drawing.Color.White;
-            this.ArrowTower.Location = new System.Drawing.Point(123, 480);
-            this.ArrowTower.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ArrowTower.Location = new System.Drawing.Point(92, 390);
             this.ArrowTower.Name = "ArrowTower";
-            this.ArrowTower.Size = new System.Drawing.Size(80, 74);
+            this.ArrowTower.Size = new System.Drawing.Size(60, 60);
             this.ArrowTower.TabIndex = 6;
             this.ArrowTower.Text = "ARRW";
             this.ArrowTower.UseVisualStyleBackColor = false;
@@ -129,18 +123,17 @@ namespace Game
             this.PlayerMoney.AutoSize = true;
             this.PlayerMoney.BackColor = System.Drawing.Color.Black;
             this.PlayerMoney.ForeColor = System.Drawing.Color.White;
-            this.PlayerMoney.Location = new System.Drawing.Point(123, 565);
-            this.PlayerMoney.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PlayerMoney.Location = new System.Drawing.Point(92, 459);
             this.PlayerMoney.Name = "PlayerMoney";
-            this.PlayerMoney.Size = new System.Drawing.Size(90, 17);
+            this.PlayerMoney.Size = new System.Drawing.Size(68, 13);
             this.PlayerMoney.TabIndex = 7;
             this.PlayerMoney.Text = "PlayerMoney";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1816, 592);
+            this.ClientSize = new System.Drawing.Size(1362, 481);
             this.Controls.Add(this.PlayerMoney);
             this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
@@ -150,7 +143,6 @@ namespace Game
             this.Controls.Add(this.PlayerName);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);

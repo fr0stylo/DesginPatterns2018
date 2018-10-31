@@ -4,7 +4,7 @@ using Game.Properties;
 using Game.StrategyPattern.ProjectileStrategy;
 
 namespace Game.Entities.Buildings {
-    public class Tower : Building, IRenderable {
+    public class Tower : Building {
         public static Bitmap TowerBitmap => Resources.Tower;
 
         private PointF Position;

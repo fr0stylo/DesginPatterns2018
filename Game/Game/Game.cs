@@ -14,7 +14,6 @@ using Game.FactoryPattern;
 namespace Game.Entities {
     public class Game : IGameFacade {
         private List<PointF[]> _points;
-        private List<IRenderable> _entities;
         private int _width, _height;
         private GameStateSingleton _gameState = GameStateSingleton.GetInstance();
         private Timer waveCreator;
@@ -25,7 +24,6 @@ namespace Game.Entities {
             _height = height;
             _points = new List<PointF[]>();
             _gameState.AddPlayer(new Player("Player 1 (you)"));
-            _entities = new List<IRenderable>();
             _waveDirector = new WaveDirector();
             _waveDirector.SetBuilder(new FirstWave());
 
@@ -34,8 +32,7 @@ namespace Game.Entities {
 
         private void _generateWave() {
             _waveDirector.BuildWave();
-            _entities = _entities.Where(x => !x.IsDisposed()).ToList();
-            _entities.Add(_waveDirector.GetVave);
+            _gameState.AddRenderable(_waveDirector.GetWave);
             _waveDirector.NextWave();
         }
 
@@ -46,39 +43,10 @@ namespace Game.Entities {
                 g.DrawImage(Tower.TowerBitmap, point);
             }
 
-            foreach (var renderable in _entities) {
+            foreach (var renderable in _gameState.GetRenderables()) {
                 renderable.Render(g);
             }
-//            var currentPlayer = _gameState.GetCurrentPlayer();
-//
-//            foreach (var buildings in currentPlayer.GetBuildings())
-//            {
-//                g.DrawImage(Tower.TowerBitmap, buildings.GetPosition());
-//            }
-//
-//            foreach (Baloon baloon in _gameState.GetPlayer1Baloons())
-//            {
-//                if (!baloon.GetIsDead())
-//                {
-//                    g.DrawImage(baloon.GetShape(), baloon.GetCurrentPosition());
-//                    baloon.Move();
-//                }
-//                // while printing, dont allow to modify collection
-//                _gameState.SetAllowAddPlayer1Baloons(false);
-//            }
-//            _gameState.SetAllowAddPlayer1Baloons(true);
-//
-//            foreach (Baloon baloon in _gameState.GetPlayer2Baloons())
-//            {
-//                if (!baloon.GetIsDead())
-//                {
-//                    g.DrawImage(baloon.GetShape(), baloon.GetCurrentPosition());
-//                    baloon.Move();
-//                }
-//                // while printing, dont allow to modify collection
-//                _gameState.SetAllowAddPlayer2Baloons(false);
-//            }
-//            _gameState.SetAllowAddPlayer2Baloons(true);
+
             _points.Clear();
         }
     }

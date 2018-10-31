@@ -12,7 +12,7 @@ namespace Game.BuilderPattern.Waves
     public class FirstWave : WaveBuilder
     {
         public override void BuildNumber() {
-            this._wave.Number = 1;
+            _wave.Number = 1;
         }
 
         public override void BuildSpacing() {
@@ -25,7 +25,7 @@ namespace Game.BuilderPattern.Waves
             IBaloon weakBaloon = factory.CreateNew(BaloonTypes.Weak);
             for (var i = 0; i < 10; i++)
             {
-                this._wave.Baloons.Add((IBaloon)weakBaloon.Clone());
+                _wave.Baloons.Add((IBaloon)weakBaloon.Clone());
             }
         }
 

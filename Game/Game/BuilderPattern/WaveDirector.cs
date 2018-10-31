@@ -13,7 +13,7 @@ namespace Game.BuilderPattern
             _builder = builder;
         }
 
-        public Wave GetVave => _builder.GetWave;
+        public Wave GetWave => _builder.GetWave;
 
         public void BuildWave() {
             _builder.CreateNewWave();
