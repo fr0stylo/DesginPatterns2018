@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using GameAPI.Data;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 
 namespace GameAPI
 {
@@ -31,6 +32,8 @@ namespace GameAPI
             services.AddDbContext<DataContext>
                 (options => options.UseSqlServer(Configuration.GetSection("ConnectionStrings:DefaultConnection").Value));
             services.AddScoped<ITowersDefenseRepository, TowersDefenseRepository>();
+            services.AddAutoMapper();
+
 
         }
 

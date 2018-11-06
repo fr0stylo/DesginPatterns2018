@@ -9,6 +9,7 @@ using Game.FactoryPattern;
 using System.Collections.Generic;
 using Game.Facade;
 using Game.Helpers.Enums;
+using Game.AdapterPattern;
 
 namespace Game
 {
@@ -156,6 +157,13 @@ namespace Game
         {
             MouseInput.MouseState = "Building";
             MouseInput.ChangeGameStateBuildingMode(true);
+        }
+
+        private async void WrapperExample_Click(object sender, EventArgs e)
+        {
+            HttpWrapper wrapper = new HttpWrapper(new System.Net.Http.HttpClient());
+            PlayerAPIdummie player = await wrapper.Get<PlayerAPIdummie>("https://towerdefenseapi.azurewebsites.net/api/players/3");
+
         }
     }
 }

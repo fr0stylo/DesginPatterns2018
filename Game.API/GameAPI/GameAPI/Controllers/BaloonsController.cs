@@ -21,7 +21,13 @@ namespace GameAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBaloon(int id)
         {
-            var baloon = await _repo.GetBaloon(id);
+             var baloon = await _repo.GetBaloon(id);
+            //Baloon baloon = new Baloon();
+            //baloon.AttackPlayer1 = true;
+            //baloon.AttackPlayer2 = false;
+            //baloon.BaloonId = 1;
+            //baloon.GameId = 1;
+            //baloon.Type = "WeakBaloon";
             return Ok(baloon);
         }
         [HttpPost]

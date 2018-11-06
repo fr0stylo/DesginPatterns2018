@@ -33,7 +33,7 @@ namespace Game.Entities
             AllowAddPlayer2Baloons = true;
             InConstructionMode = false;
             _singleton = DebugLogSingleton.GetInstance();
-            _singleton.Log<GameStateSingleton>("Observer", "Initializing game state singleton observer.");
+            _singleton.Log<GameStateSingleton>("Singleton", "Initializing game state. ");
         }
 
         public static GameStateSingleton GetInstance()

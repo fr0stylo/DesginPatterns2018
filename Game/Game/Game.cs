@@ -18,6 +18,8 @@ namespace Game.Entities {
         private GameStateSingleton _gameState = GameStateSingleton.GetInstance();
         private Timer waveCreator;
         private WaveDirector _waveDirector;
+        private DebugLogSingleton _singleton;
+        private int _facadeCounter;
 
         public Game(int width, int height) {
             _width = width;
@@ -26,8 +28,9 @@ namespace Game.Entities {
             _gameState.AddPlayer(new Player("Player 1 (you)"));
             _waveDirector = new WaveDirector();
             _waveDirector.SetBuilder(new FirstWave());
-
+            _singleton = DebugLogSingleton.GetInstance();
             waveCreator = new Timer(i => _generateWave(), null, 0, 10000);
+            _facadeCounter = 0;
         }
 
         private void _generateWave() {
@@ -36,9 +39,17 @@ namespace Game.Entities {
             _waveDirector.NextWave();
         }
 
-        public void Update() {}
+        public void Update() {
+            if (_facadeCounter == 30000)
+            {
+                _singleton.Log<IGameFacade>("Facade", "IGameFacade method: Update.");
+                _facadeCounter = 0;
+            }
+            _facadeCounter++;
+        }
 
         public void Render(System.Drawing.Graphics g) {
+
             foreach (var point in _points) {
                 g.DrawImage(Tower.TowerBitmap, point);
             }

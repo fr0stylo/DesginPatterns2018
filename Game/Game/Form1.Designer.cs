@@ -38,6 +38,7 @@ namespace Game
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.ArrowTower = new System.Windows.Forms.Button();
             this.PlayerMoney = new System.Windows.Forms.Label();
+            this.WrapperExample = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -129,11 +130,23 @@ namespace Game
             this.PlayerMoney.TabIndex = 7;
             this.PlayerMoney.Text = "PlayerMoney";
             // 
+            // WrapperExample
+            // 
+            this.WrapperExample.BackColor = System.Drawing.Color.Black;
+            this.WrapperExample.Location = new System.Drawing.Point(171, 390);
+            this.WrapperExample.Name = "WrapperExample";
+            this.WrapperExample.Size = new System.Drawing.Size(78, 60);
+            this.WrapperExample.TabIndex = 8;
+            this.WrapperExample.Text = "Wrapper";
+            this.WrapperExample.UseVisualStyleBackColor = false;
+            this.WrapperExample.Click += new System.EventHandler(this.WrapperExample_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1362, 481);
+            this.ClientSize = new System.Drawing.Size(1354, 481);
+            this.Controls.Add(this.WrapperExample);
             this.Controls.Add(this.PlayerMoney);
             this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
@@ -164,6 +177,7 @@ namespace Game
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Button ArrowTower;
         private System.Windows.Forms.Label PlayerMoney;
+        private System.Windows.Forms.Button WrapperExample;
     }
 }
 
