@@ -8,11 +8,12 @@ namespace Game
 {
     class DebugLog
     {
+        public string Pattern { get; set; }
         public string Class { get; set; }
         public string Execution { get; set; }
 
         public override string ToString() {
-            return $"{Class}: {Execution} \n";
+            return $"{Pattern} - {Class}: {Execution} \n";
         }
     }
 }

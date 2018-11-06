@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.BuilderPattern
-{
+namespace Game.BuilderPattern {
     public class WaveDirector {
         private WaveBuilder _builder;
         private DebugLogSingleton _singleton;
@@ -15,25 +14,25 @@ namespace Game.BuilderPattern
         }
 
         public void SetBuilder(WaveBuilder builder) {
-            _singleton.Log<WaveDirector>("Setting builder");
+            _singleton.Log<WaveDirector>("Builder", "Setting builder");
             _builder = builder;
         }
 
         public Wave GetWave => _builder.GetWave;
 
         public void BuildWave() {
-            _singleton.Log<WaveDirector>("Creating Wave");
+            _singleton.Log<WaveDirector>("Builder", "Creating Wave");
             _builder.CreateNewWave();
-            _singleton.Log<WaveDirector>("Building Wave");
+            _singleton.Log<WaveDirector>("Builder", "Building Wave");
             _builder.BuildWave();
-            _singleton.Log<WaveDirector>("Build Number");
+            _singleton.Log<WaveDirector>("Builder", "Build Number");
             _builder.BuildNumber();
-            _singleton.Log<WaveDirector>("Build Spacing");
+            _singleton.Log<WaveDirector>("Builder", "Build Spacing");
             _builder.BuildSpacing();
         }
 
         public void NextWave() {
-            _singleton.Log<WaveDirector>("Set Next builder");
+            _singleton.Log<WaveDirector>("Builder", "Set Next builder");
             SetBuilder(_builder.NextBuilder());
         }
     }

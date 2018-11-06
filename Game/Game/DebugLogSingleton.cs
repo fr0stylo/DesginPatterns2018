@@ -18,8 +18,8 @@ namespace Game {
             DebugLogs = new List<DebugLog>();
         }
 
-        public void Log<T>(string ex) {
-            DebugLogs.Add(new DebugLog {Class = typeof(T).ToString(), Execution = ex});
+        public void Log<T>(string pattern, string ex) {
+            DebugLogs.Add(new DebugLog {Pattern = pattern, Class = typeof(T).ToString(), Execution = ex});
             OnEntry?.Invoke(e);
         }
 
