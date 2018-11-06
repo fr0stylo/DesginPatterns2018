@@ -33,7 +33,7 @@ namespace Game {
 
         public string Filter(string filter) {
             var sb = new StringBuilder();
-            DebugLogs.Where(x => x.Class == filter).ToList().ForEach(x => sb.Append(x.ToString()));
+            DebugLogs.Where(x => x.Pattern == filter).ToList().ForEach(x => sb.Append(x.ToString()));
 
             return sb.ToString();
         }

@@ -17,13 +17,13 @@ namespace Game
             singleton = DebugLogSingleton.GetInstance();
             singleton.OnEntry += SingletonOnOnEntry;
             richTextBox1.Text += singleton.ToString();
-            comboBox1.Items.AddRange(singleton.DebugLogs.Select(x => x.Class).Distinct().ToArray());
+            comboBox1.Items.AddRange(singleton.DebugLogs.Select(x => x.Pattern).Distinct().ToArray());
         }
 
         private void SingletonOnOnEntry(EventArgs eventArgs) {
             richTextBox1.Invoke(new Action(() => {
                 comboBox1.Items.Clear();
-                comboBox1.Items.AddRange(singleton.DebugLogs.Select(x => x.Class).Distinct().ToArray());
+                comboBox1.Items.AddRange(singleton.DebugLogs.Select(x => x.Pattern).Distinct().ToArray());
                 richTextBox1.Clear();
                 richTextBox1.Text += singleton.ToString();
             }));
