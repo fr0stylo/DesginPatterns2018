@@ -3,10 +3,12 @@ using System.Drawing;
 namespace Game.StrategyPattern
 {
     class Player2Movement : IMoveAlgorithm
-    { 
+    {
+        //private DebugLogSingleton _singleton = DebugLogSingleton.GetInstance();
 
         public void Move(ref PointF position, int speed, ref bool isDead)
         {
+            //_singleton.Log<Player1Movement>("Strategy", "Player2 move strategy is called");
             if (position.X >= 675 && position.X < 810 && position.Y == 0)
                 position.X += speed;
             //second line down

@@ -5,10 +5,12 @@ namespace Game.Entities.Buildings
     public abstract class TowerDecorator : Building
     {
         protected Building TempBuilding;
+        private DebugLogSingleton _singleton = DebugLogSingleton.GetInstance();
 
         protected TowerDecorator(Building tempBuilding)
         {
             TempBuilding = tempBuilding;
+            _singleton.Log<TowerDecorator>("Decorator", "Initializing tower decorator.");
         }
 
         public virtual int GetPrice()

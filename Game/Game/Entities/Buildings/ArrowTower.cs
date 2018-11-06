@@ -5,7 +5,11 @@ namespace Game.Entities.Buildings
 {
     public class ArrowTower : TowerDecorator
     {
-        public ArrowTower(Building newBuilding) : base(newBuilding) {}
+        private DebugLogSingleton _singleton = DebugLogSingleton.GetInstance();
+
+        public ArrowTower(Building newBuilding) : base(newBuilding) {
+            _singleton.Log<ArrowTower>("Decorator", "Creatin arrow tower.");
+        }
         
         public override int GetPrice()
         {

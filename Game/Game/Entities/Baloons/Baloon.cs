@@ -14,6 +14,7 @@ namespace Game.Entities
         protected PointF Position = new PointF(0, 0);
         protected bool IsPlayer1Baloon;
         protected PointF SpacingPoint;
+        //private DebugLogSingleton _sigleton = DebugLogSingleton.GetInstance();
 
         public IMoveAlgorithm moveStrategy;
 
@@ -21,7 +22,8 @@ namespace Game.Entities
         public void Move()
         {
             var damagedPlayer = false;
-            
+
+            //_sigleton.Log<Baloon>("Strategy", "Baloon class call move strategy for baloon.");
             moveStrategy.Move(ref Position, Speed, ref damagedPlayer);
 
             if (damagedPlayer)
