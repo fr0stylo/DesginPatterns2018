@@ -59,6 +59,14 @@
     <Compile Include="Command\BaloonCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\TowerCommand.cs" />
+    <Compile Include="DebugLog.cs" />
+    <Compile Include="DebugLogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugLogForm.Designer.cs">
+      <DependentUpon>DebugLogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebugLogSingleton.cs" />
     <Compile Include="Entities\Baloons\Baloon.cs" />
     <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
@@ -110,6 +118,9 @@
     <Compile Include="StrategyPattern\ProjectileStrategy\ArrowSpawn.cs" />
     <Compile Include="StrategyPattern\ProjectileStrategy\BombSpawn.cs" />
     <Compile Include="StrategyPattern\ProjectileStrategy\IProjectileSpawn.cs" />
+    <EmbeddedResource Include="DebugLogForm.resx">
+      <DependentUpon>DebugLogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

@@ -21,7 +21,11 @@ namespace Game
         {
             Form1 form = new Form1();
             form.Show();
+            var debug = new DebugLogForm();
+            debug.Show();
             Hide();
+
+            form.Closing += (o, args) => Close();
         }
     }
 }
