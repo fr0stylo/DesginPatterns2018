@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
+using Game.PrototypePattern;
 
 namespace Game.BuilderPattern.Waves
 {
     public class FirstWave : WaveBuilder
     {
+        private DebugLogSingleton _singleton;
+
+        public FirstWave()
+        {
+            _singleton = DebugLogSingleton.GetInstance();
+        }
         public override void BuildNumber() {
             _wave.Number = 1;
         }
@@ -26,6 +33,8 @@ namespace Game.BuilderPattern.Waves
             for (var i = 0; i < 10; i++)
             {
                 _wave.Baloons.Add((IBaloon)weakBaloon.Clone());
+                _singleton.Log<IPrototype>("Prototype", "Cloning  baloon while creating wawe");
+
             }
         }
 

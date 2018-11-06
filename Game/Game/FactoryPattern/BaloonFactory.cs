@@ -12,15 +12,21 @@ namespace Game.FactoryPattern
     public class BaloonFactory
     {
         private bool isPlayer1Factory;
+        private DebugLogSingleton _singleton;
 
 
         public BaloonFactory(bool isPlayer1Factory)
         {
             this.isPlayer1Factory = isPlayer1Factory;
+            _singleton = DebugLogSingleton.GetInstance();
+            _singleton.Log<BaloonFactory>("Factory", "Initializing baloon factory");
+
         }
 
         public IBaloon CreateNew(BaloonTypes baloonType)
         {
+            _singleton.Log<BaloonFactory>("Factory", "Creating baloon");
+
             switch (baloonType)
             {
                 case BaloonTypes.Weak:
