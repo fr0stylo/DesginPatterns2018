@@ -4,11 +4,15 @@ namespace Game.StrategyPattern
 {
     class Player2Movement : IMoveAlgorithm
     {
-        //private DebugLogSingleton _singleton = DebugLogSingleton.GetInstance();
+        private DebugLogSingleton _singleton;
+
+        public Player2Movement()
+        {
+            _singleton = DebugLogSingleton.GetInstance();
+        }
 
         public void Move(ref PointF position, int speed, ref bool isDead)
         {
-            //_singleton.Log<Player1Movement>("Strategy", "Player2 move strategy is called");
             if (position.X >= 675 && position.X < 810 && position.Y == 0)
                 position.X += speed;
             //second line down
@@ -49,7 +53,10 @@ namespace Game.StrategyPattern
                 position.X += speed;
 
             if (position.X >= 1325 && position.Y >= 380)
+            {
                 isDead = true;
+                _singleton.Log<IMoveAlgorithm>("Strategy", "Baloon finished moving strategy.");
+            }
         }
     }
 }

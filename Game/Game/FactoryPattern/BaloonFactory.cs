@@ -19,8 +19,6 @@ namespace Game.FactoryPattern
         {
             this.isPlayer1Factory = isPlayer1Factory;
             _singleton = DebugLogSingleton.GetInstance();
-            _singleton.Log<BaloonFactory>("Factory", "Initializing baloon factory");
-
         }
 
         public IBaloon CreateNew(BaloonTypes baloonType)

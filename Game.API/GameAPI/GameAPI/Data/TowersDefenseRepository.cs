@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameAPI.Models;
 using Microsoft.EntityFrameworkCore;
-
 namespace GameAPI.Data
 {
     public class TowersDefenseRepository : ITowersDefenseRepository
@@ -37,6 +36,13 @@ namespace GameAPI.Data
             var game = await _context.Games.FirstOrDefaultAsync(x => x.GameId == GameId);
 
             return game;
+        }
+
+        public async Task<Player> GetPlayer(int playerId)
+        {
+            Player player = await _context.Players.FirstOrDefaultAsync(x => x.PlayerId == playerId);
+            
+            return player;
         }
 
         public async Task<bool> SaveAll()

@@ -72,6 +72,7 @@
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
     <Compile Include="Entities\Baloons\WeakBaloon.cs" />
     <Compile Include="Entities\IRenderable.cs" />
+    <Compile Include="Entities\PlayerAPIdummie.cs" />
     <Compile Include="Entities\Projectiles\Arrow.cs" />
     <Compile Include="Entities\Projectiles\Bomb.cs" />
     <Compile Include="Entities\Projectiles\Projectile.cs" />

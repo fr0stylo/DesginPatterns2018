@@ -16,6 +16,8 @@ namespace GameAPI.Data
 
         Task<Baloon> GetBaloon(int baloonId);
 
+        Task<Player> GetPlayer(int playerId);
+
         Task<Game> GetGame(int GameId);
     }
 }
