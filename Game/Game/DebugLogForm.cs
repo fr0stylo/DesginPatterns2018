@@ -12,6 +12,8 @@ namespace Game
 {
     public partial class DebugLogForm : Form {
         private DebugLogSingleton singleton;
+        private string filter;
+
         public DebugLogForm() {
             InitializeComponent();
             singleton = DebugLogSingleton.GetInstance();
@@ -25,13 +27,19 @@ namespace Game
                 comboBox1.Items.Clear();
                 comboBox1.Items.AddRange(singleton.DebugLogs.Select(x => x.Pattern).Distinct().ToArray());
                 richTextBox1.Clear();
-                richTextBox1.Text += singleton.ToString();
+                if (!string.IsNullOrEmpty(filter)) {
+                    richTextBox1.Text += singleton.Filter(filter);
+                }
+                else {
+                    richTextBox1.Text += singleton.ToString();
+                }
             }));
         }
 
         private void comboBox1_SelectedValueChanged(ComboBox sender, EventArgs e)
         {
             richTextBox1.Clear();
+            filter = (string)sender.SelectedValue;
             richTextBox1.Text += singleton.Filter((string) sender.SelectedValue);
         }
     }
