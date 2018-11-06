@@ -36,11 +36,11 @@ namespace Game
             }));
         }
 
-        private void comboBox1_SelectedValueChanged(ComboBox sender, EventArgs e)
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            filter = (string)sender.SelectedValue;
-            richTextBox1.Text += singleton.Filter((string) sender.SelectedValue);
+            filter = (string)(sender as ComboBox).SelectedItem;
+            richTextBox1.Text += singleton.Filter((string)(sender as ComboBox).SelectedItem);
         }
     }
 }
