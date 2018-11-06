@@ -14,18 +14,21 @@ namespace Game.Command
         private TowerFactory _factory;
         private Point _location;
         private TowerTypes _towerType;
+        private DebugLogSingleton _singleton;
 
         public TowerCommand(TowerFactory factory, Point location, TowerTypes towerType)
         {
             this._factory = factory;
             this._location = location;
             this._towerType = towerType;
+            this._singleton = DebugLogSingleton.GetInstance();
+            this._singleton.Log<TowerCommand>("Command", "Initializing tower command");
         }
 
         public dynamic Execute()
         {
-            var building = _factory.CreateNew(_towerType, _location);
-            return building;
+            this._singleton.Log<TowerCommand>("Command", "Executing tower command.");
+            return _factory.CreateNew(_towerType, _location);
         }
     }
 }

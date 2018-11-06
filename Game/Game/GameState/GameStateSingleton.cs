@@ -18,6 +18,7 @@ namespace Game.Entities
         private bool InConstructionMode;
         private int Level;
         private List<IRenderable> _entities;
+        private DebugLogSingleton _singleton;
 
         private static class SingletonHolder
         {
@@ -31,6 +32,8 @@ namespace Game.Entities
             AllowAddPlayer1Baloons = true;
             AllowAddPlayer2Baloons = true;
             InConstructionMode = false;
+            _singleton = DebugLogSingleton.GetInstance();
+            _singleton.Log<GameStateSingleton>("Observer", "Initializing game state singleton observer.");
         }
 
         public static GameStateSingleton GetInstance()
@@ -64,6 +67,7 @@ namespace Game.Entities
 
         public void SetInConstructionMode(bool value)
         {
+            _singleton.Log<GameStateSingleton>("Observer", "Observer set's Construction mode when build tower button is pressed.");
             InConstructionMode = value;
         }
 

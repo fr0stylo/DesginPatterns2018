@@ -12,15 +12,19 @@ namespace Game.Command
     {
         private BaloonFactory _factory;
         private BaloonTypes _baloonType;
+        private DebugLogSingleton _singleton;
 
         public BaloonCommand(BaloonFactory factory, BaloonTypes baloonType)
         {
             this._factory = factory;
             this._baloonType = baloonType;
+            this._singleton = DebugLogSingleton.GetInstance();
+            this._singleton.Log<BaloonCommand>("Command", "Initializing baloon command");
         }
 
         public dynamic Execute()
         {
+            this._singleton.Log<BaloonCommand>("Command", "Executing baloon command.");
             return _factory.CreateNew(_baloonType);
         }
     }
