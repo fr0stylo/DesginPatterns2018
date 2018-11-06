@@ -29,6 +29,7 @@ namespace Game.Entities {
             _waveDirector = new WaveDirector();
             _waveDirector.SetBuilder(new FirstWave());
             _singleton = DebugLogSingleton.GetInstance();
+            _singleton.Log<IGameFacade>("Facade", "IGameFacade method: Update use facade pattern.");
             waveCreator = new Timer(i => _generateWave(), null, 0, 10000);
             _facadeCounter = 0;
         }
@@ -42,7 +43,6 @@ namespace Game.Entities {
         public void Update() {
             if (_facadeCounter == 30000)
             {
-                _singleton.Log<IGameFacade>("Facade", "IGameFacade method: Update.");
                 _facadeCounter = 0;
             }
             _facadeCounter++;
