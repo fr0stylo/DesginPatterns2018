@@ -10,7 +10,7 @@ namespace Game.Entities
 
         public WeakBaloon(bool isPlayer1Baloon)
         {
-            Speed = 5;
+            Speed = 3;
             Damage = 1;
             IsPlayer1Baloon = isPlayer1Baloon;
             SpacingPoint = new PointF(50, 50);

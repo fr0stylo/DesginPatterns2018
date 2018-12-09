@@ -10,7 +10,7 @@ namespace Game.Entities
 
         public PowerfulBaloon(bool isPlayer1Baloon)
         {
-            Speed = 15;
+            Speed = 7;
             Damage = 10;
             IsPlayer1Baloon = isPlayer1Baloon;
             SpacingPoint = new PointF(100, 100);
@@ -27,6 +27,16 @@ namespace Game.Entities
         public override Bitmap GetShape()
         {
             return BaloonBitmap;
+        }
+
+        public override void ChangeToSprintSpeed()
+        {
+            this.Speed = 12;
+        }
+
+        public override void BackToDefaultSpeed()
+        {
+            this.Speed = 7;
         }
     }
 }

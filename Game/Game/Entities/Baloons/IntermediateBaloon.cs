@@ -10,7 +10,7 @@ namespace Game.Entities
 
         public IntermediateBaloon(bool isPlayer1Baloon)
         {
-            Speed = 10;
+            Speed = 5;
             Damage = 20;
             IsPlayer1Baloon = isPlayer1Baloon;
             SpacingPoint = new PointF(70,70);
@@ -29,6 +29,14 @@ namespace Game.Entities
             return BaloonBitmap;
         }
 
-       
+        public override void ChangeToSprintSpeed()
+        {
+            this.Speed = 10;
+        }
+
+        public override void BackToDefaultSpeed()
+        {
+            this.Speed = 5;
+        }
     }
 }

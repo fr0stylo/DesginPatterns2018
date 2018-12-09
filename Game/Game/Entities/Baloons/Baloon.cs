@@ -1,3 +1,4 @@
+using Game.Entities.Baloons;
 using Game.FactoryPattern;
 using Game.PrototypePattern;
 using Game.StrategyPattern;
@@ -6,7 +7,7 @@ using System.Drawing;
 
 namespace Game.Entities
 {
-    public abstract class Baloon : IBaloon
+    public abstract class Baloon : MasterBaloon, IBaloon
     {
         protected int Damage;
         protected int Speed; 
@@ -18,11 +19,15 @@ namespace Game.Entities
 
         public IMoveAlgorithm moveStrategy;
 
-                
+        public Baloon()
+        {
+        }
+
         public void Move()
         {
             var damagedPlayer = false;
 
+            Sprint();
             //_sigleton.Log<Baloon>("Strategy", "Baloon class call move strategy for baloon.");
             moveStrategy.Move(ref Position, Speed, ref damagedPlayer);
 
@@ -71,10 +76,30 @@ namespace Game.Entities
         public bool IsDisposed() {
             return IsDead;
         }
-
+ 
         IPrototype IPrototype.Clone()
         {
             return (IBaloon)this.MemberwiseClone();
+        }
+
+        public override sealed void Sprint()
+        {
+            if (((GetCurrentPosition().X > 100 && GetCurrentPosition().Y < 150 && moveStrategy.GetType() == typeof(Player1Movement))
+                || (GetCurrentPosition().X > 750 && GetCurrentPosition().Y < 150 && moveStrategy.GetType() == typeof(Player2Movement)))
+                && (this.GetType() == typeof(PowerfulBaloon) || this.GetType() == typeof(IntermediateBaloon)))
+            {
+                ChangeToSprintSpeed();
+            }
+            else
+            {
+                BackToDefaultSpeed();
+            }              
+        }
+        public virtual void ChangeToSprintSpeed()
+        {
+        }
+        public virtual void BackToDefaultSpeed()
+        {
         }
     }
 }

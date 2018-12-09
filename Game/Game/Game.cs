@@ -30,7 +30,7 @@ namespace Game.Entities {
             _waveDirector.SetBuilder(new FirstWave());
             _singleton = DebugLogSingleton.GetInstance();
             _singleton.Log<IGameFacade>("Facade", "IGameFacade method: Update use facade pattern.");
-            waveCreator = new Timer(i => _generateWave(), null, 0, 10000);
+            waveCreator = new Timer(i => _generateWave(), null, 0, 20000);
             _facadeCounter = 0;
         }
 
