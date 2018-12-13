@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Game.Helpers.Enums;
+using System.Collections;
 
 namespace Game.FactoryPattern
 {
@@ -13,30 +14,48 @@ namespace Game.FactoryPattern
     {
         private bool isPlayer1Factory;
         private DebugLogSingleton _singleton;
-
+        List<IBaloon> createdBaloons;
 
         public BaloonFactory(bool isPlayer1Factory)
         {
             this.isPlayer1Factory = isPlayer1Factory;
             _singleton = DebugLogSingleton.GetInstance();
+            createdBaloons = new List<IBaloon>();
         }
 
         public IBaloon CreateNew(BaloonTypes baloonType)
         {
             _singleton.Log<BaloonFactory>("Factory", "Creating baloon");
 
-            switch (baloonType)
+            IBaloon baloon = null;
+            if ( null != createdBaloons.Where(x => x.GetBaloonType() == baloonType && x.GetIsDead()).FirstOrDefault())
             {
-                case BaloonTypes.Weak:
-                    return new WeakBaloon(isPlayer1Factory);
-                case BaloonTypes.Intermediate:
-                    return new IntermediateBaloon(isPlayer1Factory);
-                case BaloonTypes.Powerful:
-                    return new PowerfulBaloon(isPlayer1Factory);
-                default:
-                    return null;
+                baloon = createdBaloons.Where(x => x.GetBaloonType() == baloonType && x.GetIsDead()).First();
+                baloon.SetDefaultValues();
+                _singleton.Log<BaloonFactory>("Flyweight", "Objects count: "  + createdBaloons.Count.ToString());
 
             }
+            else
+            {
+                switch (baloonType)
+                {
+                    case BaloonTypes.Weak:
+                         baloon = new  WeakBaloon(isPlayer1Factory);
+                         createdBaloons.Add(baloon);
+                         return baloon;
+                    case BaloonTypes.Intermediate:
+                         baloon = new IntermediateBaloon(isPlayer1Factory);
+                         createdBaloons.Add(baloon);
+                        return baloon;
+                    case BaloonTypes.Powerful:
+                         baloon = new PowerfulBaloon(isPlayer1Factory);
+                         createdBaloons.Add(baloon);
+                         return baloon;
+                    default:
+                        return null;
+                }
+            }
+            return null;
         }
     }
 }

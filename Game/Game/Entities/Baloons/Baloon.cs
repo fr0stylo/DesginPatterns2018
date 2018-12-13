@@ -4,6 +4,7 @@ using Game.PrototypePattern;
 using Game.StrategyPattern;
 using System;
 using System.Drawing;
+using Game.Helpers.Enums;
 
 namespace Game.Entities
 {
@@ -15,6 +16,8 @@ namespace Game.Entities
         protected PointF Position = new PointF(0, 0);
         protected bool IsPlayer1Baloon;
         protected PointF SpacingPoint;
+        protected BaloonTypes type;
+
         //private DebugLogSingleton _sigleton = DebugLogSingleton.GetInstance();
 
         public IMoveAlgorithm moveStrategy;
@@ -22,11 +25,15 @@ namespace Game.Entities
         public Baloon()
         {
         }
-
+        public BaloonTypes GetBaloonType()
+        {
+            return type;
+        }
         public void Move()
         {
             var damagedPlayer = false;
 
+            
             Sprint();
             //_sigleton.Log<Baloon>("Strategy", "Baloon class call move strategy for baloon.");
             moveStrategy.Move(ref Position, Speed, ref damagedPlayer);
@@ -56,9 +63,9 @@ namespace Game.Entities
             return IsDead;
         }
 
-        public void SetDead()
+        public void SetDead(bool IsDead)
         {
-            IsDead = true;
+            this.IsDead = IsDead;
         }
 
         public void SetReleaseSpacing(int x, int y)
@@ -89,17 +96,31 @@ namespace Game.Entities
                 && (this.GetType() == typeof(PowerfulBaloon) || this.GetType() == typeof(IntermediateBaloon)))
             {
                 ChangeToSprintSpeed();
+
             }
             else
             {
                 BackToDefaultSpeed();
             }              
         }
-        public virtual void ChangeToSprintSpeed()
+        public abstract void ChangeToSprintSpeed();
+
+        public abstract void BackToDefaultSpeed();
+
+        public virtual void SetDefaultValues()
         {
-        }
-        public virtual void BackToDefaultSpeed()
-        {
+            Speed = 3;
+            IsDead = false;
+            if (moveStrategy.GetType() == typeof(Player1Movement))
+            {
+                Position.X = 0;
+                Position.Y = 0;
+            }
+            else
+            {
+                Position.X = 675;
+                Position.Y = 0;
+            }
         }
     }
 }

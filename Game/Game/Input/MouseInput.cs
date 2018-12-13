@@ -42,7 +42,9 @@ namespace Game.Input {
         public void HandleClick(BaloonFactory baloonFactory, BaloonTypes baloonType)
         {
             ICommand command = new BaloonCommand(baloonFactory, baloonType);
-            _gameState.AddRenderable(command.Execute());
+            IBaloon baloon = command.Execute();
+            if(baloon != null)
+            _gameState.AddRenderable(baloon);
         }
 
         public static MouseInput GetInstance() {

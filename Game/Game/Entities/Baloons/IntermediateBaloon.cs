@@ -13,6 +13,7 @@ namespace Game.Entities
             Speed = 5;
             Damage = 20;
             IsPlayer1Baloon = isPlayer1Baloon;
+            type = Helpers.Enums.BaloonTypes.Intermediate;
             SpacingPoint = new PointF(70,70);
 
             if (isPlayer1Baloon)
@@ -23,7 +24,21 @@ namespace Game.Entities
                 Position.X = 675;
             }
         }
-
+        public override void SetDefaultValues()
+        {
+            Speed = 5;
+            SetDead(false);
+            if (moveStrategy.GetType() == typeof(Player1Movement))
+            {
+                Position.X = 0;
+                Position.Y = 0;
+            }
+            else
+            {
+                Position.X = 675;
+                Position.Y = 0;
+            }
+        }
         public override Bitmap GetShape()
         {
             return BaloonBitmap;

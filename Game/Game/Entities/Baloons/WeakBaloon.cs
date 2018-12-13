@@ -13,6 +13,7 @@ namespace Game.Entities
             Speed = 3;
             Damage = 1;
             IsPlayer1Baloon = isPlayer1Baloon;
+            type = Helpers.Enums.BaloonTypes.Weak;
             SpacingPoint = new PointF(50, 50);
 
             if (isPlayer1Baloon)
@@ -27,6 +28,16 @@ namespace Game.Entities
         public override Bitmap GetShape()
         {
             return BaloonBitmap;
+        }
+
+        public override void ChangeToSprintSpeed()
+        {
+            Speed = 5;
+        }
+
+        public override void BackToDefaultSpeed()
+        {
+            Speed = 3;
         }
     }
 }
