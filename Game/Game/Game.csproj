@@ -69,6 +69,7 @@
     <Compile Include="DebugLogSingleton.cs" />
     <Compile Include="Entities\Baloons\Baloon.cs" />
     <Compile Include="Entities\Baloons\IntermediateBaloon.cs" />
+    <Compile Include="Entities\Baloons\MasterBaloon.cs" />
     <Compile Include="Entities\Baloons\PowerfulBaloon.cs" />
     <Compile Include="Entities\Baloons\WeakBaloon.cs" />
     <Compile Include="Entities\IRenderable.cs" />
