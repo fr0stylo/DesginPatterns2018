@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Log;
 
 namespace Game {
     class DebugLogSingleton {
@@ -19,7 +20,7 @@ namespace Game {
         }
 
         public void Log<T>(string pattern, string ex) {
-            DebugLogs.Add(new DebugLog {Pattern = pattern, Class = typeof(T).ToString(), Execution = ex});
+            DebugLogs.Add(new DebugLog(pattern, typeof(T).ToString(), ex));
             OnEntry?.Invoke(e);
         }
 
@@ -33,7 +34,7 @@ namespace Game {
 
         public string Filter(string filter) {
             var sb = new StringBuilder();
-            DebugLogs.Where(x => x.Pattern == filter).ToList().ForEach(x => sb.Append(x.ToString()));
+            DebugLogs.Where(x => x.context._pattern == filter).ToList().ForEach(x => sb.Append(x.ToString()));
 
             return sb.ToString();
         }

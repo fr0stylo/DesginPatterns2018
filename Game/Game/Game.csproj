@@ -59,7 +59,9 @@
     <Compile Include="Command\BaloonCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\TowerCommand.cs" />
-    <Compile Include="DebugLog.cs" />
+    <Compile Include="Log\Class.cs" />
+    <Compile Include="Log\Context.cs" />
+    <Compile Include="Log\DebugLog.cs" />
     <Compile Include="DebugLogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +107,9 @@
     <Compile Include="Helpers\Enums\TowerTypes.cs" />
     <Compile Include="Input\MouseInput.cs" />
     <Compile Include="Input\MouseSubject.cs" />
+    <Compile Include="Log\Execution.cs" />
+    <Compile Include="Log\IExpression.cs" />
+    <Compile Include="Log\Pattern.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrototypePattern\IPrototype.cs" />
