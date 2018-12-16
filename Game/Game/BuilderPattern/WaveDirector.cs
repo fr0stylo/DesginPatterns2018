@@ -27,8 +27,6 @@ namespace Game.BuilderPattern {
             _builder.BuildWave();
             _singleton.Log<WaveDirector>("Builder", "Build Number");
             _builder.BuildNumber();
-            _singleton.Log<WaveDirector>("Builder", "Build Spacing");
-            _builder.BuildSpacing();
         }
 
         public void NextWave() {

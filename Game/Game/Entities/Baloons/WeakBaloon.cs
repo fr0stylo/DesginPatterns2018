@@ -1,6 +1,8 @@
 using Game.Properties;
 using Game.StrategyPattern;
 using System.Drawing;
+using Game.CompositePattern;
+using Game.FactoryPattern;
 
 namespace Game.Entities
 {
@@ -27,6 +29,13 @@ namespace Game.Entities
         public override Bitmap GetShape()
         {
             return BaloonBitmap;
+        }
+
+        public override void Add(Component item) { }
+        public override void Remove(Component item) { }
+        public override IBaloon GetChildren()
+        {
+            return this.baloon;
         }
     }
 }

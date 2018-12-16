@@ -7,6 +7,7 @@ using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
 using Game.PrototypePattern;
+using Game.CompositePattern;
 
 namespace Game.BuilderPattern.Waves
 {
@@ -22,17 +23,18 @@ namespace Game.BuilderPattern.Waves
             _wave.Number = 1;
         }
 
-        public override void BuildSpacing() {
+        public void BuildSpacing() {
             _wave.Spacing = 1;
-           base.BuildSpacing();
         }
 
         public override void BuildWave() {
             var factory = new BaloonFactory(true);
             IBaloon weakBaloon = factory.CreateNew(BaloonTypes.Weak);
+
             for (var i = 0; i < 10; i++)
             {
-                _wave.Baloons.Add((IBaloon)weakBaloon.Clone());
+                weakBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
+                _wave.Baloons.Add((Component)weakBaloon.Clone());
                 _singleton.Log<IPrototype>("Prototype", "Cloning  baloon while creating wawe");
 
             }

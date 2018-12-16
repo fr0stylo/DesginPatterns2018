@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 using Game.Entities;
 using Game.FactoryPattern;
 using Game.Helpers.Enums;
+using Game.CompositePattern;
 
 namespace Game.BuilderPattern.Waves {
     class SecondWave : WaveBuilder {
         public override void BuildNumber() {}
 
-        public override void BuildSpacing() {
+        public void BuildSpacing() {
             _wave.Spacing = 2;
-            base.BuildSpacing();
         }
 
         public override void BuildWave() {
@@ -22,10 +22,12 @@ namespace Game.BuilderPattern.Waves {
             IBaloon intermediateBaloon = factory.CreateNew(BaloonTypes.Intermediate);
 
             for (var i = 0; i < 10; i++) {
-                this._wave.Baloons.Add((IBaloon) weakBaloon.Clone());
+                weakBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
+                this._wave.Baloons.Add((Component) weakBaloon.Clone());
             }
             for (var i = 0; i < 10; i++) {
-                this._wave.Baloons.Add((IBaloon) intermediateBaloon.Clone());
+                intermediateBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
+                this._wave.Baloons.Add((Component) intermediateBaloon.Clone());
             }
         }
 
