@@ -54,8 +54,7 @@ namespace Game.Entities {
                 g.DrawImage(Tower.TowerBitmap, point);
             }
 
-            var renderables = _gameState.GetRenderables().CreateIterator();
-            for (var renderable = renderables.First(); renderables.HasNext(); renderables.Next() ) {
+            foreach (var renderable in _gameState.GetRenderables().ToList()) {
                 renderable.Render(g);
             }
 
