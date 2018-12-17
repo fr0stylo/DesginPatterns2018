@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Game.Facade;
 using Game.Helpers.Enums;
 using Game.AdapterPattern;
+using Game.StatePattern;
 
 namespace Game
 {
@@ -25,6 +26,7 @@ namespace Game
         private BaloonFactory Player1BaloonFactory;
         private TowerFactory Player1TowerFactory;
         private MouseInput MouseInput;
+        private UIButtonsHandler _uiButtonsHandler;
 
         public Form1()
         {
@@ -45,6 +47,9 @@ namespace Game
             Player1BaloonFactory = new BaloonFactory(true);
             MouseInput = MouseInput.GetInstance();
             MouseInput.Attach(_gameState);
+            
+            _uiButtonsHandler = new UIButtonsHandler();
+            SetButtonEnables();
         }
 
         void HandleApplicationIdle(object sender, EventArgs e)
@@ -105,6 +110,9 @@ namespace Game
                 MouseInput.MouseState = "Waiting";
 
                 Cursor = Cursors.Arrow;
+                
+                _uiButtonsHandler.NextState();
+                SetButtonEnables();
             }
         }
 
@@ -157,6 +165,9 @@ namespace Game
         {
             MouseInput.MouseState = "Building";
             MouseInput.ChangeGameStateBuildingMode(true);
+            
+            _uiButtonsHandler.NextState();
+            SetButtonEnables();
         }
 
         private async void WrapperExample_Click(object sender, EventArgs e)
@@ -164,6 +175,15 @@ namespace Game
             HttpWrapper wrapper = new HttpWrapper(new System.Net.Http.HttpClient());
             PlayerAPIdummie player = await wrapper.Get<PlayerAPIdummie>("https://towerdefenseapi.azurewebsites.net/api/players/3");
 
+        }
+
+        void SetButtonEnables()
+        {
+            WeakBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
+            IntermediateBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
+            StrongBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
+            StrongBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
+            ArrowTower.Enabled = _uiButtonsHandler.CanBuildTowers();
         }
     }
 }

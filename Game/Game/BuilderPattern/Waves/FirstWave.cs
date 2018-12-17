@@ -33,7 +33,7 @@ namespace Game.BuilderPattern.Waves
             for (var i = 0; i < 10; i++)
             {
                 _wave.Baloons.Add((IBaloon)weakBaloon.Clone());
-                _singleton.Log<IPrototype>("Prototype", "Cloning  baloon while creating wawe");
+                _singleton.Log<IPrototype>("Prototype", "Cloning baloon while creating wave");
 
             }
         }
