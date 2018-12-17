@@ -118,6 +118,10 @@
     <Compile Include="StartupForm.Designer.cs">
       <DependentUpon>StartupForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StatePattern\BuildingMode.cs" />
+    <Compile Include="StatePattern\SpawningMode.cs" />
+    <Compile Include="StatePattern\UIButtonsHandler.cs" />
+    <Compile Include="StatePattern\UIState.cs" />
     <Compile Include="StrategyPattern\IMoveAlgorithm.cs" />
     <Compile Include="StrategyPattern\Player1Movement.cs" />
     <Compile Include="StrategyPattern\Player2Movement.cs" />
