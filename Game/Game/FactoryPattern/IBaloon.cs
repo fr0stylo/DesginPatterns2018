@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Entities;
 using Game.PrototypePattern;
+using Game.Helpers.Enums;
 
 namespace Game.FactoryPattern
 {
@@ -21,8 +22,13 @@ namespace Game.FactoryPattern
 
         bool GetIsDead();
 
-        void SetDead();
+        void SetDead(bool IsDead);
 
         void SetReleaseSpacing(int x, int y);
+
+        BaloonTypes GetBaloonType();
+
+        void SetDefaultValues();
+
     }
 }
