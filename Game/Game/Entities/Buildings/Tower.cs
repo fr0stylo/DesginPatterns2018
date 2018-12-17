@@ -11,6 +11,7 @@ namespace Game.Entities.Buildings {
         protected int GameId;
         protected int Price;
         protected IProjectileSpawn Spawner;
+        protected bool Disposed = false;
 
         public Tower(PointF position) {
             Position = position;
@@ -38,7 +39,12 @@ namespace Game.Entities.Buildings {
         }
 
         public bool IsDisposed() {
-            return false;
+            return Disposed;
+        }
+
+        public void SetDisposed(bool disposed)
+        {
+            Disposed = disposed;
         }
     }
 }

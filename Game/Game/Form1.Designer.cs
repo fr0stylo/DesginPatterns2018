@@ -37,8 +37,8 @@ namespace Game
             this.TimeLabel = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.ArrowTower = new System.Windows.Forms.Button();
-            this.PlayerMoney = new System.Windows.Forms.Label();
             this.WrapperExample = new System.Windows.Forms.Button();
+            this.Undo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // timer1
@@ -119,21 +119,10 @@ namespace Game
             this.ArrowTower.UseVisualStyleBackColor = false;
             this.ArrowTower.Click += new System.EventHandler(this.ArrowTower_Click);
             // 
-            // PlayerMoney
-            // 
-            this.PlayerMoney.AutoSize = true;
-            this.PlayerMoney.BackColor = System.Drawing.Color.Black;
-            this.PlayerMoney.ForeColor = System.Drawing.Color.White;
-            this.PlayerMoney.Location = new System.Drawing.Point(92, 459);
-            this.PlayerMoney.Name = "PlayerMoney";
-            this.PlayerMoney.Size = new System.Drawing.Size(68, 13);
-            this.PlayerMoney.TabIndex = 7;
-            this.PlayerMoney.Text = "PlayerMoney";
-            // 
             // WrapperExample
             // 
             this.WrapperExample.BackColor = System.Drawing.Color.Black;
-            this.WrapperExample.Location = new System.Drawing.Point(171, 390);
+            this.WrapperExample.Location = new System.Drawing.Point(158, 390);
             this.WrapperExample.Name = "WrapperExample";
             this.WrapperExample.Size = new System.Drawing.Size(78, 60);
             this.WrapperExample.TabIndex = 8;
@@ -141,13 +130,25 @@ namespace Game
             this.WrapperExample.UseVisualStyleBackColor = false;
             this.WrapperExample.Click += new System.EventHandler(this.WrapperExample_Click);
             // 
+            // Undo
+            // 
+            this.Undo.BackColor = System.Drawing.Color.Black;
+            this.Undo.ForeColor = System.Drawing.Color.White;
+            this.Undo.Location = new System.Drawing.Point(242, 390);
+            this.Undo.Name = "Undo";
+            this.Undo.Size = new System.Drawing.Size(60, 60);
+            this.Undo.TabIndex = 9;
+            this.Undo.Text = "UNDO";
+            this.Undo.UseVisualStyleBackColor = false;
+            this.Undo.Click += new System.EventHandler(this.Undo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 481);
+            this.Controls.Add(this.Undo);
             this.Controls.Add(this.WrapperExample);
-            this.Controls.Add(this.PlayerMoney);
             this.Controls.Add(this.ArrowTower);
             this.Controls.Add(this.TimeLabel);
             this.Controls.Add(this.WeakBaloon);
@@ -176,8 +177,8 @@ namespace Game
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Button ArrowTower;
-        private System.Windows.Forms.Label PlayerMoney;
         private System.Windows.Forms.Button WrapperExample;
+        private System.Windows.Forms.Button Undo;
     }
 }
 

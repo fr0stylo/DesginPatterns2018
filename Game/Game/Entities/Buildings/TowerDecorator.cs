@@ -28,7 +28,10 @@ namespace Game.Entities.Buildings
         }
 
         public bool IsDisposed() {
-            return false;
+            return TempBuilding.IsDisposed();
         }
+        
+        public void SetDisposed(bool disposed)
+        {}
     }
 }

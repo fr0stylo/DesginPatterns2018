@@ -109,6 +109,8 @@
     <Compile Include="IteratorPattern\IIterator.cs" />
     <Compile Include="IteratorPattern\Agregator.cs" />
     <Compile Include="IteratorPattern\ListItertor.cs" />
+    <Compile Include="MementoPattern\Memento.cs" />
+    <Compile Include="MementoPattern\MementosStorer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PrototypePattern\IPrototype.cs" />

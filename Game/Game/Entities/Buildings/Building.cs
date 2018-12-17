@@ -6,5 +6,6 @@ namespace Game.Entities.Buildings
     {
         int GetPrice();
         PointF GetPosition();
+        void SetDisposed(bool disposed);
     }
 }

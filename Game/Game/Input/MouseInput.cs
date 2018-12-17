@@ -36,7 +36,7 @@ namespace Game.Input {
         public void HandleClick(TowerFactory factory, Point location, TowerTypes towerType)
         {
             ICommand command = new TowerCommand(factory, location, towerType);
-            _gameState.AddRenderable(command.Execute());
+            _gameState.AddTowerRenderable(command.Execute());
         }
 
         public void HandleClick(BaloonFactory baloonFactory, BaloonTypes baloonType)

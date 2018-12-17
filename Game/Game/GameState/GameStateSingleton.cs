@@ -6,6 +6,7 @@ using System.Linq;
 using Game.Entities.Buildings;
 using Game.GameState;
 using Game.IteratorPattern;
+using Game.MementoPattern;
 
 namespace Game.Entities
 {
@@ -19,6 +20,7 @@ namespace Game.Entities
         private bool InConstructionMode;
         private int Level;
         private Agregator<IRenderable> _entities;
+        private Agregator<IRenderable> _towerEntities;
         private DebugLogSingleton _singleton;
 
         private static class SingletonHolder
@@ -30,11 +32,13 @@ namespace Game.Entities
         {
             Players = new List<Player>();
             _entities = new ListItertor<IRenderable>();
+            _towerEntities = new ListItertor<IRenderable>();
             AllowAddPlayer1Baloons = true;
             AllowAddPlayer2Baloons = true;
             InConstructionMode = false;
             _singleton = DebugLogSingleton.GetInstance();
             _singleton.Log<GameStateSingleton>("Singleton", "Initializing game state. ");
+            
         }
 
         public static GameStateSingleton GetInstance()
@@ -65,6 +69,10 @@ namespace Game.Entities
         public void AddRenderable(IRenderable renderable) {
            _entities.Add(renderable);
         }
+        
+        public void AddTowerRenderable(IRenderable renderable) {
+            _towerEntities.Add(renderable);
+        }
 
         public void SetInConstructionMode(bool value)
         {
@@ -77,8 +85,32 @@ namespace Game.Entities
             return InConstructionMode;
         }
 
-        public Agregator<IRenderable> GetRenderables() {
-            return _entities.FromList(_entities.ToList().Where(x => !x.IsDisposed()).ToList());
+        public Agregator<IRenderable> GetRenderables()
+        {
+            var allEntities = _entities.ToList();
+            allEntities.AddRange(_towerEntities.ToList());
+            
+            return _entities.FromList(allEntities.Where(x => !x.IsDisposed()).ToList());
+        }
+
+        public Memento StoreTowersInMemento()
+        {
+            var towers = new ListItertor<IRenderable>();
+            towers.FromList(_towerEntities.ToList());
+            
+            return new Memento(towers);
+        }
+        
+        public void RestoreTowersFromMemento(Memento memento)
+        {
+//            var i = _towerEntities.CreateIterator();
+//            
+//            for (var tower = (Building)i.First(); i.HasNext(); tower = (Building)i.Next())
+//            {
+//                tower.SetDisposed(true);
+//            }
+            
+            _towerEntities = memento.GetTowers();
         }
     }
 } 

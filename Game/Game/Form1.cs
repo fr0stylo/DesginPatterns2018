@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Game.Facade;
 using Game.Helpers.Enums;
 using Game.AdapterPattern;
+using Game.MementoPattern;
 using Game.StatePattern;
 
 namespace Game
@@ -27,6 +28,7 @@ namespace Game
         private TowerFactory Player1TowerFactory;
         private MouseInput MouseInput;
         private UIButtonsHandler _uiButtonsHandler;
+        private MementosStorer _mementosStorer;
 
         public Form1()
         {
@@ -50,6 +52,8 @@ namespace Game
             
             _uiButtonsHandler = new UIButtonsHandler();
             SetButtonEnables();
+            
+            _mementosStorer = new MementosStorer();
         }
 
         void HandleApplicationIdle(object sender, EventArgs e)
@@ -105,6 +109,8 @@ namespace Game
         {
             if (_gameState.GetInConstructionMode())
             {
+                _mementosStorer.AddMemento(_gameState.StoreTowersInMemento());
+                
                 MouseInput.HandleClick(new TowerFactory(), e.Location, TowerTypes.Arrow);
                 MouseInput.ChangeGameStateBuildingMode(false);
                 MouseInput.MouseState = "Waiting";
@@ -184,6 +190,11 @@ namespace Game
             StrongBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
             StrongBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
             ArrowTower.Visible = _uiButtonsHandler.CanBuildTowers();
+        }
+
+        private void Undo_Click(object sender, EventArgs e)
+        {
+            _gameState.RestoreTowersFromMemento(_mementosStorer.PopMemento());
         }
     }
 }
