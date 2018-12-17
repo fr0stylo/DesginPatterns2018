@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using Game.Entities.Buildings;
 using Game.GameState;
+using Game.IteratorPattern;
 
 namespace Game.Entities
 {
@@ -17,7 +18,7 @@ namespace Game.Entities
         private bool AllowAddPlayer2Baloons;
         private bool InConstructionMode;
         private int Level;
-        private List<IRenderable> _entities;
+        private Agregator<IRenderable> _entities;
         private DebugLogSingleton _singleton;
 
         private static class SingletonHolder
@@ -28,7 +29,7 @@ namespace Game.Entities
         private GameStateSingleton()
         {
             Players = new List<Player>();
-            _entities = new List<IRenderable>();
+            _entities = new ListItertor<IRenderable>();
             AllowAddPlayer1Baloons = true;
             AllowAddPlayer2Baloons = true;
             InConstructionMode = false;
@@ -76,8 +77,8 @@ namespace Game.Entities
             return InConstructionMode;
         }
 
-        public List<IRenderable> GetRenderables() {
-            return _entities.Where(x => !x.IsDisposed()).ToList();
+        public Agregator<IRenderable> GetRenderables() {
+            return _entities.FromList(_entities.ToList().Where(x => !x.IsDisposed()).ToList());
         }
     }
-}
+} 
