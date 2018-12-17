@@ -179,11 +179,11 @@ namespace Game
 
         void SetButtonEnables()
         {
-            WeakBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
-            IntermediateBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
-            StrongBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
-            StrongBaloon.Enabled = _uiButtonsHandler.CanSpawnBaloons();
-            ArrowTower.Enabled = _uiButtonsHandler.CanBuildTowers();
+            WeakBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
+            IntermediateBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
+            StrongBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
+            StrongBaloon.Visible = _uiButtonsHandler.CanSpawnBaloons();
+            ArrowTower.Visible = _uiButtonsHandler.CanBuildTowers();
         }
     }
 }
