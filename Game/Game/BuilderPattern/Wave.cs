@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Game.Entities;
 using Game.FactoryPattern;
+using Game.VisitorPattern;
 
 namespace Game.BuilderPattern
 {
@@ -12,18 +13,16 @@ namespace Game.BuilderPattern
     {
         public int Number;
         public int Spacing;
-        public List<IBaloon> Baloons;
-
-        public void Render(System.Drawing.Graphics g) {
-            foreach (var baloon in Baloons) {
-                baloon.Render(g);
-            }
-        }
+        public List<Baloon> Baloons;
 
         public bool IsDisposed() {
             Baloons = Baloons.Where(x => !x.IsDisposed()).ToList();
 
             return Baloons.Count <= 0;
+        }
+
+        public void Accept(IVisitor visitor) {
+            visitor.Visit(this);
         }
     }
 }

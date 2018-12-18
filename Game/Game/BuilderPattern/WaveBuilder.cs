@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Entities;
 using Game.FactoryPattern;
 
 namespace Game.BuilderPattern {
@@ -9,7 +10,7 @@ namespace Game.BuilderPattern {
 
         public void CreateNewWave() {
             _wave = new Wave();
-            _wave.Baloons = new List<IBaloon>();
+            _wave.Baloons = new List<Baloon>();
         }
 
         public virtual void BuildSpacing() {

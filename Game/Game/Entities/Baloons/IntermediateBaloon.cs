@@ -1,10 +1,11 @@
 using Game.Properties;
 using Game.StrategyPattern;
 using System.Drawing;
+using Game.VisitorPattern;
 
 namespace Game.Entities
 {
-    class IntermediateBaloon : Baloon
+    public class IntermediateBaloon : Baloon
     {
         public static Bitmap BaloonBitmap => Resources.YellowBaloon;
 
@@ -39,9 +40,9 @@ namespace Game.Entities
                 Position.Y = 0;
             }
         }
-        public override Bitmap GetShape()
-        {
-            return BaloonBitmap;
+
+        public override void Accept(IVisitor visitor) {
+            visitor.Visit(this);
         }
 
         public override void ChangeToSprintSpeed()

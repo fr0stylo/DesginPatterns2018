@@ -10,6 +10,7 @@ using Game.Entities.Buildings;
 using Game.Facade;
 using Game.Input;
 using Game.FactoryPattern;
+using Game.VisitorPattern;
 
 namespace Game.Entities {
     public class Game : IGameFacade {
@@ -48,17 +49,10 @@ namespace Game.Entities {
             _facadeCounter++;
         }
 
-        public void Render(System.Drawing.Graphics g) {
-
-            foreach (var point in _points) {
-                g.DrawImage(Tower.TowerBitmap, point);
-            }
-
+        public void Render(IVisitor renderVisitor) {
             foreach (var renderable in _gameState.GetRenderables().ToList()) {
-                renderable.Render(g);
+                renderable.Accept(renderVisitor);
             }
-
-            _points.Clear();
         }
     }
 }

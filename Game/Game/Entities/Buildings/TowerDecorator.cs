@@ -1,4 +1,5 @@
 using System.Drawing;
+using Game.VisitorPattern;
 
 namespace Game.Entities.Buildings
 {
@@ -23,15 +24,15 @@ namespace Game.Entities.Buildings
             return TempBuilding.GetPosition();
         }
 
-        public void Render(System.Drawing.Graphics g) {
-            TempBuilding.Render(g);
-        }
-
         public bool IsDisposed() {
             return TempBuilding.IsDisposed();
         }
         
         public void SetDisposed(bool disposed)
         {}
+
+        public void Accept(IVisitor visitor) {
+            visitor.Visit(TempBuilding);
+        }
     }
 }

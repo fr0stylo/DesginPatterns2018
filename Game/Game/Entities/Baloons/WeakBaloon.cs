@@ -1,13 +1,12 @@
 using Game.Properties;
 using Game.StrategyPattern;
 using System.Drawing;
+using Game.VisitorPattern;
 
 namespace Game.Entities
 {
     public class WeakBaloon : Baloon
     {
-        private static Bitmap BaloonBitmap => Resources.RedBaloon;
-
         public WeakBaloon(bool isPlayer1Baloon)
         {
             Speed = 3;
@@ -25,11 +24,6 @@ namespace Game.Entities
             }
         }
 
-        public override Bitmap GetShape()
-        {
-            return BaloonBitmap;
-        }
-
         public override void ChangeToSprintSpeed()
         {
             Speed = 5;
@@ -38,6 +32,10 @@ namespace Game.Entities
         public override void BackToDefaultSpeed()
         {
             Speed = 3;
+        }
+
+        public override void Accept(IVisitor visitor) {
+            visitor.Visit(this);
         }
     }
 }

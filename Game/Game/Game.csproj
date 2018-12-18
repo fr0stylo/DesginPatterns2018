@@ -130,6 +130,9 @@
     <Compile Include="StrategyPattern\ProjectileStrategy\ArrowSpawn.cs" />
     <Compile Include="StrategyPattern\ProjectileStrategy\BombSpawn.cs" />
     <Compile Include="StrategyPattern\ProjectileStrategy\IProjectileSpawn.cs" />
+    <Compile Include="VisitorPattern\IVisitable.cs" />
+    <Compile Include="VisitorPattern\IVisitor.cs" />
+    <Compile Include="VisitorPattern\RenderVisitor.cs" />
     <EmbeddedResource Include="DebugLogForm.resx">
       <DependentUpon>DebugLogForm.cs</DependentUpon>
     </EmbeddedResource>

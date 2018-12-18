@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using Game.Facade;
 using Game.Properties;
+using Game.VisitorPattern;
 
 namespace Game.Graphics
 {
@@ -15,6 +16,7 @@ namespace Game.Graphics
         private int count= 0;
         private readonly int Width;
         private readonly int Height;
+        private readonly IVisitor renderVisitor;
 
         public GraphicsHandler(System.Drawing.Graphics graphics, Color baseColor)
         {
@@ -24,6 +26,8 @@ namespace Game.Graphics
             _graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
 
             _graphics.Clear(baseColor);
+
+            renderVisitor = new RenderVisitor(_graphics);
         }
 
         public GraphicsHandler(System.Drawing.Graphics createGraphics, Color baseColor, int width, int height)
@@ -39,6 +43,8 @@ namespace Game.Graphics
             
             grafx = context.Allocate(createGraphics, 
                 new Rectangle( 0, 0, width, height ));
+
+            renderVisitor = new RenderVisitor(_graphics);
         }
 
         public void Render(IGameFacade game)
@@ -57,7 +63,7 @@ namespace Game.Graphics
 
             g.DrawImage(new Entities.Map().MapBitmap, new Point(0, 0));
 
-            game.Render(g);
+            game.Render(renderVisitor);
         }
 
     }

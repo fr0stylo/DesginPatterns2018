@@ -22,10 +22,10 @@ namespace Game.BuilderPattern.Waves {
             IBaloon intermediateBaloon = factory.CreateNew(BaloonTypes.Intermediate);
 
             for (var i = 0; i < 10; i++) {
-                this._wave.Baloons.Add((IBaloon) weakBaloon.Clone());
+                this._wave.Baloons.Add((Baloon) weakBaloon.Clone());
             }
             for (var i = 0; i < 10; i++) {
-                this._wave.Baloons.Add((IBaloon) intermediateBaloon.Clone());
+                this._wave.Baloons.Add((Baloon) intermediateBaloon.Clone());
             }
         }
 

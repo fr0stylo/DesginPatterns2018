@@ -5,6 +5,7 @@ using Game.StrategyPattern;
 using System;
 using System.Drawing;
 using Game.Helpers.Enums;
+using Game.VisitorPattern;
 
 namespace Game.Entities
 {
@@ -46,8 +47,6 @@ namespace Game.Entities
             }
         }
 
-        public abstract Bitmap GetShape();
-
         public PointF GetCurrentPosition()
         {
             return Position;
@@ -71,13 +70,6 @@ namespace Game.Entities
         public void SetReleaseSpacing(int x, int y)
         {
             Position = new PointF(Position.X - SpacingPoint.X * x, Position.Y - SpacingPoint.Y * y);
-        }
-
-
-        public void Render(System.Drawing.Graphics g) {
-            if (GetIsDead()) return;
-            g.DrawImage(GetShape(), GetCurrentPosition());
-            Move();
         }
 
         public bool IsDisposed() {
@@ -122,5 +114,7 @@ namespace Game.Entities
                 Position.Y = 0;
             }
         }
+
+        public abstract void Accept(IVisitor visitor);
     }
 }

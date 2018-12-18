@@ -2,6 +2,7 @@ using System.Drawing;
 using Game.Entities.Projectiles;
 using Game.Properties;
 using Game.StrategyPattern.ProjectileStrategy;
+using Game.VisitorPattern;
 
 namespace Game.Entities.Buildings {
     public class Tower : Building {
@@ -45,6 +46,10 @@ namespace Game.Entities.Buildings {
         public void SetDisposed(bool disposed)
         {
             Disposed = disposed;
+        }
+
+        public void Accept(IVisitor visitor) {
+            visitor.Visit(this);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Game.BuilderPattern.Waves
             IBaloon weakBaloon = factory.CreateNew(BaloonTypes.Weak);
             for (var i = 0; i < 10; i++)
             {
-                _wave.Baloons.Add((IBaloon)weakBaloon.Clone());
+                _wave.Baloons.Add((Baloon)weakBaloon.Clone());
                 _singleton.Log<IPrototype>("Prototype", "Cloning baloon while creating wave");
 
             }

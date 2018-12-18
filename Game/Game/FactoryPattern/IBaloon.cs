@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using Game.Entities;
 using Game.PrototypePattern;
 using Game.Helpers.Enums;
+using Game.VisitorPattern;
 
 namespace Game.FactoryPattern
 {
     public interface IBaloon: IRenderable, IPrototype
     {
         void Move();
-
-        Bitmap GetShape();
 
         PointF GetCurrentPosition();
 
