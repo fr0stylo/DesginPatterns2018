@@ -56,6 +56,12 @@
     <Compile Include="BuilderPattern\WaveBuilder.cs" />
     <Compile Include="BuilderPattern\WaveDirector.cs" />
     <Compile Include="BuilderPattern\Waves\SecondWave.cs" />
+    <Compile Include="ChainOfResponsibility\Chain.cs" />
+    <Compile Include="ChainOfResponsibility\ChainLinker.cs" />
+    <Compile Include="ChainOfResponsibility\Damage.cs" />
+    <Compile Include="ChainOfResponsibility\IntermediateDamage.cs" />
+    <Compile Include="ChainOfResponsibility\StrongDamage.cs" />
+    <Compile Include="ChainOfResponsibility\WeakDamage.cs" />
     <Compile Include="Command\BaloonCommand.cs" />
     <Compile Include="Command\ICommand.cs" />
     <Compile Include="Command\TowerCommand.cs" />
