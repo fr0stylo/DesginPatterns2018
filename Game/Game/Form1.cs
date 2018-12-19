@@ -49,6 +49,7 @@ namespace Game
             Player1BaloonFactory = new BaloonFactory(true);
             MouseInput = MouseInput.GetInstance();
             MouseInput.Attach(_gameState);
+            Undo.Visible = false;
             
             _uiButtonsHandler = new UIButtonsHandler();
             SetButtonEnables();
@@ -110,6 +111,7 @@ namespace Game
             if (_gameState.GetInConstructionMode())
             {
                 _mementosStorer.AddMemento(_gameState.StoreTowersInMemento());
+                Undo.Visible = true;
                 
                 MouseInput.HandleClick(new TowerFactory(), e.Location, TowerTypes.Arrow);
                 MouseInput.ChangeGameStateBuildingMode(false);
@@ -195,6 +197,11 @@ namespace Game
         private void Undo_Click(object sender, EventArgs e)
         {
             _gameState.RestoreTowersFromMemento(_mementosStorer.PopMemento());
+            
+            if (_mementosStorer._mementos.Count == 0)
+            {
+                Undo.Visible = false;
+            }
         }
     }
 }
