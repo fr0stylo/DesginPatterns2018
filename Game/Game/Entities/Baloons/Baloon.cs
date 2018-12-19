@@ -4,6 +4,7 @@ using Game.PrototypePattern;
 using Game.StrategyPattern;
 using System;
 using System.Drawing;
+using Game.ChainOfResponsibility;
 using Game.Helpers.Enums;
 
 namespace Game.Entities
@@ -17,6 +18,7 @@ namespace Game.Entities
         protected bool IsPlayer1Baloon;
         protected PointF SpacingPoint;
         protected BaloonTypes type;
+        private ChainLinker chainOfResponsibility;
 
         //private DebugLogSingleton _sigleton = DebugLogSingleton.GetInstance();
 
@@ -24,7 +26,9 @@ namespace Game.Entities
 
         public Baloon()
         {
+            chainOfResponsibility = new ChainLinker();;
         }
+        
         public BaloonTypes GetBaloonType()
         {
             return type;
@@ -41,7 +45,7 @@ namespace Game.Entities
             if (damagedPlayer)
             {
                 var currentPlayer = GameStateSingleton.GetInstance().GetCurrentPlayer();
-                currentPlayer.DecreaseHealthPoints(Damage);
+                chainOfResponsibility.DoCalculation(new Damage(this, currentPlayer));
                 IsDead = true;
             }
         }

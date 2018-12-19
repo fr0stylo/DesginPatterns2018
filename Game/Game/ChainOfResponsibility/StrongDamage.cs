@@ -14,7 +14,7 @@ namespace Game.ChainOfResponsibility
 
         public void SetNextChain(Chain nextChain)
         {
-            throw new System.NotImplementedException();
+            NextChain = nextChain;
         }
 
         public void Calculate(Damage request)
