@@ -12,7 +12,8 @@ namespace Game.BuilderPattern.Waves {
     class SecondWave : WaveBuilder {
         public override void BuildNumber() {}
 
-        public void BuildSpacing() {
+        public override void BuildSpacing()
+        {
             _wave.Spacing = 2;
         }
 
@@ -21,13 +22,13 @@ namespace Game.BuilderPattern.Waves {
             IBaloon weakBaloon = factory.CreateNew(BaloonTypes.Weak);
             IBaloon intermediateBaloon = factory.CreateNew(BaloonTypes.Intermediate);
 
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 9; i++) {
                 weakBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
-                this._wave.Baloons.Add((Component) weakBaloon.Clone());
+                this._wave.Baloons.Add((IComponent) weakBaloon.Clone());
             }
             for (var i = 0; i < 10; i++) {
                 intermediateBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
-                this._wave.Baloons.Add((Component) intermediateBaloon.Clone());
+                this._wave.Baloons.Add((IComponent) intermediateBaloon.Clone());
             }
         }
 

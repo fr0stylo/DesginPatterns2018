@@ -23,6 +23,8 @@ namespace Game.BuilderPattern {
         public void BuildWave() {
             _singleton.Log<WaveDirector>("Builder", "Creating Wave");
             _builder.CreateNewWave();
+            _singleton.Log<WaveDirector>("Builder", "Build Spacing");
+            _builder.BuildSpacing();
             _singleton.Log<WaveDirector>("Builder", "Building Wave");
             _builder.BuildWave();
             _singleton.Log<WaveDirector>("Builder", "Build Number");

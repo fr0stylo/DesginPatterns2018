@@ -12,8 +12,10 @@ namespace Game
         public string Class { get; set; }
         public string Execution { get; set; }
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return $"{Pattern} - {Class}: {Execution} \n";
         }
     }
 }
+

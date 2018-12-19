@@ -12,6 +12,7 @@ namespace Game.BuilderPattern {
             _wave = new Wave();
         }
 
+        public abstract void BuildSpacing();
         public abstract void BuildNumber();
         public abstract void BuildWave();
         public abstract WaveBuilder NextBuilder();

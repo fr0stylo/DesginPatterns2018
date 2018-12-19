@@ -6,7 +6,7 @@ using Game.FactoryPattern;
 
 namespace Game.Entities
 {
-    class IntermediateBaloon : Baloon
+    class IntermediateBaloon : Baloon, IComponent
     {
         public static Bitmap BaloonBitmap => Resources.YellowBaloon;
 
@@ -41,11 +41,11 @@ namespace Game.Entities
             this.Speed = 5;
         }
 
-        public override void Add(Component item){}
-        public override void Remove(Component item){}
-        public override IBaloon GetChildren()
+        public void Add(IComponent item){}
+        public void Remove(IComponent item){}
+        public dynamic GetChildren()
         {
-            return this.baloon;
+            return this;
         }
     }
 }

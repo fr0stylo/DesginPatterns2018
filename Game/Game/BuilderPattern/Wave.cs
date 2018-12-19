@@ -13,10 +13,13 @@ namespace Game.BuilderPattern
     {
         public int Number;
         public int Spacing;
-        public Composite Baloons;
+        public IComponent Baloons = new Composite();
 
         public void Render(System.Drawing.Graphics g) {
-            Baloons.GetChildren().Render(g);
+            foreach (var baloon in Baloons.GetChildren())
+            {
+                baloon.Render(g);
+            }
         }
 
         public bool IsDisposed() {

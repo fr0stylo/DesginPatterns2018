@@ -7,7 +7,7 @@ using Game.CompositePattern;
 
 namespace Game.Entities.Baloons
 {
-    public abstract class MasterBaloon : Component
+    public abstract class MasterBaloon : Composite
     {
         public abstract void Sprint();
     }

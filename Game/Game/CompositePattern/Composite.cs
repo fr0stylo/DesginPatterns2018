@@ -7,29 +7,26 @@ using Game.FactoryPattern;
 
 namespace Game.CompositePattern
 {
-    public class Composite : Component
+    public class Composite : IComponent
     {
-        private List<Component> children = new List<Component>();
+        public List<IComponent> children = new List<IComponent>();
 
-        public override void Add(Component item)
+        public void Add(IComponent item)
         {
             children.Add(item);
         }
-        public override void Remove(Component item)
+        public void Remove(IComponent item)
         {
             children.Remove(item);
         }
-        public override IBaloon GetChildren()
+        public dynamic GetChildren()
         {
-            if (children.Count == 1)
+            List<IBaloon> help = new List<IBaloon>();
+            foreach (var child in children)
             {
-                for (int i = 0; i <= children.Count - 1; i++)
-                {
-                    children[i].GetChildren();
-                }
+                help.Add((IBaloon)child);
             }
-
-            return children.Last().GetChildren();
+            return help;
         }
     }
 }

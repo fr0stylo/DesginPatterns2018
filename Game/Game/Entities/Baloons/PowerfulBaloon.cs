@@ -41,11 +41,11 @@ namespace Game.Entities
             this.Speed = 7;
         }
 
-        public override void Add(Component item) { }
-        public override void Remove(Component item) { }
-        public override IBaloon GetChildren()
+        public void Add(IComponent item) { }
+        public void Remove(IComponent item) { }
+        public dynamic GetChildren()
         {
-            return this.baloon;
+            return this;
         }
     }
 }

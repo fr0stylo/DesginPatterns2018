@@ -23,7 +23,8 @@ namespace Game.BuilderPattern.Waves
             _wave.Number = 1;
         }
 
-        public void BuildSpacing() {
+        public override void BuildSpacing()
+        {
             _wave.Spacing = 1;
         }
 
@@ -34,7 +35,8 @@ namespace Game.BuilderPattern.Waves
             for (var i = 0; i < 10; i++)
             {
                 weakBaloon.SetReleaseSpacing(i * _wave.Spacing, 0);
-                _wave.Baloons.Add((Component)weakBaloon.Clone());
+                _singleton.Log<IComponent>("Composite", "Adding new Component to composite");
+                _wave.Baloons.Add((IComponent)weakBaloon.Clone());
                 _singleton.Log<IPrototype>("Prototype", "Cloning  baloon while creating wawe");
 
             }
